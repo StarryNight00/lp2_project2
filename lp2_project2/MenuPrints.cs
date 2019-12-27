@@ -6,6 +6,7 @@ namespace lp2_project2
 {
     public class MenuPrints
     {
+
         public void PrintIntroMenu()
         {
             Console.WriteLine("\t Welcome Space Voyager!!");
@@ -13,7 +14,12 @@ namespace lp2_project2
 
         public void PrintMainMenu()
         {
-            Console.WriteLine("\n\n\t Welcome to the main menu");
+            Console.WriteLine("\t\t\tMAIN MENU");
+            Console.WriteLine("\t\t\t\n   1 - Start Game");
+            Console.WriteLine("\t\t\t\n   2 - Instructions");
+            Console.WriteLine("\t\t\t\n   3 - Credits");
+            Console.WriteLine("\t\t\t\n   4 - Exit");
+            Console.Write("\n\n\n\t\t   >> ");
         }
     }
 }

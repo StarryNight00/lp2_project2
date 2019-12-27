@@ -8,7 +8,12 @@ namespace lp2_project2
     {
         private MenuPrints menuPrnts;
 
+        private int input;
 
+        private void ManySpaces()
+        {
+            Console.WriteLine("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+        }
         public void IntroMenu()
         {
             VarsInit();
@@ -24,8 +29,41 @@ namespace lp2_project2
         private void MainMenu()
         {
             menuPrnts.PrintMainMenu();
-            Console.WriteLine("\n\tMain Menu is printing");
-            Console.ReadLine();
+
+            input = Convert.ToInt32(Console.ReadLine());
+
+            switch (input)
+            {
+                case 1:
+                    //Game
+                    ManySpaces();
+                    Console.WriteLine("Game");
+                    break;
+                case 2:
+                    //Instructions
+                    ManySpaces();
+                    Console.WriteLine("Instructions");
+                    break;
+                case 3:
+                    //Credits
+                    ManySpaces();
+                    Console.WriteLine("Credits");
+                    break;
+                case 4:
+                    //Exit
+                    Exit();
+                    break;
+                default:
+                    ManySpaces();
+                    Console.WriteLine("\t\t   Invalid Input\n");
+                    MainMenu();
+                    break;
+            }
+        }
+
+        private void Exit()
+        {
+            Environment.Exit(0);
         }
 
     }
