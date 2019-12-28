@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Concurrent;
 using System.Text;
 using System.Threading;
+using System.Linq;
 
 namespace lp2_project2
 {
@@ -13,60 +15,74 @@ namespace lp2_project2
         public InputsSystem input;
         public bool running;
         public GameLoop()
-        {
+        {          
             platforms = new Platforms();
             plyr = new Player();
             db = new DoubleBuffer2D<char>(60, 60);
             input = new InputsSystem(plyr, db);
             Thread KeyReader = new Thread(input.ReadKeys);
             KeyReader.Start();
-
             Console.CursorVisible = false;
         }
 
         public void Loop()
         {
-            //Console.Clear();
+            Console.Clear();
             running = true;
-            
-            
-            while(running)
-            {
-                foreach (Positions pos in platforms.platformElements)
-                {
-                    Console.SetCursorPosition(pos.X, pos.Y);
-                    Console.Write("#");
-                }
 
+            Console.SetCursorPosition(plyr.startPos.X, plyr.startPos.Y);
+            Console.Write("X");
+
+            plyr.currentPos = plyr.startPos;
+
+            while (running)
+            {
                 long start = DateTime.Now.Ticks;
 
                 input.ProcessInput();
                 input.Update();
                 Render();
+                Thread.Sleep(1000);
 
+                /// platform test 
+                platforms.PrintPlatforms();
+                
+                Positions platformStart = platforms.platformElements.Last();
+               
+                platforms.platformElements.Dequeue();
 
-                plyr.currentPos.X++;
+                if (platformStart.X < Console.BufferWidth-1)
+                {
+                    Positions newPlatformStart = new Positions(platformStart.X
+                        + 1, platformStart.Y);
+
+                    platforms.MovePlatforms(newPlatformStart);
+
+                    platforms.PrintPlatforms();
+
+                   // Thread.Sleep(100);
+                }
+
+                else
+                {
+                    platforms.platformElements.Dequeue();
+                    platformStart.X = 1;
+                    Thread.Sleep(100);
+                }
+
+                // add condition for when it hits hole
+                // platform test end             
+
+                plyr.currentPos.Y++;
+            
             }
         }
 
         public void Render()
         {
-            db[plyr.currentPos.X, plyr.currentPos.Y] = 'X';
-            db[plyr.newPos.X, plyr.newPos.Y] = ' ';
+            plyr.RenderPlayer(db);
 
-            db.Swap();
 
-            for(int y = 0; y < db.YDim; y++)
-            {
-                for(int x = 0; x < db.XDim; x++)
-                {
-                    Console.Write(db[x, y] + " ");
-                }
-                Console.WriteLine();
-            }
-
-            Console.SetCursorPosition(0, 0);
-            db.Clear();
         }
     }
 }

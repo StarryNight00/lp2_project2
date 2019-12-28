@@ -6,8 +6,9 @@ namespace lp2_project2
     {
         static void Main(string[] args)
         {
-            Console.SetWindowSize(70, 30);
-            Console.SetBufferSize(70, 30);
+            Console.BufferHeight = Console.WindowHeight;
+            Console.BufferWidth = Console.WindowWidth;
+
             Menu menu = new Menu();
 
             menu.IntroMenu();         

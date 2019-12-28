@@ -28,6 +28,26 @@ namespace lp2_project2
 
         }
 
+        public void MovePlatforms(Positions headPos)
+        {
+            //platformElements.Enqueue(headPos);
+
+            for (int x = headPos.X + 1; x <= (headPos.X+5); x++)
+            {
+                platformElements.Enqueue(new Positions(x, 10));
+            }
+        }
+
+        public void PrintPlatforms()
+        {
+            Console.Clear();
+            foreach (Positions pos in platformElements)
+            {
+                Console.SetCursorPosition(pos.X, pos.Y);
+                Console.Write("#");
+            }
+        }
+
         
     }
 }

@@ -39,14 +39,15 @@ namespace lp2_project2
                     default:
                         jump = Jump.Idle;
                         break;
-
                 }
             }
         }
 
         public void Update()
         {
-            if(jump != Jump.Idle)
+            plyr.currentPos.X = plyr.newPos.X++;
+
+            if (jump != Jump.Idle)
             {
                 plyr.currentPos = plyr.newPos;
 
@@ -54,7 +55,7 @@ namespace lp2_project2
                 {
                     case Jump.Jumping:
                         
-                            plyr.newPos.Y = Math.Max(0, plyr.currentPos.Y+1);
+                        plyr.newPos.Y = Math.Max(0, plyr.currentPos.Y+1);
                         break;
                 }
             }
