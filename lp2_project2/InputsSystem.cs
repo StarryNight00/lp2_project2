@@ -9,20 +9,20 @@ namespace lp2_project2
     class InputsSystem
     {
         public BlockingCollection<ConsoleKey> input;
-
-
         public Jump jump;
 
         public Player plyr;
 
         public DoubleBuffer2D<char> doubleBuff;
 
-        public InputsSystem(Player player, DoubleBuffer2D<char> db)
+        public InputsSystem(Player player)//, DoubleBuffer2D<char> db)
         {
             input = new BlockingCollection<ConsoleKey>();
             jump = new Jump();
             plyr = player;
-            doubleBuff = db;
+            plyr.startPos = new Positions(9, 9);
+            plyr.newPos = plyr.startPos;
+            //doubleBuff = db;
         }
 
         public void ProcessInput()
@@ -45,16 +45,18 @@ namespace lp2_project2
 
         public void Update()
         {
-            plyr.currentPos.X = plyr.newPos.X++;
+            
+            plyr.newPos.X = plyr.startPos.X++;
 
             if (jump != Jump.Idle)
             {
-                plyr.currentPos = plyr.newPos;
+                //plyr.newPos.X++;
 
                 switch (jump)
                 {
                     case Jump.Jumping:
-                        plyr.newPos.Y = Math.Max(0, plyr.currentPos.Y+1);
+                        plyr.newPos.Y = Math.Max(0, plyr.newPos.Y-1);
+                      
                         // add condition to make it go back down
                         break;
                 }

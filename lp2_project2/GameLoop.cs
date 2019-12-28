@@ -19,7 +19,7 @@ namespace lp2_project2
             platforms = new Platforms();
             plyr = new Player();
             db = new DoubleBuffer2D<char>(60, 60);
-            input = new InputsSystem(plyr, db);
+            input = new InputsSystem(plyr);//, db);
             Thread KeyReader = new Thread(input.ReadKeys);
             KeyReader.Start();
             Console.CursorVisible = false;
@@ -29,9 +29,6 @@ namespace lp2_project2
         {
             Console.Clear();
             running = true;
-
-            plyr.startPos = new Positions(0, 10);
-            plyr.currentPos = plyr.startPos;
 
             while (running)
             {
@@ -43,7 +40,7 @@ namespace lp2_project2
                 Thread.Sleep(100);
 
                 /// platform test 
-                platforms.PrintPlatforms();
+                //platforms.PrintPlatforms();
                 
                 Positions platformStart = platforms.platformElements.Last();
                
@@ -73,7 +70,6 @@ namespace lp2_project2
                 {
                     if (pos.X == plyr.newPos.X || pos.Y == plyr.newPos.Y)
                         //plyr.newPos.Y = pos.Y;
-
                         Console.Write("Collision");
                 }
 
@@ -85,7 +81,9 @@ namespace lp2_project2
 
         public void Render()
         {
+            Console.Clear();
             plyr.RenderPlayer();
+            platforms.PrintPlatforms();
         }
     }
 }

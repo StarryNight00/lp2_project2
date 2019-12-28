@@ -13,11 +13,8 @@ namespace lp2_project2
 
         public char icon;
 
-        public Platforms()// Positions startingPos, char i)
+        public Platforms()
         {
-
-           // currentPos = startingPos;
-           // icon = i;
 
             platformElements = new Queue<Positions>();
 
@@ -40,7 +37,7 @@ namespace lp2_project2
 
         public void PrintPlatforms()
         {
-            Console.Clear();
+           // Console.Clear();
             foreach (Positions pos in platformElements)
             {
                 Console.SetCursorPosition(pos.X, pos.Y);
