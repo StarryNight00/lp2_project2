@@ -6,9 +6,11 @@ namespace lp2_project2
     {
         static void Main(string[] args)
         {
+            Console.SetWindowSize(70, 30);
+            Console.SetBufferSize(70, 30);
             Menu menu = new Menu();
 
-            menu.IntroMenu();
+            menu.IntroMenu();         
         }
     }
 }

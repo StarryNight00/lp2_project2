@@ -10,6 +10,7 @@ namespace lp2_project2
 
         private int input;
 
+        private GameLoop loop;
         private void ManySpaces()
         {
             Console.WriteLine("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
@@ -37,7 +38,8 @@ namespace lp2_project2
                 case 1:
                     //Game
                     ManySpaces();
-                    Console.WriteLine("Game");
+                    loop = new GameLoop();
+                    loop.Loop();
                     break;
                 case 2:
                     //Instructions
