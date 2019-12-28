@@ -30,9 +30,7 @@ namespace lp2_project2
             Console.Clear();
             running = true;
 
-            Console.SetCursorPosition(plyr.startPos.X, plyr.startPos.Y);
-            Console.Write("X");
-
+            plyr.startPos = new Positions(0, 10);
             plyr.currentPos = plyr.startPos;
 
             while (running)
@@ -42,7 +40,7 @@ namespace lp2_project2
                 input.ProcessInput();
                 input.Update();
                 Render();
-                Thread.Sleep(1000);
+                Thread.Sleep(100);
 
                 /// platform test 
                 platforms.PrintPlatforms();
@@ -67,22 +65,27 @@ namespace lp2_project2
                 {
                     platforms.platformElements.Dequeue();
                     platformStart.X = 1;
-                    Thread.Sleep(100);
+                    //Thread.Sleep(100);
                 }
 
-                // add condition for when it hits hole
-                // platform test end             
+                // fix this condition for when it hits hole
+                foreach (Positions pos in platforms.platformElements)
+                {
+                    if (pos.X == plyr.newPos.X || pos.Y == plyr.newPos.Y)
+                        //plyr.newPos.Y = pos.Y;
 
-                plyr.currentPos.Y++;
+                        Console.Write("Collision");
+                }
+
+               
+                // platform test end             
             
             }
         }
 
         public void Render()
         {
-            plyr.RenderPlayer(db);
-
-
+            plyr.RenderPlayer();
         }
     }
 }

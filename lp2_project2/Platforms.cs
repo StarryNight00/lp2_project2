@@ -23,7 +23,7 @@ namespace lp2_project2
 
             for (int x = 0; x <= 5; x++)
             { 
-               platformElements.Enqueue(new Positions(x, 0));
+               platformElements.Enqueue(new Positions(x, 10));
             }
 
         }

@@ -54,8 +54,8 @@ namespace lp2_project2
                 switch (jump)
                 {
                     case Jump.Jumping:
-                        
                         plyr.newPos.Y = Math.Max(0, plyr.currentPos.Y+1);
+                        // add condition to make it go back down
                         break;
                 }
             }
