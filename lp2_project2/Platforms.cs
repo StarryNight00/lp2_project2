@@ -6,46 +6,48 @@ namespace lp2_project2
 {
     class Platforms
     {
-        public string[] platforms;
-        public Positions currentPos;
-        public Positions newPos;
-        public Queue<Positions> platformElements;
-
-        public char icon;
-
-        public Platforms()
-        {
-
-            platformElements = new Queue<Positions>();
-
-            for (int x = 0; x <= 5; x++)
-            { 
-               platformElements.Enqueue(new Positions(x, 10));
-            }
-
-        }
-
-        public void MovePlatforms(Positions headPos)
-        {
-            //platformElements.Enqueue(headPos);
-
-            for (int x = headPos.X + 1; x <= (headPos.X+5); x++)
-            {
-                platformElements.Enqueue(new Positions(x, 10));
-            }
-        }
-
-        public void PrintPlatforms(DoubleBuffer2D<char> db)
-        {
-
-            // Console.Clear();
-            foreach (Positions pos in platformElements)
-            {
-                db[pos.X, pos.Y] = '#';
-              
-            }
-        }
-
+        public char[] platforms;
         
+        public Positions startPos;
+        public Positions newPos;
+
+        public DoubleBuffer2D<char> db;
+
+        public List<Positions> platformArea;
+
+        public Platforms(DoubleBuffer2D<char> doubleb)
+        {
+            db = doubleb;
+            startPos = new Positions(11,10);
+
+            platforms = new char[]
+            {
+                '#', '.', '#', '#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#',
+            };
+
+            platformArea = new List<Positions>();
+            
+            for(int x = 0; x<60; x++)
+            {
+                for (int y = 0; y < 60; y++)
+                {
+                    platformArea.Add(new Positions(x, 0));    
+                }
+            }
+        }
+
+        public void MovePlatforms()
+        {
+            // new logic later
+        }
+
+        public void PrintPlatforms()
+        {
+            
+            foreach(Positions pos in platformArea)
+                db[pos.X, pos.Y] = platforms[pos.X];
+                       
+        }
+       
     }
 }

@@ -18,16 +18,8 @@ namespace lp2_project2
         public void RenderPlayer()
         {
             
-
-            db[startPos.X, startPos.Y] = ' ';
             db[newPos.X, newPos.Y] = 'X';
-           
-            /*
-            Console.SetCursorPosition(startPos.X, startPos.Y);
-            Console.Write(" ");
-            Console.SetCursorPosition(newPos.X, newPos.Y);
-            Console.Write("X");  
-           */
+  
         }
     }
 }

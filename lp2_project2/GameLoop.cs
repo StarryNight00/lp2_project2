@@ -14,9 +14,10 @@ namespace lp2_project2
         public GameLoop()
         {
             Console.CursorVisible = false;
-            platforms = new Platforms();
+            
             
             db = new DoubleBuffer2D<char>(60, 60);
+            platforms = new Platforms(db);
             plyr = new Player(db);
             input = new InputsSystem(plyr, db);
 
@@ -27,6 +28,7 @@ namespace lp2_project2
                     db[y, x] = ' ';
                 }
             }
+
 
             Thread KeyReader = new Thread(input.ReadKeys);
             KeyReader.Start();
@@ -39,51 +41,31 @@ namespace lp2_project2
             Console.Clear();
             running = true;
 
-
             while (running)
-            {         
+            {
+
                 Update(input.ProcessInput());
+
                 Render();
                 Thread.Sleep(50);
 
-                /// platform test 
-                
-                Positions platformStart = platforms.platformElements.Last();
-               
-                platforms.platformElements.Dequeue();
-
-                if (platformStart.X < Console.BufferWidth-1)
+                if (plyr.startPos.Y >= db.YDim)
                 {
-                    Positions newPlatformStart = new Positions(platformStart.X
-                        + 1, platformStart.Y);
-
-                    platforms.MovePlatforms(newPlatformStart);
-
-                    platforms.PrintPlatforms(db);
-
-                    Thread.Sleep(1000);
+                    running = false;
                 }
 
-                else
+                if (plyr.startPos.X >= db.XDim)
                 {
-                    platforms.platformElements.Dequeue();
-                    platformStart.X = 1;
-                    Thread.Sleep(100);
+                    running = false;
                 }
 
-                // fix this condition for when it hits hole
-                foreach (Positions pos in platforms.platformElements)
-                {
-                    if (pos.Y == plyr.newPos.Y)
-                        Console.Write("Collision");
-                }     
-                
-                // platform test end                
+                Thread.Sleep(1000);
             }
         }
         public void Update(Jump jump)
         {
             plyr.newPos.X = plyr.startPos.X++;
+            platforms.newPos.X = platforms.startPos.X++;
 
             if (jump != Jump.Idle)
             {
@@ -110,7 +92,7 @@ namespace lp2_project2
         {
             Console.Clear();
             plyr.RenderPlayer();
-            platforms.PrintPlatforms(db);         
+            platforms.PrintPlatforms();     
 
             for (int y = 0; y < db.YDim; y++)
             {
@@ -121,6 +103,7 @@ namespace lp2_project2
                 Console.WriteLine();
             }
             db.Swap();
+
             db.Clear();
                     
         }
