@@ -15,7 +15,7 @@ namespace lp2_project2
 
         public DoubleBuffer2D<char> doubleBuff;
 
-        public InputsSystem(Player player)//, DoubleBuffer2D<char> db)
+        public InputsSystem(Player player, DoubleBuffer2D<char> db)
         {
             input = new BlockingCollection<ConsoleKey>();
             jump = new Jump();
@@ -25,43 +25,18 @@ namespace lp2_project2
             //doubleBuff = db;
         }
 
-        public void ProcessInput()
+        public Jump ProcessInput()
         {
             ConsoleKey key;
             if(input.TryTake(out key))
             {
-                switch(key)
-                {
-                    case ConsoleKey.Spacebar:
-                        jump = Jump.Jumping;
-                        break;
-                    // add escape
-                    default:
-                        jump = Jump.Idle;
-                        break;
-                }
+                if(key == ConsoleKey.Spacebar)
+                    return Jump.Jumping;           
+                                       
             }
+            return Jump.Idle;
         }
-
-        public void Update()
-        {
-            
-            plyr.newPos.X = plyr.startPos.X++;
-
-            if (jump != Jump.Idle)
-            {
-                //plyr.newPos.X++;
-
-                switch (jump)
-                {
-                    case Jump.Jumping:
-                        plyr.newPos.Y = Math.Max(0, plyr.newPos.Y-1);
-                      
-                        // add condition to make it go back down
-                        break;
-                }
-            }
-        }
+     
 
         public void ReadKeys()
         {

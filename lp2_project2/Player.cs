@@ -8,19 +8,26 @@ namespace lp2_project2
     {
         public Positions startPos;
         public Positions newPos;
-        public Player()
+
+        public DoubleBuffer2D<char> db;
+        public Player(DoubleBuffer2D<char> doubleb)
         {
-            
+            db = doubleb;
         }
 
         public void RenderPlayer()
         {
-            //Console.Clear();
+            
+
+            db[startPos.X, startPos.Y] = ' ';
+            db[newPos.X, newPos.Y] = 'X';
+           
+            /*
             Console.SetCursorPosition(startPos.X, startPos.Y);
             Console.Write(" ");
             Console.SetCursorPosition(newPos.X, newPos.Y);
             Console.Write("X");  
-           
+           */
         }
     }
 }

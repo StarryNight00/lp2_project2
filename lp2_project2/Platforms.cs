@@ -35,13 +35,14 @@ namespace lp2_project2
             }
         }
 
-        public void PrintPlatforms()
+        public void PrintPlatforms(DoubleBuffer2D<char> db)
         {
-           // Console.Clear();
+
+            // Console.Clear();
             foreach (Positions pos in platformElements)
             {
-                Console.SetCursorPosition(pos.X, pos.Y);
-                Console.Write("#");
+                db[pos.X, pos.Y] = '#';
+              
             }
         }
 

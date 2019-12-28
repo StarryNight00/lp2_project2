@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.Concurrent;
-using System.Text;
 using System.Threading;
 using System.Linq;
 
@@ -15,11 +12,22 @@ namespace lp2_project2
         public InputsSystem input;
         public bool running;
         public GameLoop()
-        {          
+        {
+            Console.CursorVisible = false;
             platforms = new Platforms();
-            plyr = new Player();
+            
             db = new DoubleBuffer2D<char>(60, 60);
-            input = new InputsSystem(plyr);//, db);
+            plyr = new Player(db);
+            input = new InputsSystem(plyr, db);
+
+            for(int x = 0; x < db.XDim; x++)
+            {
+                for (int y = 0; y < db.YDim; y++)
+                {
+                    db[y, x] = ' ';
+                }
+            }
+
             Thread KeyReader = new Thread(input.ReadKeys);
             KeyReader.Start();
             Console.CursorVisible = false;
@@ -27,20 +35,18 @@ namespace lp2_project2
 
         public void Loop()
         {
+
             Console.Clear();
             running = true;
 
-            while (running)
-            {
-                long start = DateTime.Now.Ticks;
 
-                input.ProcessInput();
-                input.Update();
+            while (running)
+            {         
+                Update(input.ProcessInput());
                 Render();
-                Thread.Sleep(100);
+                Thread.Sleep(50);
 
                 /// platform test 
-                //platforms.PrintPlatforms();
                 
                 Positions platformStart = platforms.platformElements.Last();
                
@@ -53,29 +59,50 @@ namespace lp2_project2
 
                     platforms.MovePlatforms(newPlatformStart);
 
-                    platforms.PrintPlatforms();
+                    platforms.PrintPlatforms(db);
 
-                   // Thread.Sleep(100);
+                    Thread.Sleep(1000);
                 }
 
                 else
                 {
                     platforms.platformElements.Dequeue();
                     platformStart.X = 1;
-                    //Thread.Sleep(100);
+                    Thread.Sleep(100);
                 }
 
                 // fix this condition for when it hits hole
                 foreach (Positions pos in platforms.platformElements)
                 {
-                    if (pos.X == plyr.newPos.X || pos.Y == plyr.newPos.Y)
-                        //plyr.newPos.Y = pos.Y;
+                    if (pos.Y == plyr.newPos.Y)
                         Console.Write("Collision");
-                }
+                }     
+                
+                // platform test end                
+            }
+        }
+        public void Update(Jump jump)
+        {
+            plyr.newPos.X = plyr.startPos.X++;
 
-               
-                // platform test end             
-            
+            if (jump != Jump.Idle)
+            {
+                switch (jump)
+                {
+                    case Jump.Jumping:
+                        plyr.newPos.Y = Math.Max(0, plyr.newPos.Y - 1);
+                        jump = Jump.Hovering;
+                        break;
+
+                    case Jump.Hovering:
+                        jump = Jump.Falling;
+                        break;
+
+                    case Jump.Falling:
+                        plyr.newPos.Y = Math.Max(0, plyr.newPos.Y + 1);
+                        jump = Jump.Falling;
+                        break;
+                }      
             }
         }
 
@@ -83,7 +110,19 @@ namespace lp2_project2
         {
             Console.Clear();
             plyr.RenderPlayer();
-            platforms.PrintPlatforms();
+            platforms.PrintPlatforms(db);         
+
+            for (int y = 0; y < db.YDim; y++)
+            {
+                for (int x = 0; x < db.XDim; x++)
+                {
+                    Console.Write(db[x, y]);
+                }
+                Console.WriteLine();
+            }
+            db.Swap();
+            db.Clear();
+                    
         }
     }
 }
