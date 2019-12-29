@@ -5,14 +5,10 @@ using System.Text;
 namespace lp2_project2
 {
     /// <summary>
-    /// this enum contains the different states of the jump
+    /// this class will allow us to create and print a score system for the user
+    /// based on the distance reached
     /// </summary>
-    public enum Jump
+    class ScoreSystem
     {
-        Idle,
-        Jumping,
-        Hovering,
-        Falling
-
     }
 }

@@ -10,6 +10,7 @@ namespace lp2_project2
 
         private int input;
 
+        // to start a gameloop
         private GameLoop loop;
         private void ManySpaces()
         {
@@ -38,6 +39,7 @@ namespace lp2_project2
                 case 1:
                     //Game
                     ManySpaces();
+                    // start the loop
                     loop = new GameLoop();
                     loop.Loop();
                     break;

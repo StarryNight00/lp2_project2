@@ -4,9 +4,13 @@ using System.Text;
 
 namespace lp2_project2
 {
-    class Platforms
+    /// <summary>
+    /// STILL WORKING ON THIS LOGIC, ISN'T THAT RELEVANT FOR THE BUFFER PROBLEM
+    /// ANYTHING RELATED TO THEM CAN BE COMMENTED
+    /// </summary>
+    class Platforms : GameObject
     {
-        public char[] platforms;
+        public string platforms;
         
         public Positions startPos;
         public Positions newPos;
@@ -20,10 +24,15 @@ namespace lp2_project2
             db = doubleb;
             startPos = new Positions(11,10);
 
-            platforms = new char[]
-            {
-                '#', '.', '#', '#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#','#', '.', '#',
-            };
+            Position = startPos;
+
+            Character = ' ';
+
+            ID = 1;
+
+            platforms = 
+                
+                "##########*#######################****#################**";
 
             platformArea = new List<Positions>();
             
@@ -41,11 +50,15 @@ namespace lp2_project2
             // new logic later
         }
 
-        public void PrintPlatforms()
+        public void SetPlatforms()
         {
             
-            foreach(Positions pos in platformArea)
-                db[pos.X, pos.Y] = platforms[pos.X];
+        }
+
+        public void PrintPlatforms()
+        {
+            for(int x = 0; x < platforms.Length; x++)
+                db[x, 0] = (char)platforms[x];
                        
         }
        
