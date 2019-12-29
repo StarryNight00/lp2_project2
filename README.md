@@ -1,6 +1,8 @@
-# LP2 Project 2 - Moon Buggy
+# LP2 Project 2
 
-## Authors:
+## Moon Buggy
+
+### Authors:
 
 **Ana Dos Santos** - a21900297 [AnSantos99](https://github.com/AnSantos99)
 
