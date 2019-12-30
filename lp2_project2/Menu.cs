@@ -31,7 +31,15 @@ namespace lp2_project2
         {
             menuPrnts.PrintMainMenu();
 
-            input = Convert.ToInt32(Console.ReadLine());
+            try
+            {
+                input = Convert.ToInt32(Console.ReadLine());
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("\t\t   >> Invalid Input <<\n");
+                MainMenu();
+            }
 
             switch (input)
             {
@@ -44,23 +52,45 @@ namespace lp2_project2
                 case 2:
                     //Instructions
                     ManySpaces();
-                    Console.WriteLine("Instructions");
+                    Instructions();
+                    ManySpaces();
+                    MainMenu();
                     break;
                 case 3:
-                    //Credits
+                    //Highscores
                     ManySpaces();
-                    Console.WriteLine("Credits");
+                    Console.WriteLine("HIGHscores");
+                    ManySpaces();
                     break;
                 case 4:
+                    //Credits
+                    ManySpaces();
+                    Credits();
+                    ManySpaces();
+                    MainMenu();
+                    break;
+                case 5:
                     //Exit
                     Exit();
                     break;
                 default:
                     ManySpaces();
-                    Console.WriteLine("\t\t   Invalid Input\n");
+                    Console.WriteLine("\t\t   >> Invalid Input <<\n");
                     MainMenu();
                     break;
             }
+        }
+
+        private void Instructions()
+        {
+            menuPrnts.PrintInstructions();
+            Console.ReadKey();
+        }
+
+        private void Credits()
+        {
+            menuPrnts.PrintCredits();
+            Console.ReadKey();
         }
 
         private void Exit()
