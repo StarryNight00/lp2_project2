@@ -69,6 +69,7 @@ namespace lp2_project2
             // set running to true to begin loop
             running = true;
 
+            input.jump = Jump.Idle;
             // while losing conditions haven't been met
             while (running)
             {
@@ -145,7 +146,6 @@ namespace lp2_project2
                         */
                 }    
                 
-                
             }
         }
 
@@ -155,16 +155,19 @@ namespace lp2_project2
             foreach (Positions pos in platforms.platformArea)
             {
                 // check if player position equals hole after jump
-                if (pos.Y == plyr.newPos.Y && pos.X == plyr.newPos.X
-                    && db[pos.X, pos.Y] == '.')
+                if (pos.X == plyr.newPos.X && db[pos.X, pos.Y] == '.')
                 {
-                    // increase player position so it doesn't disappear
-                    plyr.newPos.Y += 1;
+                    // check if player isn't jumping or is falling
+                    if(input.jump != Jump.Hovering && input.jump!= Jump.Jumping)
+                    { 
+                        // increase player position so it doesn't disappear
+                        plyr.newPos.Y += 1;
 
-                    // debug
-                    Console.WriteLine("Collision");
+                        // debug
+                        Console.WriteLine("Collision");
 
-                    //running = false;
+                        //running = false;
+                    }             
                 }
 
                 // check if player position equals platform after jump
