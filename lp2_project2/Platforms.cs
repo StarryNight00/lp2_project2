@@ -28,8 +28,7 @@ namespace lp2_project2
 
             Character = ' ';
 
-            ID = 1;
-           
+            ID = 1;  
         }
 
         public void MovePlatforms()
@@ -45,7 +44,7 @@ namespace lp2_project2
 
             for (int x = 0; x < 60; x++)
             { 
-                platformArea.Add(new Positions(x, 0));
+                platformArea.Add(new Positions(x, 50));
             }
 
             foreach (Positions pos in platformArea)
@@ -54,7 +53,7 @@ namespace lp2_project2
 
                 double random = rnd.Next(0, 10);
 
-                if (random > 5)
+                if (random > 3)
                     platforms.Add('#');
 
                 else
@@ -69,10 +68,7 @@ namespace lp2_project2
             {    
                     db[pos.X, pos.Y] = platforms[pos.X];  
             }
-                
-            //for(int x = 0; x < platforms.Count; x++)
-              //  db[x, 0] = platforms[x];
-                       
+               
         }
        
     }

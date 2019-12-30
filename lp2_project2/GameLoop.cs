@@ -48,7 +48,7 @@ namespace lp2_project2
 
             // creates our player and assigns the current buffer
             plyr = new Player(db);
-            plyr.startPos = new Positions(9, 9);
+            plyr.startPos = new Positions(59, 49);
             plyr.newPos = plyr.startPos;
 
             // prepares to read input and process it
@@ -72,14 +72,14 @@ namespace lp2_project2
             // while losing conditions haven't been met
             while (running)
             {
-               // check if the player has jumped
-               input.jump = input.ProcessInput();
+                // check if the player has jumped
+                input.jump = input.ProcessInput();
 
-               // call the update method to move things on the screen
-               Update();
-       
-               // render our current game window 
-               Render();
+                // call the update method to move things on the screen
+                Update();
+
+                // render our current game window 
+                Render();
 
                 // temporary
                 if (plyr.startPos.Y >= db.YDim)
@@ -92,6 +92,20 @@ namespace lp2_project2
                     running = false;
                 }
 
+                if (input.jump == Jump.Hovering)
+                { 
+                    plyr.newPos.Y -= 1;
+                    input.jump = Jump.Falling;
+                }
+
+                if (input.jump == Jump.Falling)
+                {
+                    plyr.newPos.Y += 3;
+                    CheckCollision();
+                    input.jump = Jump.Idle;
+                    
+                }
+                
             }
         }
 
@@ -100,9 +114,8 @@ namespace lp2_project2
         /// </summary>
         public void Update()
         {
-
             // tEMPORARY makes player move to the right constantly
-            plyr.newPos.X = plyr.startPos.X++;
+            plyr.newPos.X = plyr.startPos.X--;
 
             // this was being used with platform's old logic
             //platforms.newPos.X = platforms.startPos.X++;
@@ -130,9 +143,14 @@ namespace lp2_project2
                         input.jump = Jump.Falling;
                         break;
                         */
-                }      
+                }    
+                
+                
             }
+        }
 
+        public void CheckCollision()
+        {
             // temporary collision check with platforms
             foreach (Positions pos in platforms.platformArea)
             {
@@ -154,7 +172,7 @@ namespace lp2_project2
                     && db[pos.X, pos.Y] == '#')
                 {
                     // doesn't let player fall
-                    plyr.newPos.Y += 1;
+                    plyr.newPos.Y -= 1;
                 }
             }
         }
