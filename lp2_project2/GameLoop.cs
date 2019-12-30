@@ -44,6 +44,7 @@ namespace lp2_project2
 
             // creates our platforms and assigns the current buffer
             platforms = new Platforms(db);
+            platforms.SetPlatforms();
 
             // creates our player and assigns the current buffer
             plyr = new Player(db);
@@ -80,9 +81,7 @@ namespace lp2_project2
                // render our current game window 
                Render();
 
-                //THIS WAS BEING USED TO VERIFY IF THE PLAYER HIT THE WALL 
-                //BUT ITS COMMENTED BC THE LOGIC IS BEING CHANGED
-                /*
+                // temporary
                 if (plyr.startPos.Y >= db.YDim)
                 {
                     running = false;
@@ -91,8 +90,7 @@ namespace lp2_project2
                 if (plyr.startPos.X >= db.XDim)
                 {
                     running = false;
-                }           
-                */
+                }
 
             }
         }
@@ -102,9 +100,10 @@ namespace lp2_project2
         /// </summary>
         public void Update()
         {
+
             // tEMPORARY makes player move to the right constantly
             plyr.newPos.X = plyr.startPos.X++;
-            
+
             // this was being used with platform's old logic
             //platforms.newPos.X = platforms.startPos.X++;
 
@@ -132,6 +131,31 @@ namespace lp2_project2
                         break;
                         */
                 }      
+            }
+
+            // temporary collision check with platforms
+            foreach (Positions pos in platforms.platformArea)
+            {
+                // check if player position equals hole after jump
+                if (pos.Y == plyr.newPos.Y && pos.X == plyr.newPos.X
+                    && db[pos.X, pos.Y] == '.')
+                {
+                    // increase player position so it doesn't disappear
+                    plyr.newPos.Y += 1;
+
+                    // debug
+                    Console.WriteLine("Collision");
+
+                    //running = false;
+                }
+
+                // check if player position equals platform after jump
+                else if (pos.Y == plyr.newPos.Y && pos.X == plyr.newPos.X
+                    && db[pos.X, pos.Y] == '#')
+                {
+                    // doesn't let player fall
+                    plyr.newPos.Y += 1;
+                }
             }
         }
 

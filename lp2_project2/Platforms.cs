@@ -10,7 +10,7 @@ namespace lp2_project2
     /// </summary>
     class Platforms : GameObject
     {
-        public string platforms;
+        public List<char> platforms;
         
         public Positions startPos;
         public Positions newPos;
@@ -29,20 +29,7 @@ namespace lp2_project2
             Character = ' ';
 
             ID = 1;
-
-            platforms = 
-                
-                "##########*#######################****#################**";
-
-            platformArea = new List<Positions>();
-            
-            for(int x = 0; x<60; x++)
-            {
-                for (int y = 0; y < 60; y++)
-                {
-                    platformArea.Add(new Positions(x, 0));    
-                }
-            }
+           
         }
 
         public void MovePlatforms()
@@ -52,13 +39,39 @@ namespace lp2_project2
 
         public void SetPlatforms()
         {
-            
+
+            platforms = new List<char>(50);
+            platformArea = new List<Positions>();
+
+            for (int x = 0; x < 60; x++)
+            { 
+                platformArea.Add(new Positions(x, 0));
+            }
+
+            foreach (Positions pos in platformArea)
+            {
+                Random rnd = new Random();
+
+                double random = rnd.Next(0, 10);
+
+                if (random > 5)
+                    platforms.Add('#');
+
+                else
+                    platforms.Add('.');
+            }
         }
 
         public void PrintPlatforms()
         {
-            for(int x = 0; x < platforms.Length; x++)
-                db[x, 0] = (char)platforms[x];
+
+            foreach (Positions pos in platformArea)
+            {    
+                    db[pos.X, pos.Y] = platforms[pos.X];  
+            }
+                
+            //for(int x = 0; x < platforms.Count; x++)
+              //  db[x, 0] = platforms[x];
                        
         }
        
