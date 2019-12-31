@@ -28,7 +28,7 @@ namespace lp2_project2
             menuPrnts = new MenuPrints();
             hScore = new HighScore();
             hScore.InitList();
-            hScore.AddZeros();
+            hScore.OpenHighScores();
         }
 
         private void MainMenu()
@@ -107,6 +107,8 @@ namespace lp2_project2
 
         private void Exit()
         {
+            hScore.AddValues();
+            hScore.SaveHighscores();
             Environment.Exit(0);
         }
 
