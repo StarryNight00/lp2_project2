@@ -7,6 +7,7 @@ namespace lp2_project2
     public class Menu
     {
         private MenuPrints menuPrnts;
+        private HighScore hScore;
 
         private int input;
 
@@ -25,6 +26,9 @@ namespace lp2_project2
         private void VarsInit()
         {
             menuPrnts = new MenuPrints();
+            hScore = new HighScore();
+            hScore.InitList();
+            hScore.AddZeros();
         }
 
         private void MainMenu()
@@ -37,6 +41,7 @@ namespace lp2_project2
             }
             catch (Exception)
             {
+                ManySpaces();
                 Console.WriteLine("\t\t   >> Invalid Input <<\n");
                 MainMenu();
             }
@@ -59,8 +64,9 @@ namespace lp2_project2
                 case 3:
                     //Highscores
                     ManySpaces();
-                    Console.WriteLine("HIGHscores");
+                    HighScores();
                     ManySpaces();
+                    MainMenu();
                     break;
                 case 4:
                     //Credits
@@ -69,7 +75,7 @@ namespace lp2_project2
                     ManySpaces();
                     MainMenu();
                     break;
-                case 5:
+                case 0:
                     //Exit
                     Exit();
                     break;
@@ -84,6 +90,12 @@ namespace lp2_project2
         private void Instructions()
         {
             menuPrnts.PrintInstructions();
+            Console.ReadKey();
+        }
+
+        private void HighScores()
+        {
+            hScore.HighScoreRender();
             Console.ReadKey();
         }
 

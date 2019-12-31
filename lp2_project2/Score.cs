@@ -48,7 +48,7 @@ namespace lp2_project2
             {
                 Console.Write($"0{ScoreValue}");
             }
-            else if (ScoreValue < 1000000)
+            else if (ScoreValue <= 9999999)
             {
                 Console.Write($"{ScoreValue}");
             }

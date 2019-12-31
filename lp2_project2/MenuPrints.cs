@@ -19,7 +19,7 @@ namespace lp2_project2
             Console.WriteLine("\n\t\t   2 - Instructions");
             Console.WriteLine("\n\t\t   3 - Highscores");
             Console.WriteLine("\n\t\t   4 - Credits");
-            Console.WriteLine("\n\t\t   5 - Exit");
+            Console.WriteLine("\n\t\t   0 - Exit");
             Console.Write("\n\n\n\t\t   >> ");
         }
 
