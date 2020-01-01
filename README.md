@@ -34,7 +34,9 @@ approach
 
 ### Flow Chart
 
-Flow Chart.
+The following flowchart represents the basic structure of the program by separating the background functionalities of the Game Engine with the Game itself and how they come together.
+
+![Flow Chart](programFlowChart.png)
 
 ### UML Diagram
 
