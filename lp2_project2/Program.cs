@@ -14,14 +14,6 @@ namespace lp2_project2
             Menu menu = new Menu();
             menu.IntroMenu();
 
-            //HighScore hs = new HighScore();
-
-            //hs.InitList();
-            //hs.AddBunchOfNumbers();
-            //hs.AddScore(1004);
-
-
-
 
 
             //POSSIBLE ADD SCORE LOGIC
