@@ -12,21 +12,28 @@ namespace lp2_project2
     class Platforms : GameObject
     {
 
-        public string[] platforms;
-        public Positions currentPos;
-        public Positions newPos;
+        /// <summary>
+        /// this queue will store positions for the platforms to move
+        /// </summary>
         public Queue<Positions> platformElements;
 
-
-
+        /// <summary>
+        /// the doublebuffer will allow smooth printing
+        /// </summary>
         public DoubleBuffer2D<char> db;
     
+        /// <summary>
+        /// this class sets moving platforms 
+        /// in a specified area on the console with different properties
+        /// </summary>
+        /// <param name="doubleb"></param>
         public Platforms(DoubleBuffer2D<char> doubleb)
         {
             db = doubleb;
 
             platformElements = new Queue<Positions>();
 
+            // adding our positions to the queue
             for (int x = 0; x <= 5; x++)
             {
                 platformElements.Enqueue(new Positions(x, 50));
@@ -37,6 +44,10 @@ namespace lp2_project2
             ID = 1;  
         }
 
+        /// <summary>
+        /// this method allows us to move the platforms on the console
+        /// </summary>
+        /// <param name="headPos">last known position</param>
         public void MovePlatforms(Positions headPos)
         {
             for (int x = headPos.X + 1; x <= (headPos.X + 5); x++)
@@ -46,6 +57,10 @@ namespace lp2_project2
          
         }
 
+        /// <summary>
+        /// this method allows us to reset the platforms when they reach the
+        /// end of the console
+        /// </summary>
         public void SetPlatforms()
         {
             platformElements = new Queue<Positions>();
@@ -56,6 +71,10 @@ namespace lp2_project2
             }
         }
 
+        /// <summary>
+        /// this method is to be called on the update method of the game loop
+        /// it updates the platforms' positions and allows them to move
+        /// </summary>
         public void PlatformUpdate()
         {
             Positions platformStart = platformElements.Last();
@@ -70,6 +89,7 @@ namespace lp2_project2
                 MovePlatforms(newPlatformStart);
             }
 
+            // check if the end of the console has been reached and reset
             else
             {
                 platformElements.Dequeue();
