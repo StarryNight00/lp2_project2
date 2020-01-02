@@ -29,7 +29,7 @@ namespace lp2_project2
 
             for (int x = 0; x <= 5; x++)
             {
-                platformElements.Enqueue(new Positions(x, 10));
+                platformElements.Enqueue(new Positions(x, 50));
             }
 
             Character = ' ';
@@ -43,7 +43,7 @@ namespace lp2_project2
 
             for (int x = headPos.X + 1; x <= (headPos.X + 5); x++)
             {
-                platformElements.Enqueue(new Positions(x, 10));
+                platformElements.Enqueue(new Positions(x, 50));
             }
         }
 
@@ -51,28 +51,27 @@ namespace lp2_project2
         public void SetPlatforms()
         {
             // new logic later
-
         }
 
         public void PrintPlatforms()
         {
             foreach (Positions pos in platformElements)
             {
-
+                if(pos.X >= 0 && pos.X <= 60)
+                { 
                 Random rnd = new Random();
 
                 double random = rnd.Next(0, 10);
 
-                if (random > 3)
+                if (random > 2)
                     db[pos.X, pos.Y] = '#';
-
 
                 else
                     db[pos.X, pos.Y] = '.';
-
+                }
             }
                
         }
-       
+      
     }
 }

@@ -109,15 +109,6 @@ namespace lp2_project2
                     //Thread.Sleep(100);
                 }
 
-                // fix this condition for when it hits hole
-                foreach (Positions pos in platforms.platformElements)
-                {
-                    if (pos.X == plyr.newPos.X || pos.Y == plyr.newPos.Y)
-                        //plyr.newPos.Y = pos.Y;
-                        Console.Write("Collision");
-                }
-
-
                 // platform test end   
 
                 // temporary
@@ -140,7 +131,7 @@ namespace lp2_project2
                 if (input.jump == Jump.Falling)
                 {
                     plyr.newPos.Y += 3;
-                   // CheckCollision();
+                    CheckCollision();
                     input.jump = Jump.Idle;
                     
                 }
@@ -188,11 +179,11 @@ namespace lp2_project2
         }
 
 
-        /*
+        
         public void CheckCollision()
         {
             // temporary collision check with platforms
-            foreach (Positions pos in platforms.platformArea)
+            foreach (Positions pos in platforms.platformElements)
             {
                 // check if player position equals hole after jump
                 if (pos.X == plyr.newPos.X && db[pos.X, pos.Y] == '.')
@@ -220,7 +211,7 @@ namespace lp2_project2
             }
         }
 
-        */
+        
 
         /// <summary>
         /// this method allows us to set the characters in the doublebuffer and
