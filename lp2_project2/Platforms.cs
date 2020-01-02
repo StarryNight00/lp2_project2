@@ -33,28 +33,11 @@ namespace lp2_project2
 
             platformElements = new Queue<Positions>();
 
-            // adding our positions to the queue
-            for (int x = 0; x <= 5; x++)
-            {
-                platformElements.Enqueue(new Positions(x, 50));
-            }
+            SetPlatforms();
 
             Character = ' ';
 
             ID = 1;  
-        }
-
-        /// <summary>
-        /// this method allows us to move the platforms on the console
-        /// </summary>
-        /// <param name="headPos">last known position</param>
-        public void MovePlatforms(Positions headPos)
-        {
-            for (int x = headPos.X + 1; x <= (headPos.X + 5); x++)
-            {
-                platformElements.Enqueue(new Positions(x, 50));
-            }
-         
         }
 
         /// <summary>
@@ -63,12 +46,24 @@ namespace lp2_project2
         /// </summary>
         public void SetPlatforms()
         {
-            platformElements = new Queue<Positions>();
-
-            for (int x = 0; x <= 5; x++)
+            
+            for (int x = 0; x <= 3; x++)
             {
-                platformElements.Enqueue(new Positions(x, 50));
+                platformElements.Enqueue(new Positions(x, 9));
             }
+        }
+
+        /// <summary>
+        /// this method allows us to move the platforms on the console
+        /// </summary>
+        /// <param name="headPos">last known position</param>
+        public void MovePlatforms(Positions headPos)
+        {
+            for (int x = headPos.X + 1; x <= (headPos.X + 3); x++)
+            {
+                platformElements.Enqueue(new Positions(x, 9));
+            }
+         
         }
 
         /// <summary>
@@ -81,7 +76,7 @@ namespace lp2_project2
 
             platformElements.Dequeue();
 
-            if (platformStart.X < Console.BufferWidth - 1)
+            if (platformStart.X < db.XDim)//Console.BufferWidth - 1)
             {
                 Positions newPlatformStart = new Positions(platformStart.X
                     + 1, platformStart.Y);
@@ -107,17 +102,16 @@ namespace lp2_project2
         {
             foreach (Positions pos in platformElements)
             {
-                if(pos.X >= 0 && pos.X <= 60)
+                if(pos.X >= 0 && pos.X <= 10)
                 { 
-                Random rnd = new Random();
+                    Random rnd = new Random();
 
-                double random = rnd.Next(0, 10);
+                    double random = rnd.Next(0, 10);
 
-                if (random > 2)
-                    db[pos.X, pos.Y] = '#';
-
-                else
-                    db[pos.X, pos.Y] = '.';
+                    if (random > 2)
+                        db[pos.X, pos.Y] = '#';
+                    else
+                        db[pos.X, pos.Y] = '.';
                 }
             }
                

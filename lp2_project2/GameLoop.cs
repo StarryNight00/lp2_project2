@@ -2,6 +2,7 @@
 using System.Threading;
 using System.Collections.Generic;
 
+
 namespace lp2_project2
 {
     /// <summary>
@@ -10,6 +11,9 @@ namespace lp2_project2
     /// </summary>
     class GameLoop
     {
+
+        int frame = 0;
+        private int msPerFrame = 60;
         // gets the current objects in the game inside a list
         // NOT USED YET!
         public List<GameObject> objectsInGame = new List<GameObject>();
@@ -39,16 +43,14 @@ namespace lp2_project2
             Console.CursorVisible = false;
                
             // creates a new doublebuffer for our map with 60x60 dimensions
-            db = new DoubleBuffer2D<char>(60, 60);
+            db = new DoubleBuffer2D<char>(60, 20);
 
             // creates our platforms and assigns the current buffer
             platforms = new Platforms(db);
-            //platforms.SetPlatforms();
 
             // creates our player and assigns the current buffer
             plyr = new Player(db);
-            plyr.startPos = new Positions(59, 49);
-            plyr.newPos = plyr.startPos;
+            plyr.newPos = new Positions(10, 8);
 
             // prepares to read input and process it
             input = new InputsSystem();
@@ -65,30 +67,34 @@ namespace lp2_project2
         /// </summary>
         public void Loop()
         {
-            // set running to true to begin loop
+
+          // set running to true to begin loop
             running = true;
 
             input.jump = Jump.Idle;
             // while losing conditions haven't been met
             while (running)
             {
+
+                long start = DateTime.Now.Ticks;
                 // check if the player has jumped
                 input.jump = input.ProcessInput();
 
                 // call the update method to move things on the screen
                 Update();
 
+                platforms.PlatformUpdate();
+
+              
+
                 // render our current game window 
                 Render();
-                Thread.Sleep(100);
-
-                platforms.PlatformUpdate();
+                //Thread.Sleep(100);
 
                 CheckCollision();
 
-
                 if (input.jump == Jump.Hovering)
-                { 
+                {
                     plyr.newPos.Y -= 1;
                     input.jump = Jump.Falling;
                 }
@@ -97,9 +103,12 @@ namespace lp2_project2
                 {
                     plyr.newPos.Y += 3;
                     input.jump = Jump.Idle;
-                    
                 }
-                
+
+                Thread.Sleep(
+                   (int)(start / TimeSpan.TicksPerSecond)
+                   + msPerFrame
+                   - (int)(DateTime.Now.Ticks / TimeSpan.TicksPerSecond));
             }
         }
 
@@ -108,11 +117,7 @@ namespace lp2_project2
         /// </summary>
         public void Update()
         {
-    
-            // this was being used with platform's old logic
-            //platforms.newPos.X = platforms.startPos.X++;
-
-            // check if there's any input happening and act accordingly
+           // check if there's any input happening and act accordingly
             if (input.jump != Jump.Idle)
             {
                 // if player has hit spacebar
@@ -120,15 +125,13 @@ namespace lp2_project2
                 {
                     // this will move the player up by one on the Y axis
                     case Jump.Jumping:
-                        plyr.newPos.Y = Math.Max(0, plyr.newPos.Y - 1);
+                        plyr.newPos.Y = Math.Max(0, plyr.newPos.Y - 1); ;
                         input.jump = Jump.Hovering;
                         break;
                 }    
                 
             }
         }
-
-
         
         public void CheckCollision()
         {
@@ -145,7 +148,7 @@ namespace lp2_project2
                         plyr.newPos.Y += 1;
 
                         // debug
-                        Console.WriteLine("Collision");
+                        //Console.WriteLine("Collision");
 
                         //running = false;
                     }             
@@ -169,6 +172,8 @@ namespace lp2_project2
         /// </summary>
         public void Render()
         {
+  
+
             // TBH IDK WHY THIS ONE WORKS FOR RENDERING
             Console.SetCursorPosition(0, 0);
 
@@ -201,8 +206,8 @@ namespace lp2_project2
                 Console.WriteLine();
             }
 
-            // clear doublebuffer for new update
-            db.Clear();
+            // Render frame number (just for debugging purposes)
+            Console.Write($"Frame: {frame++}\n");
                     
         }
     }

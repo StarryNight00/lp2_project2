@@ -6,9 +6,13 @@ namespace lp2_project2
     {
         static void Main(string[] args)
         {
+            /*
+            Console.WindowHeight = 30;
+            Console.WindowWidth = 70;
+
             Console.BufferHeight = Console.WindowHeight;
             Console.BufferWidth = Console.WindowWidth;
-
+            */
             Menu menu = new Menu();
 
             menu.IntroMenu();         
