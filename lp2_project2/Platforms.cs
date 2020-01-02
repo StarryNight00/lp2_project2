@@ -10,63 +10,66 @@ namespace lp2_project2
     /// </summary>
     class Platforms : GameObject
     {
-        public List<char> platforms;
-        
-        public Positions startPos;
+
+        public string[] platforms;
+        public Positions currentPos;
         public Positions newPos;
+        public Queue<Positions> platformElements;
+
+
 
         public DoubleBuffer2D<char> db;
 
-        public List<Positions> platformArea;
-
+      
         public Platforms(DoubleBuffer2D<char> doubleb)
         {
             db = doubleb;
-            startPos = new Positions(11,10);
 
-            Position = startPos;
+            platformElements = new Queue<Positions>();
+
+            for (int x = 0; x <= 5; x++)
+            {
+                platformElements.Enqueue(new Positions(x, 10));
+            }
 
             Character = ' ';
 
             ID = 1;  
         }
 
-        public void MovePlatforms()
+        public void MovePlatforms(Positions headPos)
         {
-            // new logic later
+            //platformElements.Enqueue(headPos);
+
+            for (int x = headPos.X + 1; x <= (headPos.X + 5); x++)
+            {
+                platformElements.Enqueue(new Positions(x, 10));
+            }
         }
+
 
         public void SetPlatforms()
         {
+            // new logic later
 
-            platforms = new List<char>(50);
-            platformArea = new List<Positions>();
+        }
 
-            for (int x = 0; x < 60; x++)
-            { 
-                platformArea.Add(new Positions(x, 50));
-            }
-
-            foreach (Positions pos in platformArea)
+        public void PrintPlatforms()
+        {
+            foreach (Positions pos in platformElements)
             {
+
                 Random rnd = new Random();
 
                 double random = rnd.Next(0, 10);
 
                 if (random > 3)
-                    platforms.Add('#');
+                    db[pos.X, pos.Y] = '#';
+
 
                 else
-                    platforms.Add('.');
-            }
-        }
+                    db[pos.X, pos.Y] = '.';
 
-        public void PrintPlatforms()
-        {
-
-            foreach (Positions pos in platformArea)
-            {    
-                    db[pos.X, pos.Y] = platforms[pos.X];  
             }
                
         }

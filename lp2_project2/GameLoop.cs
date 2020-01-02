@@ -44,7 +44,7 @@ namespace lp2_project2
 
             // creates our platforms and assigns the current buffer
             platforms = new Platforms(db);
-            platforms.SetPlatforms();
+            //platforms.SetPlatforms();
 
             // creates our player and assigns the current buffer
             plyr = new Player(db);
@@ -81,6 +81,44 @@ namespace lp2_project2
 
                 // render our current game window 
                 Render();
+                Thread.Sleep(100);
+
+                /// platform test 
+                //platforms.PrintPlatforms();
+
+                Positions platformStart = platforms.platformElements.Last();
+
+                platforms.platformElements.Dequeue();
+
+                if (platformStart.X < Console.BufferWidth - 1)
+                {
+                    Positions newPlatformStart = new Positions(platformStart.X
+                        + 1, platformStart.Y);
+
+                    platforms.MovePlatforms(newPlatformStart);
+
+                    platforms.PrintPlatforms();
+
+                    // Thread.Sleep(100);
+                }
+
+                else
+                {
+                    platforms.platformElements.Dequeue();
+                    platformStart.X = 1;
+                    //Thread.Sleep(100);
+                }
+
+                // fix this condition for when it hits hole
+                foreach (Positions pos in platforms.platformElements)
+                {
+                    if (pos.X == plyr.newPos.X || pos.Y == plyr.newPos.Y)
+                        //plyr.newPos.Y = pos.Y;
+                        Console.Write("Collision");
+                }
+
+
+                // platform test end   
 
                 // temporary
                 if (plyr.startPos.Y >= db.YDim)
@@ -102,7 +140,7 @@ namespace lp2_project2
                 if (input.jump == Jump.Falling)
                 {
                     plyr.newPos.Y += 3;
-                    CheckCollision();
+                   // CheckCollision();
                     input.jump = Jump.Idle;
                     
                 }
@@ -149,6 +187,8 @@ namespace lp2_project2
             }
         }
 
+
+        /*
         public void CheckCollision()
         {
             // temporary collision check with platforms
@@ -179,6 +219,8 @@ namespace lp2_project2
                 }
             }
         }
+
+        */
 
         /// <summary>
         /// this method allows us to set the characters in the doublebuffer and
