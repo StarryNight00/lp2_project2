@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Threading;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace lp2_project2
 {
@@ -83,44 +82,10 @@ namespace lp2_project2
                 Render();
                 Thread.Sleep(100);
 
-                /// platform test 
-                //platforms.PrintPlatforms();
+                platforms.PlatformUpdate();
 
-                Positions platformStart = platforms.platformElements.Last();
+                CheckCollision();
 
-                platforms.platformElements.Dequeue();
-
-                if (platformStart.X < Console.BufferWidth - 1)
-                {
-                    Positions newPlatformStart = new Positions(platformStart.X
-                        + 1, platformStart.Y);
-
-                    platforms.MovePlatforms(newPlatformStart);
-
-                    platforms.PrintPlatforms();
-
-                    // Thread.Sleep(100);
-                }
-
-                else
-                {
-                    platforms.platformElements.Dequeue();
-                    platformStart.X = 1;
-                    //Thread.Sleep(100);
-                }
-
-                // platform test end   
-
-                // temporary
-                if (plyr.startPos.Y >= db.YDim)
-                {
-                    running = false;
-                }
-
-                if (plyr.startPos.X >= db.XDim)
-                {
-                    running = false;
-                }
 
                 if (input.jump == Jump.Hovering)
                 { 
@@ -131,7 +96,6 @@ namespace lp2_project2
                 if (input.jump == Jump.Falling)
                 {
                     plyr.newPos.Y += 3;
-                    CheckCollision();
                     input.jump = Jump.Idle;
                     
                 }
@@ -144,9 +108,7 @@ namespace lp2_project2
         /// </summary>
         public void Update()
         {
-            // tEMPORARY makes player move to the right constantly
-            plyr.newPos.X = plyr.startPos.X--;
-
+    
             // this was being used with platform's old logic
             //platforms.newPos.X = platforms.startPos.X++;
 
@@ -161,18 +123,6 @@ namespace lp2_project2
                         plyr.newPos.Y = Math.Max(0, plyr.newPos.Y - 1);
                         input.jump = Jump.Hovering;
                         break;
-
-                        /// COMMENTED UNTIL A PROPER JUMP SOLUTION IS FOUND
-                    /*
-                    case Jump.Hovering:
-                        input.jump = Jump.Falling;
-                        break;
-
-                    case Jump.Falling:
-                        plyr.newPos.Y = Math.Max(0, plyr.newPos.Y + 1);
-                        input.jump = Jump.Falling;
-                        break;
-                        */
                 }    
                 
             }

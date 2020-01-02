@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace lp2_project2
 {
@@ -19,8 +20,7 @@ namespace lp2_project2
 
 
         public DoubleBuffer2D<char> db;
-
-      
+    
         public Platforms(DoubleBuffer2D<char> doubleb)
         {
             db = doubleb;
@@ -39,20 +39,50 @@ namespace lp2_project2
 
         public void MovePlatforms(Positions headPos)
         {
-            //platformElements.Enqueue(headPos);
-
             for (int x = headPos.X + 1; x <= (headPos.X + 5); x++)
+            {
+                platformElements.Enqueue(new Positions(x, 50));
+            }
+         
+        }
+
+        public void SetPlatforms()
+        {
+            platformElements = new Queue<Positions>();
+
+            for (int x = 0; x <= 5; x++)
             {
                 platformElements.Enqueue(new Positions(x, 50));
             }
         }
 
-
-        public void SetPlatforms()
+        public void PlatformUpdate()
         {
-            // new logic later
+            Positions platformStart = platformElements.Last();
+
+            platformElements.Dequeue();
+
+            if (platformStart.X < Console.BufferWidth - 1)
+            {
+                Positions newPlatformStart = new Positions(platformStart.X
+                    + 1, platformStart.Y);
+
+                MovePlatforms(newPlatformStart);
+            }
+
+            else
+            {
+                platformElements.Dequeue();
+                platformStart.X = 1;
+                SetPlatforms();
+            } 
         }
 
+        /// <summary>
+        /// this method prints the platforms in their area according to their
+        /// position and using the doublebuffer
+        /// BUG : PRINTS RANDOMLY EVERY TIME, THIS HAS TO BE MOVED ELSEWHERE
+        /// </summary>
         public void PrintPlatforms()
         {
             foreach (Positions pos in platformElements)
