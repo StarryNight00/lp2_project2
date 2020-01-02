@@ -5,84 +5,22 @@ using System.IO;
 
 namespace lp2_project2
 {
+    /// <summary>
+    /// Public class that handles the highest scores attained and saves them 
+    /// on a file, also keeping track of its content.
+    /// </summary>
     public class HighScore
     {
         /// <summary>
-        /// Public List Property, with a public get and private set, 
+        /// Public List property, with a public get and private set, 
         /// to save the highest attained scores.
         /// </summary>
         public List<int> HighscoresLst { get; private set; }
 
-        const string path = @".\highscoreData.txt";
-
-
-        public void SaveHighscores()
-        {
-            SaveHighscoresToFile();
-        }
-
-        private void SaveHighscoresToFile()
-        {
-            if (!File.Exists(path))
-            {
-                using (StreamWriter sw = File.CreateText(path))
-                {
-                    foreach(int i in HighscoresLst)
-                    {
-                        sw.WriteLine(i);
-                    }
-                }
-            }
-            else if (File.Exists(path))
-            {
-                File.Delete(path);
-
-                using (StreamWriter sw = File.CreateText(path))
-                {
-                    foreach (int i in HighscoresLst)
-                    {
-                        sw.WriteLine(i);
-                    }
-                }
-            }
-        }
-
-
-        public void OpenHighScores()
-        {
-            OpenSavedHighScores();
-        }
-
-        private void OpenSavedHighScores()
-        {
-            if (!File.Exists(path))
-            {
-                AddZeros();
-            }
-            else if (File.Exists(path))
-            {
-                using (StreamReader sr = File.OpenText(path))
-                {
-                    string s;
-
-                    while((s = sr.ReadLine()) != null)
-                    {
-                        try
-                        {
-                            int score = int.Parse(s);
-                            AddScore(score);
-                        }
-                        catch (Exception)
-                        {
-                            Console.WriteLine("\t\t  >> Score Loading Error" +
-                                              " - List Reseted <<\n");
-                            AddZeros();
-                        }
-                    }
-                }
-            }
-        }
-
+        /// <summary>
+        /// A constant string path to save the file within the project folder.
+        /// </summary>
+        private const string path = @".\highscoreData.txt";
 
         /// <summary>
         /// Initializes the list.
@@ -109,22 +47,8 @@ namespace lp2_project2
             AddScore(0);
         }
 
-        public void AddValues()
-        {
-            AddScore(10);
-            AddScore(200);
-            AddScore(340);
-            AddScore(5600);
-            AddScore(17);
-            AddScore(4);
-            AddScore(195);
-            AddScore(1050);
-            AddScore(444);
-            AddScore(1);
-        }
-
         /// <summary>
-        /// Method that adds the score to the highscore list.
+        /// Adds the score to the highscore list.
         /// </summary>
         /// <param name="score">Represents a 32-bit signed integer.</param>
         public void AddScore(int score)
@@ -133,8 +57,8 @@ namespace lp2_project2
         }
 
         /// <summary>
-        /// Method that receives a score and places it at the High Scores list 
-        /// if high enough. Cuts off any extra elements.
+        /// Receives a score and places it at the High Scores list if high 
+        /// enough. Cuts off any extra elements.
         /// </summary>
         /// <param name="score">Represents a 32-bit signed integer.</param>
         private void AddAndCutScore(int score)
@@ -170,7 +94,7 @@ namespace lp2_project2
         }
 
         /// <summary>
-        /// 
+        /// Renders the Highscore List content on the console screen.
         /// </summary>
         public void HighScoreRender()
         {
@@ -238,5 +162,94 @@ namespace lp2_project2
             Console.WriteLine("\n\n\t\t    To go back, press ANY KEY");
             Console.Write("\n\n\t\t   >> ");
         }
+
+
+        /// <summary>
+        /// Method that runs the Highscore saving methods.
+        /// </summary>
+        public void SaveHighscores()
+        {
+            SaveHighscoresToFile();
+        }
+
+
+        /// <summary>
+        /// Checks for a file path within the project and whether or not the 
+        /// file to save the Highscore information exits. 
+        /// If it exists the method will delete that file and save a new one, if
+        /// it doesn't it will create the file.
+        /// </summary>
+        private void SaveHighscoresToFile()
+        {
+            if (!File.Exists(path))
+            {
+                using (StreamWriter sw = File.CreateText(path))
+                {
+                    foreach (int i in HighscoresLst)
+                    {
+                        sw.WriteLine(i);
+                    }
+                }
+            }
+            else if (File.Exists(path))
+            {
+                File.Delete(path);
+
+                using (StreamWriter sw = File.CreateText(path))
+                {
+                    foreach (int i in HighscoresLst)
+                    {
+                        sw.WriteLine(i);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Method that runs the saved Highscores file opening methods.
+        /// </summary>
+        public void OpenHighScores()
+        {
+            OpenSavedHighScores();
+        }
+
+        /// <summary>
+        /// Checks for a file path within the project and whether or not the 
+        /// file to open exits. If it doesn't, the Highscore list will be 
+        /// reseted to 0 on all placements. If it does, then the method will try
+        /// to open each content and add it to the program's Highscore list, 
+        /// converting the string to an int value, or run an Exception if it 
+        /// can't process the variable, reseting all to 0.
+        /// </summary>
+        private void OpenSavedHighScores()
+        {
+            if (!File.Exists(path))
+            {
+                AddZeros();
+            }
+            else if (File.Exists(path))
+            {
+                using (StreamReader sr = File.OpenText(path))
+                {
+                    string s;
+
+                    while ((s = sr.ReadLine()) != null)
+                    {
+                        try
+                        {
+                            int score = int.Parse(s);
+                            AddScore(score);
+                        }
+                        catch (Exception)
+                        {
+                            Console.WriteLine("\t\t  >> Score Loading Error" +
+                                              " - List Reseted <<\n");
+                            AddZeros();
+                        }
+                    }
+                }
+            }
+        }
+
     }
 }

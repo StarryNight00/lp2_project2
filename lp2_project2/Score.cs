@@ -4,22 +4,37 @@ using System.Text;
 
 namespace lp2_project2
 {
-    class Score
+    /// <summary>
+    /// Public class that handles all in-game scoring methods.
+    /// </summary>
+    public class Score
     {
-        //Properties
+        /// <summary>
+        /// Public int property, with a public get and private set, to save the 
+        /// score value.
+        /// </summary>
         public int ScoreValue { get; private set; }
 
-        //method to init the score
+        /// <summary>
+        /// Resets the score to 0 when called.
+        /// </summary>
         public void ResetScore()
         {
             ScoreValue = 0;
         }
-        //Method to add score
+
+        /// <summary>
+        /// Adds one unit to the score.
+        /// </summary>
         public void AddScore()
         {
             ScoreValue += 1;
         }
-        //Method to render score
+
+        /// <summary>
+        /// Renders the score on the console screen. Stops rendering at 
+        /// value 9999999 to not lose formatting. 
+        /// </summary>
         public void RenderScore()
         {
             Console.Write("\t");

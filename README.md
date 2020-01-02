@@ -16,7 +16,7 @@
 
 report
 
-**Catarina Matias** (list of things done):
+**Catarina Matias** (Menu (and its Prints), Score and HighScore handling, ReadMe report):
 
 report
 
@@ -45,6 +45,8 @@ UML diagram
 The following references where used during this project.
 
 Class Power-points
+
+Code available at the File class C# API documentation was used as a stepping stone for the file handling in the program. - <https://docs.microsoft.com/en-us/dotnet/api/system.io.file?view=netframework-4.8>
 
 more...
 
