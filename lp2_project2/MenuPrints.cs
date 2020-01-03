@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Drawing;
 
 namespace lp2_project2
 {
@@ -9,8 +10,36 @@ namespace lp2_project2
 
         public void PrintIntroMenu()
         {
-            Console.WriteLine("\n\n\n\t\t  Welcome Space Voyager!!");
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+
+            string welcome = @"
+__        __   _                            _        
+\ \      / /__| | ___ ___  _ __ ___   ___  | |_ ___  
+ \ \ /\ / / _ \ |/ __/ _ \| '_ ` _ \ / _ \ | __/ _ \ 
+  \ V  V /  __/ | (_| (_) | | | | | |  __/ | || (_) |
+   \_/\_/ \___|_|\___\___/|_| |_| |_|\___|  \__\___/  ";
+
+
+            
+            string title = @"                       
+                .___  ___.   ______     ______   .__   __. 
+                |   \/   |  /  __  \   /  __  \  |  \ |  | 
+                |  \  /  | |  |  |  | |  |  |  | |   \|  | 
+                |  |\/|  | |  |  |  | |  |  |  | |  . `  | 
+                |  |  |  | |  `--'  | |  `--'  | |  |\   | 
+                |__|  |__|  \______/   \______/  |__| \__| 
+                                           
+            .______    __    __    _______   ___________    ____ 
+            |   _  \  |  |  |  |  /  _____| /  _____\   \  /   / 
+            |  |_)  | |  |  |  | |  |  __  |  |  __  \   \/   /  
+            |   _  <  |  |  |  | |  | |_ | |  | |_ |  \_    _/   
+            |  |_)  | |  `--'  | |  |__| | |  |__| |    |  |     
+            |______/   \______/   \______|  \______|    |__|";
+
+            
+            Console.WriteLine("\n" + welcome + "\n\n\n" + title);
         }
+        
 
         public void PrintMainMenu()
         {

@@ -53,7 +53,7 @@ namespace lp2_project2
                     // start the loop
                     Console.Clear();
                     loop = new GameLoop();
-                    Console.BackgroundColor = ConsoleColor.Cyan;
+                    Console.ForegroundColor = ConsoleColor.DarkMagenta;
                     loop.Loop();
                     break;
                 case 2:
@@ -115,6 +115,7 @@ namespace lp2_project2
 
         private void Exit()
         {
+            Console.WriteLine("Thank you for playing");
             hScore.SaveHighscores();
             Environment.Exit(0);
         }

@@ -99,7 +99,7 @@ namespace lp2_project2
         /// </summary>
         public void HighScoreRender()
         {
-            //SaveHighscores(); // -----------------------------------------------Turn on when rest is done to test
+            
             HighscoresLst.Sort();
 
             Console.WriteLine("\t\t\tHIGHSCORE TABLE");
