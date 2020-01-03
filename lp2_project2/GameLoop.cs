@@ -10,23 +10,17 @@ namespace lp2_project2
     /// </summary>
     class GameLoop
     {
-
         private HighScore hs;           /////
 
         private List<int> hsList;       /////
-
 
         public Map background;
 
         int score = 0;
 
-        int frame = 0;
-
-        private int msPerFrame = 60;
+        private int msPerFrame = 80;
         // gets the current objects in the game inside a list
-        // NOT USED YET!
-        public List<GameObject> objectsInGame = new List<GameObject>();
-
+      
         // initiates the platforms that will be displayed along the loop
         public Platforms platforms;
 
@@ -115,6 +109,7 @@ namespace lp2_project2
                     plyr.Position.Y -= 1;
                     plyr.Position.X -= 1;
                     input.jump = Jump.Falling;
+                    Update();
                 }
 
                 if (input.jump == Jump.Falling)
@@ -122,6 +117,7 @@ namespace lp2_project2
                     plyr.Position.Y -= 1;
                     plyr.Position.X -= 1;
                     input.jump = Jump.Lag;
+                    Update();
                 }
 
                 if (input.jump == Jump.Lag)
@@ -129,6 +125,7 @@ namespace lp2_project2
                     plyr.Position.Y += 4;
                     plyr.Position.X += 2;
                     input.jump = Jump.Idle;
+                    Update();
                 }
 
                 Thread.Sleep(
@@ -143,10 +140,11 @@ namespace lp2_project2
         /// </summary>
         public void Update()
         {
-            
+            // check if there's been a collision and act accordingly
             CheckCollision();
 
-            // platforms.PlatformUpdate();
+            // add later
+            //platforms.PlatformUpdate();
 
             // check if there's any input happening and act accordingly
             if (input.jump != Jump.Idle)
@@ -159,7 +157,15 @@ namespace lp2_project2
                         plyr.Position.Y -= 1; 
                         input.jump = Jump.Hovering;
                         break;
-                }                    
+                    
+                    /// LEAVE THIS HERE FOR FUTURE SHOWING OF HS ETC
+                    case Jump.Leave:
+                        Console.WriteLine("bye!");
+                        break;
+
+                } 
+                
+              
             }
         }     
         public void CheckCollision()
@@ -215,7 +221,30 @@ namespace lp2_project2
                     plyr.Position.Y -= 1;
                 }
             }
-        }    
+        }
+
+        public void WriteHelpMessages()
+        {
+            string[] helpMssgs = new string[]
+                {
+                "      press space to jump!    ",
+                "platforms have different sizes"
+
+                };
+
+            Random rnd = new Random();
+
+            int rand = rnd.Next(0, helpMssgs.Length);
+
+            int counter = 0;
+
+            foreach (char mssg in helpMssgs[rand])
+            { 
+                db[counter, 16] = mssg;
+                counter++;
+            }
+                         
+        }
 
         /// <summary>
         /// this method allows us to set the characters in the doublebuffer and
@@ -233,6 +262,8 @@ namespace lp2_project2
 
             // set platforms to their corresponding characters
             platforms.PrintPlatforms();
+
+            WriteHelpMessages();
 
             // swap between the doublebuffer's arrays to render each frame
             db.Swap();
@@ -266,8 +297,9 @@ namespace lp2_project2
                 Console.WriteLine();
             }
 
-            // Render frame number (just for debugging purposes)
-            Console.Write($"Distance: {score++}\n");             
+            // CHANGE THIS TO JUMPS
+            Console.Write($"Distance: {score++}\n");
+            Console.WriteLine("[ESC] to quit   [SPACE] to jump");
         }
     }
 }

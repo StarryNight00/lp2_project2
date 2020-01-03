@@ -65,7 +65,6 @@ namespace lp2_project2
         /// <summary>
         /// this method prints the platforms in their area according to their
         /// position and using the doublebuffer
-        /// BUG : PRINTS RANDOMLY EVERY TIME, THIS HAS TO BE MOVED ELSEWHERE
         /// </summary>
         public void PrintPlatforms()
         {
