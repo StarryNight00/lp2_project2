@@ -4,18 +4,44 @@ using System.Text;
 
 namespace lp2_project2
 {
+    /// <summary>
+    /// Public class that handles all Menu related structures.
+    /// </summary>
     public class Menu
     {
+        /// <summary>
+        /// Private variable of MenuPrints class, to call on this class.
+        /// </summary>
         private MenuPrints menuPrnts;
+
+        /// <summary>
+        /// Private variable of HighScore class, to call on this class.
+        /// </summary>
         private HighScore hScore;
 
+        /// <summary>
+        /// Private variable of GameLoop class, to call on this class.
+        /// </summary>
+        private GameLoop loop;
+
+        /// <summary>
+        /// A private int variable, to handle the menu input and travel.
+        /// </summary>
         private int input;
 
-        private GameLoop loop;
+        /// <summary>
+        /// Method that adds many spaces and helps seperate screens on the 
+        /// console.
+        /// </summary>
         private void ManySpaces()
         {
-            Console.WriteLine("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+            Console.WriteLine("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");      //CHECK CONSOLE.CLEAR
         }
+
+        /// <summary>
+        /// Calls on the Introduction Menu, which then leads to all the 
+        /// in-program menu logic.
+        /// </summary>
         public void IntroMenu()
         {
             VarsInit();
@@ -23,6 +49,10 @@ namespace lp2_project2
             Console.ReadLine();
             MainMenu();
         }
+
+        /// <summary>
+        /// Initializes all classes needed to start the program and the menu.
+        /// </summary>
         private void VarsInit()
         {
             menuPrnts = new MenuPrints();
@@ -31,6 +61,10 @@ namespace lp2_project2
             hScore.OpenHighScores();
         }
 
+        /// <summary>
+        /// Calls on a print to the Main Menu and handles the menu travel. 
+        /// Also starts the Gameloop if option 1 is called.
+        /// </summary>
         private void MainMenu()
         {
             menuPrnts.PrintMainMenu();
@@ -87,24 +121,39 @@ namespace lp2_project2
             }
         }
 
+        /// <summary>
+        /// Calls on a print to the Instructions screen. Also handles the screen
+        /// exit.
+        /// </summary>
         private void Instructions()
         {
             menuPrnts.PrintInstructions();
             Console.ReadKey();
         }
 
+        /// <summary>
+        /// Calls on a print to the High Scores screen. Also handles the screen
+        /// exit.
+        /// </summary>
         private void HighScores()
         {
             hScore.HighScoreRender();
             Console.ReadKey();
         }
 
+        /// <summary>
+        /// Calls on a print to the Credits screen. Also handles the screen
+        /// exit.
+        /// </summary>
         private void Credits()
         {
             menuPrnts.PrintCredits();
             Console.ReadKey();
         }
 
+        /// <summary>
+        /// Calls on to save the highscores and exits the program.
+        /// </summary>
         private void Exit()
         {
             hScore.SaveHighscores();

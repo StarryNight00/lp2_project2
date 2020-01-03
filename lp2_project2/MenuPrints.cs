@@ -25,7 +25,7 @@ namespace lp2_project2
 
         public void PrintInstructions()
         {
-            string key = "KEY";
+            string key = "SPACE";
             Console.WriteLine("\t\t\tINSTRUCTIONS");
             Console.WriteLine("\t\tReady to explore the Moon?!");
             Console.WriteLine("\n\tAs you explore, you will find how irre" +
