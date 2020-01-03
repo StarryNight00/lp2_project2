@@ -9,6 +9,8 @@ namespace lp2_project2
     class Platforms : GameObject
     {
 
+        public Positions keyPlatform;
+
         public char platform = '#';
         public char hole = '_';
 
@@ -71,6 +73,8 @@ namespace lp2_project2
             Random rnd = new Random();
 
             int rand = rnd.Next(1, 2);
+
+          
 
             if (rnd.Next(1, 10) > 1)
             {

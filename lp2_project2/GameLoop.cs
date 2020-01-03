@@ -16,6 +16,16 @@ namespace lp2_project2
 
         public Map background;
 
+
+        string[] helpMssgs = new string[]
+                {
+                "      press space to jump!    ",
+                "platforms have different sizes"
+
+                };
+
+        private string ChosenMessage;
+
         int score = 0;
 
         private int msPerFrame = 80;
@@ -47,7 +57,15 @@ namespace lp2_project2
 
             // sets the cursor's visibility to false so it won't render
             Console.CursorVisible = false;
-               
+
+            Random rnd = new Random();
+
+            int rand = rnd.Next(0, helpMssgs.Length);
+
+            int counter = 20;
+
+            ChosenMessage = helpMssgs[rand];
+
             // creates a new doublebuffer for our map with 60x60 dimensions
             db = new DoubleBuffer2D<char>(60, 30);
 
@@ -58,6 +76,9 @@ namespace lp2_project2
 
             // creates our player and assigns the current buffer
             plyr = new Player(db);
+
+            platforms.keyPlatform = new Positions(plyr.Position.X, 
+                plyr.Position.Y);
           
             // prepares to read input and process it
             input = new InputsSystem();
@@ -82,10 +103,12 @@ namespace lp2_project2
             // while losing conditions haven't been met
             while (running)
             {
+                
                 long start = DateTime.Now.Ticks;
                 // check if the player has jumped
                 input.jump = input.ProcessInput();
 
+                Console.WriteLine(start);
                 // call the update method to move things on the screen
                 Update();       
 
@@ -109,23 +132,20 @@ namespace lp2_project2
                     plyr.Position.Y -= 1;
                     plyr.Position.X -= 1;
                     input.jump = Jump.Falling;
-                    Update();
                 }
 
                 if (input.jump == Jump.Falling)
                 {
-                    plyr.Position.Y -= 1;
-                    plyr.Position.X -= 1;
+                    plyr.Position.Y += 1;
+                    plyr.Position.X += 1;
                     input.jump = Jump.Lag;
-                    Update();
                 }
 
                 if (input.jump == Jump.Lag)
                 {
-                    plyr.Position.Y += 4;
-                    plyr.Position.X += 2;
+                    plyr.Position.Y += 1;
                     input.jump = Jump.Idle;
-                    Update();
+                    score += 1;
                 }
 
                 Thread.Sleep(
@@ -170,14 +190,15 @@ namespace lp2_project2
         }     
         public void CheckCollision()
         {
-            if (db[plyr.Position.X, 28] == '.')
+            if (db[plyr.Position.X, plyr.Position.Y+1] == platforms.hole)
             {
                 if (input.jump == Jump.Idle)
                 {
-
                     Console.Clear();
                     running = false;
-                    MenuPrints.PrintGameOver(score);
+
+                    RenderLosingScreen();
+                    //MenuPrints.PrintGameOver(score);
 
                     // check if player isn't jumping or is falling
                     if(input.jump != Jump.Hovering && input.jump!= Jump.Jumping)
@@ -212,7 +233,7 @@ namespace lp2_project2
             }
 
             // check if player position equals platform after jump
-            if (db[plyr.Position.X, 28] == '#')
+            if (db[plyr.Position.X, plyr.Position.Y + 1] == platforms.platform)
             {
                 // check if player isn't jumping or is falling
                 if (input.jump != Jump.Idle)
@@ -236,14 +257,35 @@ namespace lp2_project2
 
             int rand = rnd.Next(0, helpMssgs.Length);
 
-            int counter = 0;
+            int counter = 20;
 
-            foreach (char mssg in helpMssgs[rand])
+            foreach (char mssg in ChosenMessage)
             { 
                 db[counter, 16] = mssg;
                 counter++;
             }
                          
+        }
+
+        public void RenderLosingScreen()
+        {
+            Console.Clear();
+            string GameOverRender = @"                                     
+             ________                                                  
+             /  _____/_____    _____   ____     _______  __ ___________ 
+            /   \  ___\__  \  /     \_/ __ \   /  _ \  \/ // __ \_  __ \
+            \    \_\  \/ __ \|  Y Y  \  ___/  (  <_> )   /\  ___/|  | \/
+             \______  (____  /__|_|  /\___  >  \____/ \_/  \___  >__|   
+                    \/     \/      \/     \/                   \/       
+                          You crashed!!                         .
+                                               .   º    . O  _ X 0  .
+            ###########_###############_#######################_#########
+            #############################################################
+
+            ";
+
+            Console.WriteLine(GameOverRender);
+
         }
 
         /// <summary>
@@ -280,14 +322,18 @@ namespace lp2_project2
                         Console.ForegroundColor = ConsoleColor.Red;
                     }
 
-                    if (db[x, y] == 'X')
+                    if (db[x, y] == (char)Characters.tankHead)
                     {
                         Console.ForegroundColor = ConsoleColor.White;            
                     }
 
                     if (db[x, y] == (char)Characters.platforms)
-                    { 
-                        Console.ForegroundColor = ConsoleColor.Yellow;
+                    {
+                        if (db[x, y] == db[platforms.keyPlatform.X, 
+                            platforms.keyPlatform.Y])
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+
+                        Console.ForegroundColor = ConsoleColor.White;
                     }
 
                     Console.Write(db[x, y]);
@@ -298,7 +344,7 @@ namespace lp2_project2
             }
 
             // CHANGE THIS TO JUMPS
-            Console.Write($"Distance: {score++}\n");
+            Console.Write($"Distance: {score}\n");
             Console.WriteLine("[ESC] to quit   [SPACE] to jump");
         }
     }
