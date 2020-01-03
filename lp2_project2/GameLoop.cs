@@ -10,9 +10,7 @@ namespace lp2_project2
     /// </summary>
     class GameLoop
     {
-        private HighScore hs;           /////
-
-        private List<int> hsList;       /////
+        private HighScore hs;
 
 
         public Map background;
@@ -42,10 +40,9 @@ namespace lp2_project2
         /// this constructor allows us to set our initial values for the game
         /// and prepare the console for optimised running
         /// </summary>
-        public GameLoop(HighScore hs, List<int> lst) ///////////////////7
+        public GameLoop(HighScore hs)
         {
-            this.hs = hs; //////////
-            hsList = lst; //////////////
+            this.hs = hs;
 
             // sets the cursor's visibility to false so it won't render
             Console.CursorVisible = false;
@@ -94,16 +91,12 @@ namespace lp2_project2
                 // render our current game window 
                 Render();
 
-                if (input.jump == Jump.Leave)  /////////////////////
+                if (input.jump == Jump.Leave)
                 {
                     running = false;
-                    hs.AddHighScore(score, hsList);
 
-                    //
-                    hs.HighScoreRender();
-                    //
-
-                    MenuPrints.PrintGameOver(score);
+                    Console.WriteLine(score);
+                    MenuPrints.PrintGameOver(score, hs);
                 }
 
                 if (input.jump == Jump.Hovering)
@@ -166,7 +159,7 @@ namespace lp2_project2
                 {
                     Console.Clear();
                     running = false;
-                    MenuPrints.PrintGameOver(score);
+                    MenuPrints.PrintGameOver(score, hs);
                 }
 
                 // check if player isn't jumping or is falling
@@ -177,7 +170,7 @@ namespace lp2_project2
                     {
                         // increase player position so it doesn't disappear
                         //plyr.Position.Y += 1;
-                        MenuPrints.PrintGameOver(score);
+                        MenuPrints.PrintGameOver(score, hs);
                         running = false;
                         Console.Clear();
                     }
