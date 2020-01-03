@@ -40,6 +40,8 @@ The following flowchart represents the basic structure of the program by separat
 
 ### UML Diagram
 
+![UML Diagram](uml_proj2.png)
+
 UML diagram
 
 ## References
