@@ -18,6 +18,7 @@ namespace lp2_project2
         public void IntroMenu()
         {
             VarsInit();
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
             menuPrnts.PrintIntroMenu();
             Console.ReadLine();
             MainMenu();
@@ -59,28 +60,22 @@ namespace lp2_project2
                 case 2:
                     //Instructions
                     ManySpaces();
-                    Console.ForegroundColor = ConsoleColor.DarkGray;
                     Instructions();
                     ManySpaces();
-                    Console.ResetColor();
                     MainMenu();
                     break;
                 case 3:
                     //Highscores
                     ManySpaces();
-                    Console.ForegroundColor = ConsoleColor.Red;
                     HighScores();
                     ManySpaces();
-                    Console.ResetColor();
                     MainMenu();
                     break;
                 case 4:
                     //Credits
                     ManySpaces();
-                    Console.ForegroundColor = ConsoleColor.Yellow;
                     Credits();
                     ManySpaces();
-                    Console.ResetColor();
                     MainMenu();
                     break;
                 case 0:

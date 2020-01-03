@@ -45,6 +45,7 @@ __        __   _                            _
 
         public void PrintMainMenu()
         {
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine("\t\t\tMAIN MENU");
             Console.WriteLine("\n\t\t   1 - Start Game");
             Console.WriteLine("\n\t\t   2 - Instructions");
@@ -56,6 +57,7 @@ __        __   _                            _
 
         public void PrintInstructions()
         {
+            Console.ForegroundColor = ConsoleColor.DarkGray;
             string key = "KEY";
             Console.WriteLine("\t\t\tINSTRUCTIONS");
             Console.WriteLine("\t\tReady to explore the Moon?!");
@@ -76,6 +78,7 @@ __        __   _                            _
 
         public void PrintCredits()
         {
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("\t\t\t     CREDITS\n");
 
             Console.WriteLine("\t\tThis project was developed by these " +

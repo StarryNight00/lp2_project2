@@ -99,7 +99,7 @@ namespace lp2_project2
         /// </summary>
         public void HighScoreRender()
         {
-            
+            Console.ForegroundColor = ConsoleColor.Red;
             HighscoresLst.Sort();
 
             Console.WriteLine("\t\t\tHIGHSCORE TABLE");
