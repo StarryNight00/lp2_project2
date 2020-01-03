@@ -6,7 +6,6 @@ namespace lp2_project2
     {
         static void Main(string[] args)
         {
-<<<<<<< HEAD
             /*
             Console.WindowHeight = 30;
             Console.WindowWidth = 70;
@@ -14,19 +13,10 @@ namespace lp2_project2
             Console.BufferHeight = Console.WindowHeight;
             Console.BufferWidth = Console.WindowWidth;
             */
-=======
-            /*Console.BufferHeight = Console.WindowHeight;
-            Console.BufferWidth = Console.WindowWidth;*/
-
-
-
->>>>>>> master
             Menu menu = new Menu();
             menu.IntroMenu();
 
-
-
-            //POSSIBLE ADD SCORE LOGIC
+            //POSSIBLE ADD SCORE LOGIC ///
             //needs to verify landing
 
             /*Score score = new Score();
