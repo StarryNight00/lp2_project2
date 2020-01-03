@@ -9,10 +9,6 @@ namespace lp2_project2
     /// </summary>
     public class Menu
     {
-        /// <summary>
-        /// Private variable of MenuPrints class, to call on this class.
-        /// </summary>
-        private MenuPrints menuPrnts;
 
         /// <summary>
         /// Private variable of HighScore class, to call on this class.
@@ -29,6 +25,7 @@ namespace lp2_project2
         /// </summary>
         private int input;
 
+
         /// <summary>
         /// Calls on the Introduction Menu, which then leads to all the 
         /// in-program menu logic.
@@ -36,7 +33,8 @@ namespace lp2_project2
         public void IntroMenu()
         {
             VarsInit();
-            menuPrnts.PrintIntroMenu();
+            MenuPrints.PrintGameOver(2000000);
+            MenuPrints.PrintIntroMenu();
             Console.ReadLine();
             MainMenu();
         }
@@ -46,7 +44,6 @@ namespace lp2_project2
         /// </summary>
         private void VarsInit()
         {
-            menuPrnts = new MenuPrints();
             hScore = new HighScore();
             hScore.InitList();
             hScore.OpenHighScores();
@@ -58,7 +55,7 @@ namespace lp2_project2
         /// </summary>
         private void MainMenu()
         {
-            menuPrnts.PrintMainMenu();
+            MenuPrints.PrintMainMenu();
 
             try
             {
@@ -121,7 +118,7 @@ namespace lp2_project2
         /// </summary>
         private void Instructions()
         {
-            menuPrnts.PrintInstructions();
+            MenuPrints.PrintInstructions();
             Console.ReadKey();
         }
 
@@ -141,7 +138,7 @@ namespace lp2_project2
         /// </summary>
         private void Credits()
         {
-            menuPrnts.PrintCredits();
+            MenuPrints.PrintCredits();
             Console.ReadKey();
         }
 

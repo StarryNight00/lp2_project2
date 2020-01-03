@@ -4,15 +4,23 @@ using System.Text;
 
 namespace lp2_project2
 {
-    public class MenuPrints
+    /// <summary>
+    /// Static class with all console screen renders and information.
+    /// </summary>
+    static class MenuPrints
     {
-
-        public void PrintIntroMenu()
+        /// <summary>
+        /// Prints the Introduction tag on the console.
+        /// </summary>
+        public static void PrintIntroMenu()
         {
             Console.WriteLine("\n\n\n\t\t  Welcome Space Voyager!!");
         }
 
-        public void PrintMainMenu()
+        /// <summary>
+        /// Prints the Menu options on the console.
+        /// </summary>
+        public static void PrintMainMenu()
         {
             Console.WriteLine("\n\n\t\t\tMAIN MENU");
             Console.WriteLine("\n\t\t   1 - Start Game");
@@ -23,7 +31,10 @@ namespace lp2_project2
             Console.Write("\n\n\n\t\t   >> ");
         }
 
-        public void PrintInstructions()
+        /// <summary>
+        /// Prints the Instructions on the console.
+        /// </summary>
+        public static void PrintInstructions()
         {
             string key = "SPACE";
             Console.WriteLine("\n\n\t\t\tINSTRUCTIONS");
@@ -43,7 +54,10 @@ namespace lp2_project2
             Console.Write("\n\n\t\t   >> ");
         }
 
-        public void PrintCredits()
+        /// <summary>
+        /// Prints the Credits information on the console.
+        /// </summary>
+        public static void PrintCredits()
         {
             Console.WriteLine("\n\n\t\t\t     CREDITS\n");
 
@@ -64,6 +78,14 @@ namespace lp2_project2
 
             Console.WriteLine("\n\t\t  To go back, press ANY KEY");
             Console.Write("\n\n\t\t   >> ");
+        }
+
+
+        public static void PrintGameOver(int score)
+        {
+            Console.WriteLine("\n\n\t\t\tGAME OVER");
+            Console.WriteLine("\t    Better Luck Next Time, Space Voyager.");
+            Console.WriteLine($"\n\n\t\t Your Score was ... {score}");
         }
     }
 }

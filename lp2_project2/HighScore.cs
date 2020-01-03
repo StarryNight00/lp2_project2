@@ -35,23 +35,23 @@ namespace lp2_project2
         /// </summary>
         public void AddZeros()
         {
-            AddScore(0);
-            AddScore(0);
-            AddScore(0);
-            AddScore(0);
-            AddScore(0);
-            AddScore(0);
-            AddScore(0);
-            AddScore(0);
-            AddScore(0);
-            AddScore(0);
+            AddHighScore(0);
+            AddHighScore(0);
+            AddHighScore(0);
+            AddHighScore(0);
+            AddHighScore(0);
+            AddHighScore(0);
+            AddHighScore(0);
+            AddHighScore(0);
+            AddHighScore(0);
+            AddHighScore(0);
         }
 
         /// <summary>
         /// Adds the score to the highscore list.
         /// </summary>
         /// <param name="score">Represents a 32-bit signed integer.</param>
-        public void AddScore(int score)
+        public void AddHighScore(int score)
         {
             AddAndCutScore(score);
         }
@@ -238,7 +238,7 @@ namespace lp2_project2
                         try
                         {
                             int score = int.Parse(s);
-                            AddScore(score);
+                            AddHighScore(score);
                         }
                         catch (Exception)
                         {
