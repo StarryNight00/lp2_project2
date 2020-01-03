@@ -10,6 +10,7 @@ namespace lp2_project2
     /// </summary>
     class GameLoop
     {
+
         private HighScore hs;           /////
 
         private List<int> hsList;       /////
@@ -18,6 +19,9 @@ namespace lp2_project2
         public Map background;
 
         int score = 0;
+
+        int frame = 0;
+
         private int msPerFrame = 60;
         // gets the current objects in the game inside a list
         // NOT USED YET!
@@ -76,11 +80,11 @@ namespace lp2_project2
         /// </summary>
         public void Loop()
         {
-
-          // set running to true to begin loop
+            // set running to true to begin loop
             running = true;
 
             input.jump = Jump.Idle;
+
             // while losing conditions haven't been met
             while (running)
             {
@@ -164,9 +168,26 @@ namespace lp2_project2
             {
                 if (input.jump == Jump.Idle)
                 {
+
                     Console.Clear();
                     running = false;
                     MenuPrints.PrintGameOver(score);
+
+                    // check if player isn't jumping or is falling
+                    if(input.jump != Jump.Hovering && input.jump!= Jump.Jumping)
+                    { 
+                        // increase player position so it doesn't disappear
+                        plyr.Position.Y += 1;
+
+                        // On Collison make loosing sound
+                        Console.Beep(600, 500);
+
+                        // debug
+                        //Console.WriteLine("Collision");
+
+                        //running = false;
+                    }             
+
                 }
 
                 // check if player isn't jumping or is falling
@@ -223,7 +244,7 @@ namespace lp2_project2
                 {
                     Console.BackgroundColor = ConsoleColor.DarkBlue;
                   
-                    if (db[x, y] == platforms.hole)
+                    if (db[x, y] == (char)Characters.holes)
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
                     }
@@ -233,7 +254,7 @@ namespace lp2_project2
                         Console.ForegroundColor = ConsoleColor.White;            
                     }
 
-                    if (db[x, y] == platforms.platform)
+                    if (db[x, y] == (char)Characters.platforms)
                     { 
                         Console.ForegroundColor = ConsoleColor.Yellow;
                     }

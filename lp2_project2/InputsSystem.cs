@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading;
 using System.Collections.Concurrent;
 
 namespace lp2_project2
@@ -39,9 +36,14 @@ namespace lp2_project2
             ConsoleKey key;
             if(input.TryTake(out key))
             {
+
                 if (key == ConsoleKey.Escape)
                     return Jump.Leave;
                 if(key == ConsoleKey.Spacebar)
+
+                if (key == ConsoleKey.Spacebar)
+                    Console.Beep(1000, 50);
+
                     return Jump.Jumping;     
                 // add more later (like esc for leaving, etc)
             }

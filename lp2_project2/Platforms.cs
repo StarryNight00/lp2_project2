@@ -16,7 +16,7 @@ namespace lp2_project2
         /// the doublebuffer will allow smooth printing
         /// </summary>
         public DoubleBuffer2D<char> db;
-    
+
         /// <summary>
         /// this class sets moving platforms 
         /// in a specified area on the console with different properties for
@@ -31,7 +31,7 @@ namespace lp2_project2
 
             Character = ' ';
 
-            ID = 1;  
+            ID = 1;
         }
 
         /// <summary>
@@ -40,8 +40,8 @@ namespace lp2_project2
         /// </summary>
         public void SetPlatforms()
         {
-           
-            
+
+
         }
 
         /// <summary>
@@ -50,7 +50,7 @@ namespace lp2_project2
         /// <param name="headPos">last known position</param>
         public void MovePlatforms(Positions headPos)
         {
-           
+
         }
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace lp2_project2
         /// </summary>
         public void PlatformUpdate()
         {
-            
+
         }
 
         /// <summary>
@@ -88,6 +88,6 @@ namespace lp2_project2
 
             for (int x = 0; x < db.XDim - 1; x++)
                 db[x, db.YDim - 1] = platform;
-        }  
+        }
     }
 }

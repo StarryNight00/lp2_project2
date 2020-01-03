@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.IO;
 
 namespace lp2_project2
@@ -35,6 +34,7 @@ namespace lp2_project2
         /// </summary>
         public void AddZeros()
         {
+
             AddHighScore(0, this.HighscoresLst);
             AddHighScore(0, this.HighscoresLst);
             AddHighScore(0, this.HighscoresLst);
@@ -45,7 +45,10 @@ namespace lp2_project2
             AddHighScore(0, this.HighscoresLst);
             AddHighScore(0, this.HighscoresLst);
             AddHighScore(0, this.HighscoresLst);
+
         }
+
+        
 
         /// <summary>
         /// Adds the score to the highscore list.
@@ -100,6 +103,7 @@ namespace lp2_project2
         /// </summary>
         public void HighScoreRender()
         {
+            Console.ForegroundColor = ConsoleColor.Red;
             HighscoresLst.Sort();
 
             Console.WriteLine("\n\n\t\t\tHIGHSCORE TABLE");
@@ -173,7 +177,6 @@ namespace lp2_project2
         {
             SaveHighscoresToFile();
         }
-
 
         /// <summary>
         /// Checks for a file path within the project and whether or not the 

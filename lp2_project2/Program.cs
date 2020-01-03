@@ -6,6 +6,7 @@ namespace lp2_project2
     {
         static void Main(string[] args)
         {
+
             // set the console size
             Console.WindowHeight = 35;
             Console.WindowWidth = 65;
@@ -15,10 +16,15 @@ namespace lp2_project2
             Console.BufferWidth = Console.WindowWidth;
             
             // create a new start menu
+
+            // Set Console Window title to game name
+            Console.Title = "Moon Buggy";
+
             Menu menu = new Menu();
 
             // start the menu
             menu.IntroMenu();         
+
 
             //POSSIBLE ADD SCORE LOGIC ///
             //needs to verify landing
