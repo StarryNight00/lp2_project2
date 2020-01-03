@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace lp2_project2
+﻿namespace lp2_project2
 {
     /// <summary>
     /// this class allows us to set various components in the game as game

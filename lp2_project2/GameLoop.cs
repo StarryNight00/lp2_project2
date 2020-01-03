@@ -2,7 +2,6 @@
 using System.Threading;
 using System.Collections.Generic;
 
-
 namespace lp2_project2
 {
     /// <summary>
@@ -11,7 +10,6 @@ namespace lp2_project2
     /// </summary>
     class GameLoop
     {
-
         int frame = 0;
         private int msPerFrame = 60;
         // gets the current objects in the game inside a list
@@ -67,15 +65,14 @@ namespace lp2_project2
         /// </summary>
         public void Loop()
         {
-
-          // set running to true to begin loop
+            // set running to true to begin loop
             running = true;
 
             input.jump = Jump.Idle;
+
             // while losing conditions haven't been met
             while (running)
             {
-
                 long start = DateTime.Now.Ticks;
                 // check if the player has jumped
                 input.jump = input.ProcessInput();

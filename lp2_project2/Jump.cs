@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace lp2_project2
+﻿namespace lp2_project2
 {
     /// <summary>
     /// this enum contains the different states of the jump
@@ -13,6 +9,5 @@ namespace lp2_project2
         Jumping,
         Hovering,
         Falling
-
     }
 }

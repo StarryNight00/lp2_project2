@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace lp2_project2
 {
@@ -54,29 +52,35 @@ namespace lp2_project2
                     ManySpaces();
                     // start the loop
                     Console.Clear();
-
                     loop = new GameLoop();
+                    Console.BackgroundColor = ConsoleColor.Cyan;
                     loop.Loop();
                     break;
                 case 2:
                     //Instructions
                     ManySpaces();
+                    Console.ForegroundColor = ConsoleColor.DarkGray;
                     Instructions();
                     ManySpaces();
+                    Console.ResetColor();
                     MainMenu();
                     break;
                 case 3:
                     //Highscores
                     ManySpaces();
+                    Console.ForegroundColor = ConsoleColor.Red;
                     HighScores();
                     ManySpaces();
+                    Console.ResetColor();
                     MainMenu();
                     break;
                 case 4:
                     //Credits
                     ManySpaces();
+                    Console.ForegroundColor = ConsoleColor.Yellow;
                     Credits();
                     ManySpaces();
+                    Console.ResetColor();
                     MainMenu();
                     break;
                 case 0:
@@ -91,11 +95,6 @@ namespace lp2_project2
             }
         }
 
-<<<<<<< HEAD
-        /// <summary>
-        /// Method to exit the program
-        /// </summary>
-=======
         private void Instructions()
         {
             menuPrnts.PrintInstructions();
@@ -114,7 +113,6 @@ namespace lp2_project2
             Console.ReadKey();
         }
 
->>>>>>> master
         private void Exit()
         {
             hScore.SaveHighscores();

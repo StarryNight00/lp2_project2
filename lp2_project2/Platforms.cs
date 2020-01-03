@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Linq;
 
 namespace lp2_project2
@@ -10,8 +9,7 @@ namespace lp2_project2
     /// ANYTHING RELATED TO THEM CAN BE COMMENTED
     /// </summary>
     class Platforms : GameObject
-    {
-
+    { 
         /// <summary>
         /// this queue will store positions for the platforms to move
         /// </summary>
