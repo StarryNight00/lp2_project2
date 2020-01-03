@@ -80,7 +80,10 @@ namespace lp2_project2
             Console.Write("\n\n\t\t   >> ");
         }
 
-
+        /// <summary>
+        /// Prints the Game Over screen on the console.
+        /// </summary>
+        /// <param name="score">Represents a 32-bit signed integer.</param>
         public static void PrintGameOver(int score)
         {
             Console.WriteLine("\n\n\t\t\tGAME OVER");
