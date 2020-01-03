@@ -12,7 +12,7 @@ namespace lp2_project2
         public void PrintIntroMenu()
         {
             
-            // Print out color
+            // Print out color of title
             Console.ForegroundColor = ConsoleColor.DarkYellow;
 
             string welcome = @"
@@ -98,29 +98,25 @@ __        __   _                            _
         }
 
         /// <summary>
-        /// Method to add sound to console
+        /// Method to add sound to intro menu
         /// </summary>
-        public static void Sound() 
+        public void Sound() 
         {
-            // Random generator
-            
-            // Instance to define frenquancy tone
-
-            // Instance to define time of tone
+            // Variable to set duration of each sound
             int duration = 1000;
-            Console.Beep(500, duration);
-            Thread.Sleep(50);
-            Console.Beep(1000, duration);
-            Thread.Sleep(50);
-            Console.Beep(1200, duration);
-            Thread.Sleep(50);
-            Console.Beep(800, duration);
 
+            // To set frequency of the tone
+            int frenquency;
 
+            // To set random frenquecy
+            Random rnd = new Random();
+            
+            for (int i = 0; i < 3; i++) 
+            {  
+                frenquency = rnd.Next(500, 1500);
+                Console.Beep(frenquency, duration);
+            }
         }
-
-
-
     }
 }
 
