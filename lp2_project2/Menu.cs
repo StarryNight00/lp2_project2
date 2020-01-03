@@ -67,6 +67,9 @@ namespace lp2_project2
             }
         }
 
+        /// <summary>
+        /// Method to exit the program
+        /// </summary>
         private void Exit()
         {
             Environment.Exit(0);
