@@ -1,20 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Linq;
 
 namespace lp2_project2
 {
     /// <summary>
-    /// STILL WORKING ON THIS LOGIC, ISN'T THAT RELEVANT FOR THE BUFFER PROBLEM
-    /// ANYTHING RELATED TO THEM CAN BE COMMENTED
+    /// this class let's us set the platforms and print them on the screen
     /// </summary>
     class Platforms : GameObject
     {
-        /// <summary>
-        /// this queue will store positions for the platforms to move
-        /// </summary>
-        public Queue<Positions> platformElements;
+
+        public char platform = '#';
+        public char hole = '_';
 
         /// <summary>
         /// the doublebuffer will allow smooth printing
@@ -23,14 +19,13 @@ namespace lp2_project2
     
         /// <summary>
         /// this class sets moving platforms 
-        /// in a specified area on the console with different properties
+        /// in a specified area on the console with different properties for
+        /// platforms and holes
         /// </summary>
         /// <param name="doubleb"></param>
         public Platforms(DoubleBuffer2D<char> doubleb)
         {
             db = doubleb;
-
-            platformElements = new Queue<Positions>();
 
             SetPlatforms();
 
@@ -45,11 +40,8 @@ namespace lp2_project2
         /// </summary>
         public void SetPlatforms()
         {
+           
             
-            for (int x = 0; x <= 3; x++)
-            {
-                platformElements.Enqueue(new Positions(x, 9));
-            }
         }
 
         /// <summary>
@@ -58,11 +50,7 @@ namespace lp2_project2
         /// <param name="headPos">last known position</param>
         public void MovePlatforms(Positions headPos)
         {
-            for (int x = headPos.X + 1; x <= (headPos.X + 3); x++)
-            {
-                platformElements.Enqueue(new Positions(x, 9));
-            }
-         
+           
         }
 
         /// <summary>
@@ -71,25 +59,7 @@ namespace lp2_project2
         /// </summary>
         public void PlatformUpdate()
         {
-            Positions platformStart = platformElements.Last();
-
-            platformElements.Dequeue();
-
-            if (platformStart.X < db.XDim)//Console.BufferWidth - 1)
-            {
-                Positions newPlatformStart = new Positions(platformStart.X
-                    + 1, platformStart.Y);
-
-                MovePlatforms(newPlatformStart);
-            }
-
-            // check if the end of the console has been reached and reset
-            else
-            {
-                platformElements.Dequeue();
-                platformStart.X = 1;
-                SetPlatforms();
-            } 
+            
         }
 
         /// <summary>
@@ -99,20 +69,25 @@ namespace lp2_project2
         /// </summary>
         public void PrintPlatforms()
         {
-            foreach (Positions pos in platformElements)
+            Random rnd = new Random();
+
+            int rand = rnd.Next(1, 2);
+
+            if (rnd.Next(1, 10) > 1)
             {
-                if(pos.X >= 0 && pos.X <= 10)
-                { 
-                    Random rnd = new Random();
+                db[0, db.YDim - 2] = platform;
+            }
 
-                    double random = rnd.Next(0, 10);
+            else
+            {
+                db[0, db.YDim - 2] = hole;
+            }
 
-                    if (random > 2)
-                        db[pos.X, pos.Y] = '#';
-                    else
-                        db[pos.X, pos.Y] = '.';
-                }
-            }    
+            for (int x = 1; x < db.XDim - 1; x++)
+                db[x, db.YDim - 2] = db[x - 1, db.YDim - 2];
+
+            for (int x = 0; x < db.XDim - 1; x++)
+                db[x, db.YDim - 1] = platform;
         }  
     }
 }

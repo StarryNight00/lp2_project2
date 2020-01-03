@@ -12,7 +12,8 @@ namespace lp2_project2
         Idle,
         Jumping,
         Hovering,
-        Falling
+        Falling,
+            Lag
 
     }
 }

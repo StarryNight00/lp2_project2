@@ -2,7 +2,6 @@
 using System.Threading;
 using System.Collections.Generic;
 
-
 namespace lp2_project2
 {
     /// <summary>
@@ -13,14 +12,14 @@ namespace lp2_project2
     {
         public Map background;
 
-        int frame = 0;
+        int score = 0;
         private int msPerFrame = 60;
         // gets the current objects in the game inside a list
         // NOT USED YET!
         public List<GameObject> objectsInGame = new List<GameObject>();
 
         // initiates the platforms that will be displayed along the loop
-    //    public Platforms platforms;
+        public Platforms platforms;
 
         // initiates our player 
         public Player plyr;
@@ -39,23 +38,21 @@ namespace lp2_project2
         /// and prepare the console for optimised running
         /// </summary>
         public GameLoop()
-        {
-          
+        {    
             // sets the cursor's visibility to false so it won't render
             Console.CursorVisible = false;
                
             // creates a new doublebuffer for our map with 60x60 dimensions
-            db = new DoubleBuffer2D<char>(60, 20);
+            db = new DoubleBuffer2D<char>(60, 30);
 
             background = new Map(db);
 
             // creates our platforms and assigns the current buffer
-   //         platforms = new Platforms(db);
+            platforms = new Platforms(db);
 
             // creates our player and assigns the current buffer
             plyr = new Player(db);
-            plyr.newPos = new Positions(58, 18);
-
+          
             // prepares to read input and process it
             input = new InputsSystem();
 
@@ -79,33 +76,34 @@ namespace lp2_project2
             // while losing conditions haven't been met
             while (running)
             {
-
                 long start = DateTime.Now.Ticks;
                 // check if the player has jumped
                 input.jump = input.ProcessInput();
 
                 // call the update method to move things on the screen
-                Update();
+                Update();       
 
-        //        platforms.PlatformUpdate();
-
-
-                
                 // render our current game window 
-                Render();
-                //Thread.Sleep(100);
-
-                CheckCollision();
+                Render();          
 
                 if (input.jump == Jump.Hovering)
                 {
-                    plyr.newPos.Y -= 1;
+                    plyr.Position.Y -= 1;
+                    plyr.Position.X -= 1;
                     input.jump = Jump.Falling;
                 }
 
                 if (input.jump == Jump.Falling)
                 {
-                    plyr.newPos.Y += 3;
+                    plyr.Position.Y -= 1;
+                    plyr.Position.X -= 1;
+                    input.jump = Jump.Lag;
+                }
+
+                if (input.jump == Jump.Lag)
+                {
+                    plyr.Position.Y += 4;
+                    plyr.Position.X += 2;
                     input.jump = Jump.Idle;
                 }
 
@@ -121,7 +119,11 @@ namespace lp2_project2
         /// </summary>
         public void Update()
         {
-           // check if there's any input happening and act accordingly
+            CheckCollision();
+
+            // platforms.PlatformUpdate();
+
+            // check if there's any input happening and act accordingly
             if (input.jump != Jump.Idle)
             {
                 // if player has hit spacebar
@@ -129,18 +131,22 @@ namespace lp2_project2
                 {
                     // this will move the player up by one on the Y axis
                     case Jump.Jumping:
-                        plyr.newPos.Y -= 1; 
+                        plyr.Position.Y -= 1; 
                         input.jump = Jump.Hovering;
                         break;
-                }    
-                
+                }                    
             }
-        }
-        
+        }     
         public void CheckCollision()
         {
-            if (db[59, 19] == '.')
+            if (db[plyr.Position.X, 28] == '.')
             {
+                if (input.jump == Jump.Idle)
+                {
+                    Console.Clear();
+                    running = false;
+                }
+
                 // check if player isn't jumping or is falling
                 // check if player position equals hole after jump   
                 if (input.jump != Jump.Hovering)
@@ -149,29 +155,24 @@ namespace lp2_project2
                     if (input.jump != Jump.Jumping)
                     {
                         // increase player position so it doesn't disappear
-                        plyr.newPos.Y += 1;
-
-                        // debug
-                        Console.WriteLine("Collision");
-
-                        //running = false;
+                        //plyr.Position.Y += 1;
+                        running = false;
+                        Console.Clear();
                     }
                 }
             }
 
             // check if player position equals platform after jump
-            if (db[plyr.newPos.X, 19] == '#')
+            if (db[plyr.Position.X, 28] == '#')
             {
                 // check if player isn't jumping or is falling
                 if (input.jump != Jump.Idle)
                 {
                     // increase player position so it doesn't disappear
-                    plyr.newPos.Y -= 1;
+                    plyr.Position.Y -= 1;
                 }
             }
-        }
-
-        
+        }    
 
         /// <summary>
         /// this method allows us to set the characters in the doublebuffer and
@@ -179,34 +180,18 @@ namespace lp2_project2
         /// </summary>
         public void Render()
         {
-  
-
-            // TBH IDK WHY THIS ONE WORKS FOR RENDERING
+            // set cursor at start of screen for proper printing
             Console.SetCursorPosition(0, 0);
 
-            
-            // set each character in the buffer to the default
-            for (int y = 0; y < db.YDim; y++)
-            {
-                for (int x = 0; x < db.XDim; x++)
-                {
-
-                        db[x, y] = '-';
-                }     
-            }
-
-            // set player to it's character
-            // plyr.RenderPlayer();
-
-            // set platforms to their corresponding characters
-            //     platforms.PrintPlatforms();
-
-            background.Update();
+            // print the background
+            background.Print();
 
             plyr.RenderPlayer();
 
+            // set platforms to their corresponding characters
+            platforms.PrintPlatforms();
 
-            //
+            // swap between the doublebuffer's arrays to render each frame
             db.Swap();
 
             // print the doublebuffer's array on the console
@@ -214,14 +199,32 @@ namespace lp2_project2
             {
                 for (int x = 0; x < db.XDim; x++)
                 {
+                    Console.BackgroundColor = ConsoleColor.DarkBlue;
+                  
+                    if (db[x, y] == platforms.hole)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                    }
+
+                    if (db[x, y] == 'X')
+                    {
+                        Console.ForegroundColor = ConsoleColor.White;            
+                    }
+
+                    if (db[x, y] == platforms.platform)
+                    { 
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                    }
+
                     Console.Write(db[x, y]);
+                    Console.ResetColor(); 
+
                 }
                 Console.WriteLine();
             }
 
             // Render frame number (just for debugging purposes)
-            Console.Write($"Frame: {frame++}\n");
-                    
+            Console.Write($"Distance: {score++}\n");             
         }
     }
 }

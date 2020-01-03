@@ -16,28 +16,26 @@ namespace lp2_project2
         {
             db = doubleBuffer;
         }
-        public void Update()
-        {
-            Random rnd = new Random();
-
-            int rand = rnd.Next(1,2);
-
-            if (rnd.Next(1, 10) > 1)
-            {
-                db[0, maxY - 1] = '#';
-            }
-
-            else
-            {
-                db[0, maxY - 1] = '.';
-            }
-            
-            for (int x = 1; x < maxX - 1; x++)
-                db[x, maxY - 1] = db[x - 1, maxY - 1];
-        }
-        private void RenderMap()
+        public void Print()
         {
 
+            // set each character in the buffer to the default
+            for (int y = 0; y < db.YDim; y++)
+            {
+                for (int x = 0; x < db.XDim; x++)
+                {
+                    Random rnd = new Random(); 
+
+                    
+                     if(rnd.Next(0,200) < 2)
+                         db[x, y] = '*';
+
+                     else
+                         db[x, y] = ' ';
+                         
+                }
+            }
         }
+
     }
 }
