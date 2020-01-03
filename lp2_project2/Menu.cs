@@ -11,6 +11,7 @@ namespace lp2_project2
 
         private int input;
 
+        // to start a gameloop
         private GameLoop loop;
         private void ManySpaces()
         {
@@ -51,6 +52,9 @@ namespace lp2_project2
                 case 1:
                     //Game
                     ManySpaces();
+                    // start the loop
+                    Console.Clear();
+
                     loop = new GameLoop();
                     loop.Loop();
                     break;
@@ -87,6 +91,11 @@ namespace lp2_project2
             }
         }
 
+<<<<<<< HEAD
+        /// <summary>
+        /// Method to exit the program
+        /// </summary>
+=======
         private void Instructions()
         {
             menuPrnts.PrintInstructions();
@@ -105,6 +114,7 @@ namespace lp2_project2
             Console.ReadKey();
         }
 
+>>>>>>> master
         private void Exit()
         {
             hScore.SaveHighscores();
