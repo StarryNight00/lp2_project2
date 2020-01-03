@@ -12,20 +12,14 @@ namespace lp2_project2
     {
         // center of the cart
         public Positions Position;
-
-        // front wheel of the cart
-        private Positions frontWheelPosition;
-
+        
         // front wheel of the cart
         private Positions backWheelPosition;
 
         // top of the cart
         private Positions topPosition;
 
-        public char topImg = 'X';
-        public char wheelsImg = 'O';
-
-        public char wheelsImg2 = '0';
+        private Positions middlePosition;
 
         // getting an instance of the doublebuffer so we can print to it
         public DoubleBuffer2D<char> db;
@@ -40,8 +34,8 @@ namespace lp2_project2
             db = doubleb;
             Position = new Positions(56, 27);
             SetPositions();
-            db[frontWheelPosition.X, frontWheelPosition.Y] = wheelsImg;
-            db[backWheelPosition.X, backWheelPosition.Y] = wheelsImg;
+            db[Position.X, Position.Y] = (char)Characters.tankWheels;
+            db[backWheelPosition.X, backWheelPosition.Y] = (char)Characters.tankWheels;
             Character = 'X';
             ID = 0;
         }
@@ -52,32 +46,31 @@ namespace lp2_project2
         /// </summary>
         public void RenderPlayer()
         {
-            // for debug
-            db[Position.X, Position.Y] = '.';
 
             SetPositions();
 
             // printing cart in it's due position
-            db[topPosition.X, topPosition.Y] = topImg;
+            db[topPosition.X, topPosition.Y] = (char)Characters.tankHead;
 
-            if (db[frontWheelPosition.X, frontWheelPosition.Y] == wheelsImg)
+            db[middlePosition.X, middlePosition.Y] = (char)Characters.tankmiddle;
+
+            if (db[Position.X, Position.Y] == (char)Characters.tankWheels)
             {
-                db[frontWheelPosition.X, frontWheelPosition.Y] = wheelsImg2;
-                db[backWheelPosition.X, backWheelPosition.Y] = wheelsImg2;
+                db[Position.X, Position.Y] = (char)Characters.tankWheels1;
+                db[backWheelPosition.X, backWheelPosition.Y] = (char)Characters.tankWheels1;
             }
 
             else
             {
-                db[frontWheelPosition.X, frontWheelPosition.Y] = wheelsImg;
-                db[backWheelPosition.X, backWheelPosition.Y] = wheelsImg;
+                db[Position.X, Position.Y] = (char)Characters.tankWheels;
+                db[backWheelPosition.X, backWheelPosition.Y] = (char)Characters.tankWheels;
             }
         }
-
         public void SetPositions()
         {
-            frontWheelPosition = new Positions(Position.X - 1, Position.Y);
-            backWheelPosition = new Positions(Position.X + 1, Position.Y);
-            topPosition = new Positions(Position.X, Position.Y - 1);
+            middlePosition = new Positions(Position.X + 1, Position.Y);
+            backWheelPosition = new Positions(Position.X + 2, Position.Y);
+            topPosition = new Positions(Position.X + 1, Position.Y - 1);
         }
     }
 }
