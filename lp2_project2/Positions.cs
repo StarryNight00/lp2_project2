@@ -4,6 +4,10 @@ using System.Text;
 
 namespace lp2_project2
 {
+    /// <summary>
+    /// this struct allows us to set gameobjects' positions with an y and x
+    /// coordinates
+    /// </summary>
     public struct Positions
     {
         public int X;

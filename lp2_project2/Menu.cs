@@ -85,6 +85,9 @@ namespace lp2_project2
                 case 1:
                     //Game
                     ManySpaces();
+                    // start the loop
+                    Console.Clear();
+
                     loop = new GameLoop();
                     loop.Loop();
                     break;
