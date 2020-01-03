@@ -11,7 +11,6 @@ namespace lp2_project2
     /// </summary>
     class Platforms : GameObject
     {
-
         /// <summary>
         /// this queue will store positions for the platforms to move
         /// </summary>
@@ -113,9 +112,7 @@ namespace lp2_project2
                     else
                         db[pos.X, pos.Y] = '.';
                 }
-            }
-               
-        }
-      
+            }    
+        }  
     }
 }

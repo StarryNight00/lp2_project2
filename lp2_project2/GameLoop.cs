@@ -11,6 +11,7 @@ namespace lp2_project2
     /// </summary>
     class GameLoop
     {
+        public Map background;
 
         int frame = 0;
         private int msPerFrame = 60;
@@ -19,7 +20,7 @@ namespace lp2_project2
         public List<GameObject> objectsInGame = new List<GameObject>();
 
         // initiates the platforms that will be displayed along the loop
-        public Platforms platforms;
+    //    public Platforms platforms;
 
         // initiates our player 
         public Player plyr;
@@ -39,18 +40,21 @@ namespace lp2_project2
         /// </summary>
         public GameLoop()
         {
+          
             // sets the cursor's visibility to false so it won't render
             Console.CursorVisible = false;
                
             // creates a new doublebuffer for our map with 60x60 dimensions
             db = new DoubleBuffer2D<char>(60, 20);
 
+            background = new Map(db);
+
             // creates our platforms and assigns the current buffer
-            platforms = new Platforms(db);
+   //         platforms = new Platforms(db);
 
             // creates our player and assigns the current buffer
             plyr = new Player(db);
-            plyr.newPos = new Positions(10, 8);
+            plyr.newPos = new Positions(58, 18);
 
             // prepares to read input and process it
             input = new InputsSystem();
@@ -83,10 +87,10 @@ namespace lp2_project2
                 // call the update method to move things on the screen
                 Update();
 
-                platforms.PlatformUpdate();
+        //        platforms.PlatformUpdate();
 
-              
 
+                
                 // render our current game window 
                 Render();
                 //Thread.Sleep(100);
@@ -125,7 +129,7 @@ namespace lp2_project2
                 {
                     // this will move the player up by one on the Y axis
                     case Jump.Jumping:
-                        plyr.newPos.Y = Math.Max(0, plyr.newPos.Y - 1); ;
+                        plyr.newPos.Y -= 1; 
                         input.jump = Jump.Hovering;
                         break;
                 }    
@@ -135,30 +139,33 @@ namespace lp2_project2
         
         public void CheckCollision()
         {
-            // temporary collision check with platforms
-            foreach (Positions pos in platforms.platformElements)
+            if (db[59, 19] == '.')
             {
-                // check if player position equals hole after jump
-                if (pos.X == plyr.newPos.X && db[pos.X, pos.Y] == '.')
+                // check if player isn't jumping or is falling
+                // check if player position equals hole after jump   
+                if (input.jump != Jump.Hovering)
+                    
                 {
-                    // check if player isn't jumping or is falling
-                    if(input.jump != Jump.Hovering && input.jump!= Jump.Jumping)
-                    { 
+                    if (input.jump != Jump.Jumping)
+                    {
                         // increase player position so it doesn't disappear
                         plyr.newPos.Y += 1;
 
                         // debug
-                        //Console.WriteLine("Collision");
+                        Console.WriteLine("Collision");
 
                         //running = false;
-                    }             
+                    }
                 }
+            }
 
-                // check if player position equals platform after jump
-                else if (pos.Y == plyr.newPos.Y && pos.X == plyr.newPos.X
-                    && db[pos.X, pos.Y] == '#')
+            // check if player position equals platform after jump
+            if (db[plyr.newPos.X, 19] == '#')
+            {
+                // check if player isn't jumping or is falling
+                if (input.jump != Jump.Idle)
                 {
-                    // doesn't let player fall
+                    // increase player position so it doesn't disappear
                     plyr.newPos.Y -= 1;
                 }
             }
@@ -177,21 +184,27 @@ namespace lp2_project2
             // TBH IDK WHY THIS ONE WORKS FOR RENDERING
             Console.SetCursorPosition(0, 0);
 
+            
             // set each character in the buffer to the default
             for (int y = 0; y < db.YDim; y++)
             {
                 for (int x = 0; x < db.XDim; x++)
                 {
-                    db[x,y] = ' ';
-                }
-           
+
+                        db[x, y] = '-';
+                }     
             }
 
             // set player to it's character
-            plyr.RenderPlayer();
+            // plyr.RenderPlayer();
 
             // set platforms to their corresponding characters
-            platforms.PrintPlatforms();
+            //     platforms.PrintPlatforms();
+
+            background.Update();
+
+            plyr.RenderPlayer();
+
 
             //
             db.Swap();
