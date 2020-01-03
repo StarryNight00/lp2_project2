@@ -144,6 +144,9 @@ namespace lp2_project2
                         // increase player position so it doesn't disappear
                         plyr.newPos.Y += 1;
 
+                        // On Collison make loosing sound
+                        Console.Beep(600, 500);
+
                         // debug
                         //Console.WriteLine("Collision");
 

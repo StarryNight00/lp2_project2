@@ -6,6 +6,7 @@ namespace lp2_project2
     {
         static void Main(string[] args)
         {
+            // Set Console Window title to game name
             Console.Title = "Moon Buggy";
 
             Menu menu = new Menu();

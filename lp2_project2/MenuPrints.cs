@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Drawing;
+using System.Threading;
 
 namespace lp2_project2
 {
@@ -10,6 +11,8 @@ namespace lp2_project2
 
         public void PrintIntroMenu()
         {
+            
+            // Print out color
             Console.ForegroundColor = ConsoleColor.DarkYellow;
 
             string welcome = @"
@@ -18,7 +21,6 @@ __        __   _                            _
  \ \ /\ / / _ \ |/ __/ _ \| '_ ` _ \ / _ \ | __/ _ \ 
   \ V  V /  __/ | (_| (_) | | | | | |  __/ | || (_) |
    \_/\_/ \___|_|\___\___/|_| |_| |_|\___|  \__\___/  ";
-
 
             
             string title = @"                       
@@ -36,8 +38,8 @@ __        __   _                            _
             |  |_)  | |  `--'  | |  |__| | |  |__| |    |  |     
             |______/   \______/   \______|  \______|    |__|";
 
-            
             Console.WriteLine("\n" + welcome + "\n\n\n" + title);
+            Sound();
         }
         
 
@@ -94,5 +96,31 @@ __        __   _                            _
             Console.WriteLine("\n\t\t  To go back, press ANY KEY");
             Console.Write("\n\n\t\t   >> ");
         }
+
+        /// <summary>
+        /// Method to add sound to console
+        /// </summary>
+        public static void Sound() 
+        {
+            // Random generator
+            
+            // Instance to define frenquancy tone
+
+            // Instance to define time of tone
+            int duration = 1000;
+            Console.Beep(500, duration);
+            Thread.Sleep(50);
+            Console.Beep(1000, duration);
+            Thread.Sleep(50);
+            Console.Beep(1200, duration);
+            Thread.Sleep(50);
+            Console.Beep(800, duration);
+
+
+        }
+
+
+
     }
 }
+
