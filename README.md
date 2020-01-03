@@ -16,9 +16,11 @@
 
 report
 
-**Catarina Matias** (Menu (and its Prints), Score and HighScore handling, ReadMe report):
+**Catarina Matias** (Menu (and its Prints and Exceptions); Score, HighScore and high score File handling; ReadMe report):
 
-report
+Responsible for the `Menu` logic and overall appearance of the menu information, `MenuPrints`. Also responsible for the user input, its Exceptions, and those on the mentioned classes.
+
+Creation of the `Score` and `HighScore` classes, along with the file handling methods to save the high score information in-between program runs.
 
 **Diana Levay** (list of things done):
 

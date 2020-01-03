@@ -20,7 +20,7 @@ namespace lp2_project2
 
         public void Clear()
         {
-            Array.Clear(next, 0, XDim * YDim - 1);
+            Array.Clear(next, 0, XDim * YDim);
         }
 
         public DoubleBuffer2D(int x, int y)
@@ -35,6 +35,7 @@ namespace lp2_project2
             T[,] aux = current;
             current = next;
             next = aux;
+            Clear();
         }
     }
 }

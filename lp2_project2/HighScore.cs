@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.IO;
 
 namespace lp2_project2
@@ -35,25 +34,29 @@ namespace lp2_project2
         /// </summary>
         public void AddZeros()
         {
-            AddScore(0);
-            AddScore(0);
-            AddScore(0);
-            AddScore(0);
-            AddScore(0);
-            AddScore(0);
-            AddScore(0);
-            AddScore(0);
-            AddScore(0);
-            AddScore(0);
+
+            AddHighScore(0, this.HighscoresLst);
+            AddHighScore(0, this.HighscoresLst);
+            AddHighScore(0, this.HighscoresLst);
+            AddHighScore(0, this.HighscoresLst);
+            AddHighScore(0, this.HighscoresLst);
+            AddHighScore(0, this.HighscoresLst);
+            AddHighScore(0, this.HighscoresLst);
+            AddHighScore(0, this.HighscoresLst);
+            AddHighScore(0, this.HighscoresLst);
+            AddHighScore(0, this.HighscoresLst);
+
         }
+
+        
 
         /// <summary>
         /// Adds the score to the highscore list.
         /// </summary>
         /// <param name="score">Represents a 32-bit signed integer.</param>
-        public void AddScore(int score)
+        public void AddHighScore(int score, List<int> lst)
         {
-            AddAndCutScore(score);
+            AddAndCutScore(score, lst);
         }
 
         /// <summary>
@@ -61,8 +64,10 @@ namespace lp2_project2
         /// enough. Cuts off any extra elements.
         /// </summary>
         /// <param name="score">Represents a 32-bit signed integer.</param>
-        private void AddAndCutScore(int score)
+        private void AddAndCutScore(int score, List<int> lst)
         {
+            HighscoresLst = lst;
+
             //Sorts the current list
             HighscoresLst.Sort();
 
@@ -89,7 +94,7 @@ namespace lp2_project2
             {
                 HighscoresLst.Add(score);
                 HighscoresLst.Sort();
-                HighscoresLst.RemoveAt(0);
+                HighscoresLst.RemoveAt(5);
             }
         }
 
@@ -98,9 +103,10 @@ namespace lp2_project2
         /// </summary>
         public void HighScoreRender()
         {
+            Console.ForegroundColor = ConsoleColor.Red;
             HighscoresLst.Sort();
 
-            Console.WriteLine("\t\t\tHIGHSCORE TABLE");
+            Console.WriteLine("\n\n\t\t\tHIGHSCORE TABLE");
             Console.WriteLine("\n\t\tCheck if your score made it to the " +
                               "highest" +
                               "\n\t\tscores table!" +
@@ -114,45 +120,45 @@ namespace lp2_project2
             {
                 if(HighscoresLst[i] == 0)
                 {
-                    Console.WriteLine($"\n\t\t    {placement} " +
-                                      $"- score:\t   000000");
+                    Console.WriteLine($"\n\t\t    place {placement}" +
+                                      $"\t   000000");
                 }
                 else
                 {
                     if (HighscoresLst[i] < 10)
                     {
-                        Console.WriteLine($"\n\t\t    {placement} - " +
-                                      $"score:\t   00000{HighscoresLst[i]}");
+                        Console.WriteLine($"\n\t\t    place {placement}" +
+                                          $"\t   00000{HighscoresLst[i]}");
                     }
                     else if (HighscoresLst[i] < 100)
                     {
-                        Console.WriteLine($"\n\t\t    {placement} - " +
-                                      $"score:\t   0000{HighscoresLst[i]}");
+                        Console.WriteLine($"\n\t\t    place {placement}" +
+                                          $"\t   0000{HighscoresLst[i]}");
                     }
                     else if (HighscoresLst[i] < 1000)
                     {
-                        Console.WriteLine($"\n\t\t    {placement} - " +
-                                      $"score:\t   000{HighscoresLst[i]}");
+                        Console.WriteLine($"\n\t\t    place {placement}" +
+                                          $"\t   000{HighscoresLst[i]}");
                     }
                     else if (HighscoresLst[i] < 10000)
                     {
-                        Console.WriteLine($"\n\t\t    {placement} - " +
-                                      $"score:\t   00{HighscoresLst[i]}");
+                        Console.WriteLine($"\n\t\t    place {placement}" +
+                                          $"\t   00{HighscoresLst[i]}");
                     }
                     else if (HighscoresLst[i] < 100000)
                     {
-                        Console.WriteLine($"\n\t\t    {placement} - " +
-                                      $"score:\t   0{HighscoresLst[i]}");
+                        Console.WriteLine($"\n\t\t    place {placement}" +
+                                          $"\t   0{HighscoresLst[i]}");
                     }
                     else if (HighscoresLst[i] < 1000000)
                     {
-                        Console.WriteLine($"\n\t\t    {placement} - " +
-                                      $"score:\t   {HighscoresLst[i]}");
+                        Console.WriteLine($"\n\t\t    place {placement}" +
+                                          $"\t   {HighscoresLst[i]}");
                     }
                     else if (HighscoresLst[i] > 1000000)
                     {
-                        Console.WriteLine($"\n\t\t    {placement} - " +
-                                      $"score:\t   {HighscoresLst[i]}");
+                        Console.WriteLine($"\n\t\t    place {placement}" +
+                                          $"\t   {HighscoresLst[i]}");
                     }
                 }
 
@@ -171,7 +177,6 @@ namespace lp2_project2
         {
             SaveHighscoresToFile();
         }
-
 
         /// <summary>
         /// Checks for a file path within the project and whether or not the 
@@ -238,7 +243,7 @@ namespace lp2_project2
                         try
                         {
                             int score = int.Parse(s);
-                            AddScore(score);
+                            AddHighScore(score, this.HighscoresLst);
                         }
                         catch (Exception)
                         {

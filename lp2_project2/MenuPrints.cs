@@ -1,20 +1,62 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Drawing;
+using System.Threading;
 
 namespace lp2_project2
 {
-    public class MenuPrints
+    /// <summary>
+    /// Static class with all console screen renders and information.
+    /// </summary>
+    static class MenuPrints
     {
-
-        public void PrintIntroMenu()
+        /// <summary>
+        /// Prints the Introduction tag on the console.
+        /// </summary>
+        public static void PrintIntroMenu()
         {
-            Console.WriteLine("\n\n\n\t\t  Welcome Space Voyager!!");
+            
+            // Print out color of title
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+
+            string welcome = @"
+__        __   _                            _        
+\ \      / /__| | ___ ___  _ __ ___   ___  | |_ ___  
+ \ \ /\ / / _ \ |/ __/ _ \| '_ ` _ \ / _ \ | __/ _ \ 
+  \ V  V /  __/ | (_| (_) | | | | | |  __/ | || (_) |
+   \_/\_/ \___|_|\___\___/|_| |_| |_|\___|  \__\___/  ";
+
+            
+            string title = @"                       
+                .___  ___.   ______     ______   .__   __. 
+                |   \/   |  /  __  \   /  __  \  |  \ |  | 
+                |  \  /  | |  |  |  | |  |  |  | |   \|  | 
+                |  |\/|  | |  |  |  | |  |  |  | |  . `  | 
+                |  |  |  | |  `--'  | |  `--'  | |  |\   | 
+                |__|  |__|  \______/   \______/  |__| \__| 
+                                           
+            .______    __    __    _______   ___________    ____ 
+            |   _  \  |  |  |  |  /  _____| /  _____\   \  /   / 
+            |  |_)  | |  |  |  | |  |  __  |  |  __  \   \/   /  
+            |   _  <  |  |  |  | |  | |_ | |  | |_ |  \_    _/   
+            |  |_)  | |  `--'  | |  |__| | |  |__| |    |  |     
+            |______/   \______/   \______|  \______|    |__|";
+
+            Console.WriteLine("\n" + welcome + "\n\n\n" + title);
+            Sound();
         }
+        
 
-        public void PrintMainMenu()
+        /// <summary>
+        /// Prints the Menu options on the console.
+        /// </summary>
+        public static void PrintMainMenu()
         {
+
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine("\t\t\tMAIN MENU");
+
             Console.WriteLine("\n\t\t   1 - Start Game");
             Console.WriteLine("\n\t\t   2 - Instructions");
             Console.WriteLine("\n\t\t   3 - Highscores");
@@ -23,10 +65,17 @@ namespace lp2_project2
             Console.Write("\n\n\n\t\t   >> ");
         }
 
-        public void PrintInstructions()
+        /// <summary>
+        /// Prints the Instructions on the console.
+        /// </summary>
+        public static void PrintInstructions()
         {
-            string key = "KEY";
-            Console.WriteLine("\t\t\tINSTRUCTIONS");
+
+            string key = "SPACE";
+            Console.WriteLine("\n\n\t\t\tINSTRUCTIONS");
+
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+
             Console.WriteLine("\t\tReady to explore the Moon?!");
             Console.WriteLine("\n\tAs you explore, you will find how irre" +
                               "gular\n\tthe Moon can be!\n");
@@ -43,8 +92,13 @@ namespace lp2_project2
             Console.Write("\n\n\t\t   >> ");
         }
 
-        public void PrintCredits()
+        /// <summary>
+        /// Prints the Credits information on the console.
+        /// </summary>
+        public static void PrintCredits()
         {
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("\t\t\t     CREDITS\n");
 
             Console.WriteLine("\t\tThis project was developed by these " +
@@ -65,5 +119,41 @@ namespace lp2_project2
             Console.WriteLine("\n\t\t  To go back, press ANY KEY");
             Console.Write("\n\n\t\t   >> ");
         }
+
+        /// <summary>
+
+        /// Prints the Game Over screen on the console.
+        /// </summary>
+        /// <param name="score">Represents a 32-bit signed integer.</param>
+        public static void PrintGameOver(int score)
+        {
+            Menu menu = new Menu();
+            Console.WriteLine("\n\n\t\t\tGAME OVER");
+            Console.WriteLine("\t    Better Luck Next Time, Space Voyager.");
+            Console.WriteLine($"\n\n\t\t Your Score was ... {score}");
+
+            Console.ReadKey();
+            menu.IntroMenu();
+        }
+        /// Method to add sound to intro menu
+        /// </summary>
+        public static void Sound() 
+        {
+            // Variable to set duration of each sound
+            int duration = 1000;
+
+            // To set frequency of the tone
+            int frenquency;
+
+            // To set random frenquecy
+            Random rnd = new Random();
+            
+            for (int i = 0; i < 3; i++) 
+            {  
+                frenquency = rnd.Next(500, 1500);
+                Console.Beep(frenquency, duration);
+            }
+        }
     }
 }
+
