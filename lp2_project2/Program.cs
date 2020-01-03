@@ -19,6 +19,23 @@ namespace lp2_project2
 
             // start the menu
             menu.IntroMenu();         
+
+            //POSSIBLE ADD SCORE LOGIC ///
+            //needs to verify landing
+
+            /*Score score = new Score();
+            score.ResetScore();
+            while (score.ScoreValue <= 20)
+            {
+                score.RenderScore();
+                if (Console.ReadKey().Key == ConsoleKey.Spacebar)
+                {
+                    score.AddScore();
+                }
+
+                Console.WriteLine("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+            }*/
+
         }
     }
 }

@@ -39,6 +39,8 @@ namespace lp2_project2
             ConsoleKey key;
             if(input.TryTake(out key))
             {
+                if (key == ConsoleKey.Escape)
+                    return Jump.Leave;
                 if(key == ConsoleKey.Spacebar)
                     return Jump.Jumping;     
                 // add more later (like esc for leaving, etc)

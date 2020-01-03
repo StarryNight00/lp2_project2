@@ -13,7 +13,8 @@ namespace lp2_project2
         Jumping,
         Hovering,
         Falling,
-            Lag
+            Lag,
+            Leave
 
     }
 }

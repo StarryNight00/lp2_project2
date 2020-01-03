@@ -10,6 +10,11 @@ namespace lp2_project2
     /// </summary>
     class GameLoop
     {
+        private HighScore hs;           /////
+
+        private List<int> hsList;       /////
+
+
         public Map background;
 
         int score = 0;
@@ -37,8 +42,11 @@ namespace lp2_project2
         /// this constructor allows us to set our initial values for the game
         /// and prepare the console for optimised running
         /// </summary>
-        public GameLoop()
-        {    
+        public GameLoop(HighScore hs, List<int> lst) ///////////////////7
+        {
+            this.hs = hs; //////////
+            hsList = lst; //////////////
+
             // sets the cursor's visibility to false so it won't render
             Console.CursorVisible = false;
                
@@ -84,7 +92,19 @@ namespace lp2_project2
                 Update();       
 
                 // render our current game window 
-                Render();          
+                Render();
+
+                if (input.jump == Jump.Leave)  /////////////////////
+                {
+                    running = false;
+                    hs.AddHighScore(score, hsList);
+
+                    //
+                    hs.HighScoreRender();
+                    //
+
+                    MenuPrints.PrintGameOver(score);
+                }
 
                 if (input.jump == Jump.Hovering)
                 {
@@ -119,6 +139,7 @@ namespace lp2_project2
         /// </summary>
         public void Update()
         {
+            
             CheckCollision();
 
             // platforms.PlatformUpdate();
@@ -145,17 +166,18 @@ namespace lp2_project2
                 {
                     Console.Clear();
                     running = false;
+                    MenuPrints.PrintGameOver(score);
                 }
 
                 // check if player isn't jumping or is falling
                 // check if player position equals hole after jump   
                 if (input.jump != Jump.Hovering)
-                    
                 {
                     if (input.jump != Jump.Jumping)
                     {
                         // increase player position so it doesn't disappear
                         //plyr.Position.Y += 1;
+                        MenuPrints.PrintGameOver(score);
                         running = false;
                         Console.Clear();
                     }
