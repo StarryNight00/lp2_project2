@@ -14,7 +14,7 @@ namespace lp2_project2
 
         public void PrintMainMenu()
         {
-            Console.WriteLine("\t\t\tMAIN MENU");
+            Console.WriteLine("\n\n\t\t\tMAIN MENU");
             Console.WriteLine("\n\t\t   1 - Start Game");
             Console.WriteLine("\n\t\t   2 - Instructions");
             Console.WriteLine("\n\t\t   3 - Highscores");
@@ -26,7 +26,7 @@ namespace lp2_project2
         public void PrintInstructions()
         {
             string key = "SPACE";
-            Console.WriteLine("\t\t\tINSTRUCTIONS");
+            Console.WriteLine("\n\n\t\t\tINSTRUCTIONS");
             Console.WriteLine("\t\tReady to explore the Moon?!");
             Console.WriteLine("\n\tAs you explore, you will find how irre" +
                               "gular\n\tthe Moon can be!\n");
@@ -45,7 +45,7 @@ namespace lp2_project2
 
         public void PrintCredits()
         {
-            Console.WriteLine("\t\t\t     CREDITS\n");
+            Console.WriteLine("\n\n\t\t\t     CREDITS\n");
 
             Console.WriteLine("\t\tThis project was developed by these " +
                               "\n\t\tstudents as the 2nd project for the" +

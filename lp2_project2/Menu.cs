@@ -30,15 +30,6 @@ namespace lp2_project2
         private int input;
 
         /// <summary>
-        /// Method that adds many spaces and helps seperate screens on the 
-        /// console.
-        /// </summary>
-        private void ManySpaces()
-        {
-            Console.WriteLine("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");      //CHECK CONSOLE.CLEAR
-        }
-
-        /// <summary>
         /// Calls on the Introduction Menu, which then leads to all the 
         /// in-program menu logic.
         /// </summary>
@@ -75,8 +66,8 @@ namespace lp2_project2
             }
             catch (Exception)
             {
-                ManySpaces();
-                Console.WriteLine("\t\t   >> Invalid Input <<\n");
+                Console.Clear();
+                Console.WriteLine("\n\n\t\t   >> Invalid Input <<\n");
                 MainMenu();
             }
 
@@ -84,7 +75,7 @@ namespace lp2_project2
             {
                 case 1:
                     //Game
-                    ManySpaces();
+                    Console.Clear();
                     // start the loop
                     Console.Clear();
 
@@ -93,23 +84,23 @@ namespace lp2_project2
                     break;
                 case 2:
                     //Instructions
-                    ManySpaces();
+                    Console.Clear();
                     Instructions();
-                    ManySpaces();
+                    Console.Clear();
                     MainMenu();
                     break;
                 case 3:
                     //Highscores
-                    ManySpaces();
+                    Console.Clear();
                     HighScores();
-                    ManySpaces();
+                    Console.Clear();
                     MainMenu();
                     break;
                 case 4:
                     //Credits
-                    ManySpaces();
+                    Console.Clear();
                     Credits();
-                    ManySpaces();
+                    Console.Clear();
                     MainMenu();
                     break;
                 case 0:
@@ -117,8 +108,8 @@ namespace lp2_project2
                     Exit();
                     break;
                 default:
-                    ManySpaces();
-                    Console.WriteLine("\t\t   >> Invalid Input <<\n");
+                    Console.Clear();
+                    Console.WriteLine("\n\n\t\t   >> Invalid Input <<\n");
                     MainMenu();
                     break;
             }

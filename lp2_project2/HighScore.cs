@@ -100,7 +100,7 @@ namespace lp2_project2
         {
             HighscoresLst.Sort();
 
-            Console.WriteLine("\t\t\tHIGHSCORE TABLE");
+            Console.WriteLine("\n\n\t\t\tHIGHSCORE TABLE");
             Console.WriteLine("\n\t\tCheck if your score made it to the " +
                               "highest" +
                               "\n\t\tscores table!" +
@@ -114,45 +114,45 @@ namespace lp2_project2
             {
                 if(HighscoresLst[i] == 0)
                 {
-                    Console.WriteLine($"\n\t\t    {placement} " +
-                                      $"- score:\t   000000");
+                    Console.WriteLine($"\n\t\t    place {placement}" +
+                                      $"\t   000000");
                 }
                 else
                 {
                     if (HighscoresLst[i] < 10)
                     {
-                        Console.WriteLine($"\n\t\t    {placement} - " +
-                                      $"score:\t   00000{HighscoresLst[i]}");
+                        Console.WriteLine($"\n\t\t    place {placement}" +
+                                          $"\t   00000{HighscoresLst[i]}");
                     }
                     else if (HighscoresLst[i] < 100)
                     {
-                        Console.WriteLine($"\n\t\t    {placement} - " +
-                                      $"score:\t   0000{HighscoresLst[i]}");
+                        Console.WriteLine($"\n\t\t    place {placement}" +
+                                          $"\t   0000{HighscoresLst[i]}");
                     }
                     else if (HighscoresLst[i] < 1000)
                     {
-                        Console.WriteLine($"\n\t\t    {placement} - " +
-                                      $"score:\t   000{HighscoresLst[i]}");
+                        Console.WriteLine($"\n\t\t    place {placement}" +
+                                          $"\t   000{HighscoresLst[i]}");
                     }
                     else if (HighscoresLst[i] < 10000)
                     {
-                        Console.WriteLine($"\n\t\t    {placement} - " +
-                                      $"score:\t   00{HighscoresLst[i]}");
+                        Console.WriteLine($"\n\t\t    place {placement}" +
+                                          $"\t   00{HighscoresLst[i]}");
                     }
                     else if (HighscoresLst[i] < 100000)
                     {
-                        Console.WriteLine($"\n\t\t    {placement} - " +
-                                      $"score:\t   0{HighscoresLst[i]}");
+                        Console.WriteLine($"\n\t\t    place {placement}" +
+                                          $"\t   0{HighscoresLst[i]}");
                     }
                     else if (HighscoresLst[i] < 1000000)
                     {
-                        Console.WriteLine($"\n\t\t    {placement} - " +
-                                      $"score:\t   {HighscoresLst[i]}");
+                        Console.WriteLine($"\n\t\t    place {placement}" +
+                                          $"\t   {HighscoresLst[i]}");
                     }
                     else if (HighscoresLst[i] > 1000000)
                     {
-                        Console.WriteLine($"\n\t\t    {placement} - " +
-                                      $"score:\t   {HighscoresLst[i]}");
+                        Console.WriteLine($"\n\t\t    place {placement}" +
+                                          $"\t   {HighscoresLst[i]}");
                     }
                 }
 
