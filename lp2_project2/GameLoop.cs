@@ -1,72 +1,70 @@
 ﻿using System;
 using System.Threading;
-using System.Collections.Generic;
 
 namespace lp2_project2
 {
     /// <summary>
     /// this class allows us to create the main loop to run our game using
-    /// threads and a doublebuffer to rend everything smoothly
+    /// threads and a doublebuffer to render everything smoothly
     /// </summary>
     class GameLoop
     {
-        private HighScore hs;
-
-        public Map background;
-
-
-        string[] helpMssgs = new string[]
-                {
-                "      press space to jump!    ",
-                "platforms have different sizes"
-                    // add more
-
-                };
-
-        private string ChosenMessage;
-
-        int score = 0;
-
-        private int msPerFrame = 80;
-        // gets the current objects in the game inside a list
-      
-        // initiates the platforms that will be displayed along the loop
-        public Platforms platforms;
-
-        // initiates our player 
-        public Player plyr;
-
         // initiates our doublebuffer for smooth rendering
         public DoubleBuffer2D<char> db;
 
         // initiates our inputsystem to handle player's inputs during thread
         public InputsSystem input;
 
+        // to properly render with milliseconds
+        private int msPerFrame = 80;
+
+        // to get the highscore list
+        private HighScore HS;
+
+        // to get the score after each successful jump 
+        private int score = 0;
+
+        // to print the background of our game
+        private Map background;
+
+        // initiates the platforms that will be displayed along the loop
+        private Platforms platforms;
+
+        // initiates our player 
+        private Player plyr;
+
         // to check if the game is currently running
-        public bool running;
-        
+        private bool running;
+
+        // different help messages to show the player
+        string[] helpMssgs = new string[]
+                {
+                "      press space to jump!    ",
+                "platforms have different sizes"
+                    // add more
+                };
+
+        // to select one random message to display each loop
+        private string ChosenMessage;
+
         /// <summary>
         /// this constructor allows us to set our initial values for the game
         /// and prepare the console for optimised running
         /// </summary>
         public GameLoop(HighScore hs)
         {
-            this.hs = hs;
+            // set the highscore list
+            HS = hs;
 
             // sets the cursor's visibility to false so it won't render
             Console.CursorVisible = false;
 
-            Random rnd = new Random();
-
-            int rand = rnd.Next(0, helpMssgs.Length);
-
-            int counter = 20;
-
-            ChosenMessage = helpMssgs[rand];
+            ResetHelpMessages();
 
             // creates a new doublebuffer for our map with 60x60 dimensions
             db = new DoubleBuffer2D<char>(60, 20);
 
+            // creates a new background with the size of the buffer's array
             background = new Map(db);
 
             // creates our platforms and assigns the current buffer
@@ -75,16 +73,18 @@ namespace lp2_project2
             // creates our player and assigns the current buffer
             plyr = new Player(db);
 
-            platforms.keyPlatform = new Positions(plyr.Position.X, 
-                plyr.Position.Y);
-          
+            /////////////////////////////////////////////////////////////////////
+            platforms.keyPlatform = new Positions(plyr.Position.X,
+                plyr.Position.Y+1);
+
             // prepares to read input and process it
             input = new InputsSystem();
 
             // starts our thread according to user input
             Thread KeyReader = new Thread(input.ReadKeys);
+
             KeyReader.Start();
-   
+
         }
 
         /// <summary>
@@ -96,51 +96,51 @@ namespace lp2_project2
             // set running to true to begin loop
             running = true;
 
+            // set the player's jumping state to Idle to start
             input.jump = Jump.Idle;
 
-            // while losing conditions haven't been met
+            // while losing conditions haven't been met or ESC pressed
             while (running)
             {
-                
+                // get the current time for sleep later
                 long start = DateTime.Now.Ticks;
-                // check if the player has jumped
+
+                // check if the player has jumped or given any input
                 input.jump = input.ProcessInput();
 
-                Console.WriteLine(start);
                 // call the update method to move things on the screen
-                Update();       
+                Update();
 
                 // render our current game window 
                 Render();
 
-
-                if (input.jump == Jump.Leave)
-                {
-
-                    running = false;
-
-                    Console.WriteLine(score);
-                    MenuPrints.PrintGameOver(score, hs);
-                }
-
+                // checking if the jump is happening so it's whole motion 
+                // is updated once per frame
                 if (input.jump == Jump.Check)
                 {
-                    Thread.Sleep(60);
+                    // check for collisions
                     CheckCollision();
-                    
-
                 }
 
+                // checking if the jump is happening so it's whole motion 
+                // is updated once per frame
                 if (input.jump == Jump.Falling)
                 {
-                    Thread.Sleep(60);
+                    // changing player position to go down
                     plyr.Position.Y += 2;
-              
-                    input.jump = Jump.Idle;
-                    score += 1;
-                }
 
-           
+                    // changing jump status to idle for new checks
+                    input.jump = Jump.Idle;
+
+                    // adding jump to the score
+                    score += 1;
+
+                    // changes displayed help message
+                    ResetHelpMessages();
+                }
+               
+
+                // sleep so the rendering looks smooth and "real time"
                 Thread.Sleep(
                    (int)(start / TimeSpan.TicksPerSecond)
                    + msPerFrame
@@ -156,9 +156,6 @@ namespace lp2_project2
             // check if there's been a collision and act accordingly
             CheckCollision();
 
-            // add later
-            //platforms.PlatformUpdate();
-
             // check if there's any input happening and act accordingly
             if (input.jump != Jump.Idle)
             {
@@ -167,57 +164,73 @@ namespace lp2_project2
                 {
                     // this will move the player up by one on the Y axis
                     case Jump.Jumping:
-                        Thread.Sleep(60);
-                        plyr.Position.Y -= 1; 
+                        // increase player position onscreen
+                        plyr.Position.Y -= 1;
+                        // change status to falling for new position check
                         input.jump = Jump.Falling;
                         break;
-                    
-                    /// LEAVE THIS HERE FOR FUTURE SHOWING OF HS ETC
+
+                    // checks if user has chosen to leave the game
                     case Jump.Leave:
-                        Thread.Sleep(60);
+                        // stop running loop
+                        running = false;
+                        //////////////////////////////////////////////////////////////
                         RenderLosingScreen();
                         Render();
-                        Console.WriteLine("bye!");
-                        break;
-                }                         
+                        break;                       
+                }
             }
-        }     
+        }
+
+        /// <summary>
+        /// this method allows us to check for collisions based on player
+        /// and platforms' positions during the update
+        /// </summary>
         public void CheckCollision()
         {
+            // check if the player position is inside the lower platforms
             if (plyr.Position.Y > db.YDim - 2)
             {
+                // reset player position
                 plyr.Position.Y = db.YDim - 4;
             }
-            
+
+            // check if player is on "check" (for collisions) or falling
             if (input.jump == Jump.Check || input.jump == Jump.Falling)
             {
+                // if player is located on the hole row and not at the start
                 if (plyr.Position.Y == db.YDim - 3)
                 {
-                    Console.WriteLine("ouch");
-                    Console.Clear();
+                    // show game over and leave the gameloop
+                   /////////////////////////////////////////////////////////////////
                     running = false;
+                    Render();
+                    RenderLosingScreen();
 
-                    MenuPrints.PrintGameOver(score, hs);
                     // On Collison make losing sound
                     Console.Beep(600, 500);
-                    MenuPrints.PrintGameOver(score, hs);
+                    MenuPrints.PrintGameOver(score, HS);
 
                 }
             }
-          
+
+            // check if the player's movement is set to Idle
             if (input.jump == Jump.Idle)
             {
-
-                if (db[plyr.Position.X, plyr.Position.Y + 1] == platforms.hole)
+                // if player is about to hit a hole
+                if (db[plyr.Position.X, plyr.Position.Y + 1] == (char)Characters.holes)
                 {
-
+                    // fall down
                     plyr.Position.Y += 1;
+
+                    // check for input
                     input.jump = Jump.Check;
 
                 }
 
+                // if player's position is the same as a platform
                 if (db[plyr.Position.X, plyr.Position.Y]
-                      == platforms.platform)
+                      == (char)Characters.platforms)
                 {
                     // increase player position so it doesn't disappear
                     plyr.Position.Y -= 1;
@@ -226,37 +239,41 @@ namespace lp2_project2
             }
         }
 
+        /// <summary>
+        /// this method lets us print the mini messages for the player
+        /// present in the original Moon Buggy for linux
+        /// </summary>
         public void WriteHelpMessages()
         {
-            string[] helpMssgs = new string[]
-                {
-                "      press space to jump!    ",
-                "platforms have different sizes"
+            // go through the chars and add them to the doubleBuffer
+            printLine(ChosenMessage, 6, 12);
 
-                };
-
-            Random rnd = new Random();
-
-            int rand = rnd.Next(0, helpMssgs.Length);
-
-            int counter = 20;
-
-            foreach (char mssg in ChosenMessage)
-            { 
-                db[counter, 16] = mssg;
-                counter++;
-            }
-                         
         }
 
         /// <summary>
-        /// FUNCTIONAL BUT LOOKING FOR BEST WAY TO PRINT WHILE INGAME SO NOT 
-        /// BEING USED //YET//
+        /// this method let's us reset the help message currently being
+        /// displayed to a different one
+        /// </summary>
+        public void ResetHelpMessages()
+        {
+            // creates a new random so the help message displayed is different
+            Random rnd = new Random();
+
+            // getting one of the messages within the array
+            int rand = rnd.Next(0, helpMssgs.Length);
+
+            // sets the chosen message for display
+            ChosenMessage = helpMssgs[rand];
+        }
+
+        /// <summary>
+        /// this method allows us to render a game over message on the
+        /// screen when the player loses the game
         /// </summary>
         public void RenderLosingScreen()
         {
-        
-            string GameOverRender = 
+            // string to render the message
+            string GameOverRender =
              @"________p" +
              @"/  _____/_____    _____   ____   _______  __ ___________p" +
             @"/   \  ___\__  \  /     \_/ __ \ /  _ \  \/ // __ \_  _ \p" +
@@ -264,11 +281,15 @@ namespace lp2_project2
               @"\______  (____  /__|_|  /\___  >\____/ \_/  \___  >_|p" +
                     @"\/     \/      \/     \/                   \/p" +
                           @"You crashed!!";
-            
+
+           
+            // splitting the string so each row can be printed
             string[] GameOverSplit = GameOverRender.Split('p');
 
+            // showing the destroyed buggy onscreen
             string deadBuggy = ".   º    . O  _ X 0  .";
 
+            // go through the lines in the array and print them
             int y = 0;
             foreach (string line in GameOverSplit)
             {
@@ -276,13 +297,23 @@ namespace lp2_project2
                 y++;
             }
 
-            printLine(deadBuggy, plyr.Position.X-20, plyr.Position.Y);
+            // print the deadbuggy
+            printLine(deadBuggy, plyr.Position.X - 20, plyr.Position.Y);
         }
 
+        /// <summary>
+        /// this method lets us print strings with a given start index and
+        /// on a chosen row
+        /// </summary>
+        /// <param name="lineToPrint">string to be printed</param>
+        /// <param name="lineStartX">start point in x axis</param>
+        /// <param name="lineY">point in y axis where it's printed</param>
         public void printLine(string lineToPrint, int lineStartX, int lineY)
         {
-
+            // to know where on the x axis to start printing
             int x = lineStartX;
+
+            // going through the string
             foreach (char character in lineToPrint)
             {
                 db[x, lineY] = character;
@@ -301,16 +332,20 @@ namespace lp2_project2
             Console.SetCursorPosition(0, 0);
 
             // print the background
-            background.Print();
+            background.RenderBackground();
 
+            // render the player onto the screen
             plyr.RenderPlayer();
 
             // set platforms to their corresponding characters
-            platforms.PrintPlatforms();
+            platforms.RenderPlatforms();
 
+            // write the help message for the player
             WriteHelpMessages();
 
-           
+            // check if player lost and render game over screen
+            if(running == false)
+                RenderLosingScreen();
 
             // swap between the doublebuffer's arrays to render each frame
             db.Swap();
@@ -320,36 +355,50 @@ namespace lp2_project2
             {
                 for (int x = 0; x < db.XDim; x++)
                 {
+                    // make the background blue
                     Console.BackgroundColor = ConsoleColor.DarkBlue;
-                  
+
+                    // check if the character is a hole to change colour
                     if (db[x, y] == (char)Characters.holes)
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
                     }
 
-                    if (db[x, y] == (char)Characters.tankHead)
+                    // check if the character is part of the tank
+                    if (db[x, y] == (char)Characters.tankHead   ||
+                        db[x, y] == (char)Characters.tankmiddle ||
+                        db[x, y] == (char)Characters.tankWheels ||
+                        db[x, y] == (char)Characters.tankWheels1)
                     {
-                        Console.ForegroundColor = ConsoleColor.White;            
+                        Console.ForegroundColor = ConsoleColor.Yellow;
                     }
 
+                    // check if the character is a platform to change colour
                     if (db[x, y] == (char)Characters.platforms)
                     {
-                        if (db[x, y] == db[platforms.keyPlatform.X, 
+                        // check if the platform is the one currently on
+                        //////////////////////////////////////////////////////////////////
+                        if (db[x, y] == db[platforms.keyPlatform.X,
                             platforms.keyPlatform.Y])
                             Console.ForegroundColor = ConsoleColor.Yellow;
 
+                        // default to white for platforms
                         Console.ForegroundColor = ConsoleColor.White;
                     }
 
+                    // write the character from the buffer with correct colour
                     Console.Write(db[x, y]);
-                    Console.ResetColor(); 
+
+                    // reset colour so rest of the console is clean
+                    Console.ResetColor();
 
                 }
+                // change to the next line in the buffer array
                 Console.WriteLine();
             }
 
-            // CHANGE THIS TO JUMPS
-            Console.Write($"Distance: {score}\n");
+            // Show player their jump count and possible actions
+            Console.Write($"Successful jumps: {score}\n");
             Console.WriteLine("[ESC] to quit   [SPACE] to jump");
         }
     }

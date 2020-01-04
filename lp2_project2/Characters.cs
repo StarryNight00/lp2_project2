@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace lp2_project2
+﻿namespace lp2_project2
 {
     /// <summary>
     /// this enum stores the characters to be used in the game
@@ -16,8 +12,8 @@ namespace lp2_project2
         tankmiddle = '-',
 
         // for the platform renders
-        platforms = 'O',
-        holes = '#',
+        platforms = '#',
+        holes = '_',
 
         // for the background renders
         stars = '*',

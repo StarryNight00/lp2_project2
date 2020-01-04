@@ -15,7 +15,7 @@ namespace lp2_project2
         {
             db = doubleBuffer;
         }
-        public void Print()
+        public void RenderBackground()
         {
 
             // set each character in the buffer to the default

@@ -8,7 +8,7 @@ namespace lp2_project2
     /// this class creates our player in the game, assigning them a position
     /// a character and an ID to be verified when interacting with other objects
     /// </summary>
-    class Player : GameObject
+    class Player
     {
         // center of the cart
         public Positions Position;
@@ -37,8 +37,6 @@ namespace lp2_project2
             db[Position.X, Position.Y] = (char)Characters.tankWheels;
             db[backWheelPosition.X, backWheelPosition.Y] = 
                 (char)Characters.tankWheels;
-            Character = 'X';
-            ID = 0;
         }
 
         /// <summary>
