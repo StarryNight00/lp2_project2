@@ -35,28 +35,27 @@ namespace lp2_project2
         public void AddZeros()
         {
 
-            AddHighScore(0, this.HighscoresLst);
-            AddHighScore(0, this.HighscoresLst);
-            AddHighScore(0, this.HighscoresLst);
-            AddHighScore(0, this.HighscoresLst);
-            AddHighScore(0, this.HighscoresLst);
-            AddHighScore(0, this.HighscoresLst);
-            AddHighScore(0, this.HighscoresLst);
-            AddHighScore(0, this.HighscoresLst);
-            AddHighScore(0, this.HighscoresLst);
-            AddHighScore(0, this.HighscoresLst);
+            AddHighScore(0);
+            AddHighScore(0);
+            AddHighScore(0);
+            AddHighScore(0);
+            AddHighScore(0);
+            AddHighScore(0);
+            AddHighScore(0);
+            AddHighScore(0);
+            AddHighScore(0);
+            AddHighScore(0);
 
         }
 
-        
-
+       
         /// <summary>
         /// Adds the score to the highscore list.
         /// </summary>
         /// <param name="score">Represents a 32-bit signed integer.</param>
-        public void AddHighScore(int score, List<int> lst)
+        public void AddHighScore(int score)
         {
-            AddAndCutScore(score, lst);
+            AddAndCutScore(score);
         }
 
         /// <summary>
@@ -64,9 +63,8 @@ namespace lp2_project2
         /// enough. Cuts off any extra elements.
         /// </summary>
         /// <param name="score">Represents a 32-bit signed integer.</param>
-        private void AddAndCutScore(int score, List<int> lst)
+        private void AddAndCutScore(int score)
         {
-            HighscoresLst = lst;
 
             //Sorts the current list
             HighscoresLst.Sort();
@@ -243,7 +241,7 @@ namespace lp2_project2
                         try
                         {
                             int score = int.Parse(s);
-                            AddHighScore(score, this.HighscoresLst);
+                            AddHighScore(score);
                         }
                         catch (Exception)
                         {

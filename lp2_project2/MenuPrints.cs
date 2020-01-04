@@ -120,20 +120,28 @@ __        __   _                            _
             Console.Write("\n\n\t\t   >> ");
         }
 
+
+
+
         /// <summary>
 
         /// Prints the Game Over screen on the console.
         /// </summary>
         /// <param name="score">Represents a 32-bit signed integer.</param>
-        public static void PrintGameOver(int score)
+        /// <param name="highScore">Represents the Gameloop's HighScore 
+        /// current variable.</param>
+        public static void PrintGameOver(int score, HighScore highScore)
         {
+            Console.WriteLine(score);
             Menu menu = new Menu();
+            HighScore hs = highScore;
+
             Console.WriteLine("\n\n\t\t\tGAME OVER");
             Console.WriteLine("\t    Better Luck Next Time, Space Voyager.");
             Console.WriteLine($"\n\n\t\t Your Score was ... {score}");
 
             Console.ReadKey();
-            menu.IntroMenu();
+            menu.IntroSansInit(score, hs);
         }
         /// Method to add sound to intro menu
         /// </summary>

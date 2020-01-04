@@ -11,6 +11,7 @@
 
         Falling,
             Lag,
-            Leave
+            Leave,
+            Check
     }
 }

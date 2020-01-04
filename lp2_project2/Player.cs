@@ -32,10 +32,11 @@ namespace lp2_project2
         public Player(DoubleBuffer2D<char> doubleb)
         {
             db = doubleb;
-            Position = new Positions(56, 27);
+            Position = new Positions(db.XDim-4, db.YDim - 3);
             SetPositions();
             db[Position.X, Position.Y] = (char)Characters.tankWheels;
-            db[backWheelPosition.X, backWheelPosition.Y] = (char)Characters.tankWheels;
+            db[backWheelPosition.X, backWheelPosition.Y] = 
+                (char)Characters.tankWheels;
             Character = 'X';
             ID = 0;
         }
