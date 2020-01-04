@@ -13,13 +13,12 @@
 ### Tasks of each group member
 
 **Ana Dos Santos**
-Changed visual aspects of game by adding colors and sound to the game. Setup of linux platform for testing purposes of the game on different platform. Designed UML class diagram and simple flowchart to show the programs functionality. Helped group members finding solutions for given problems by the program.
+Changed visual aspects of game by adding colors and sound to the game. Setup of linux platform for testing purposes of the game on a different platform. Designed UML class diagram and simple flowchart to show the programs functionality. Helped group members finding solutions for given problems by the program.
 
-**Catarina Matias** (Menu (and its Prints and Exceptions); Score, HighScore and high score File handling; ReadMe report):
+**Catarina Matias**
+Responsible for the `Menu` logic and its overall appearance and displayed information, along with its exceptions. These information screens were made on a different static class, `MenuPrints`, to make them available in all the code and make them easier to call on and use. Also responsible for the `HighScore` class, it's file handling and the incorporation of the score passing on to this list. Was responsible for the incorporation of the game's end within the program loop back to the Main Menu in `GameLoop` (__was not__ responsible for this class in itself, just the mentioned incorporation).
 
-Responsible for the `Menu` logic and overall appearance of the menu information, `MenuPrints`. Also responsible for the user input, its Exceptions, and those on the mentioned classes.
-
-Creation of the `Score` and `HighScore` classes, along with the file handling methods to save the high score information in-between program runs.
+Was responsible for creating the basic template for the README report, from the last project delivery.
 
 **Diana Levay** (list of things done):
 
