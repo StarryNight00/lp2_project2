@@ -40,6 +40,26 @@ namespace lp2_project2
         }
 
         /// <summary>
+        /// Calls on the Intruduction Menu, without re-initializing the 
+        /// variables. By receiving the HighScore variable, it allows for the 
+        /// information to be passed through loops and go straight to the Main 
+        /// Menu.
+        /// </summary>
+        /// <param name="score">Represents a 32-bit signed integer.</param>
+        /// <param name="hScore">Represents the Gameloop's HighScore 
+        /// current variable.</param>
+        public void IntroSansInit(int score, HighScore hScore)
+        {
+            this.hScore = hScore;
+            hScore.AddHighScore(score);
+
+            Console.Clear();
+            MenuPrints.PrintIntroMenu();
+            Console.ReadLine();
+            MainMenu();
+        }
+
+        /// <summary>
         /// Initializes all classes needed to start the program and the menu.
         /// </summary>
         private void VarsInit()
@@ -76,9 +96,11 @@ namespace lp2_project2
                     // start the loop
                     Console.Clear();
 
-                    loop = new GameLoop(hScore, hScore.HighscoresLst);
 
                     Console.ForegroundColor = ConsoleColor.DarkMagenta;
+
+
+                    loop = new GameLoop(hScore);
 
                     loop.Loop();
                     break;
