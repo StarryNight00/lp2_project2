@@ -27,6 +27,10 @@ Created, referenced and adapted the main logic for the gameloop, player, platfor
 Revision of documents and contributing to the organisation of the repository and writing the solution approach in the report.
 
 Classes created and worked on: Player, DoubleBuffer2D (Directly based on the one given by the professor found in the references), Platforms, GameLoop, InputSystem (also based on professor's solution, modified accordingly to allow better adaptation to our game), Jump, Map, Positions, Characters
+
+Revision of documents and contributing to the organisation of the repository and writing the solution approach in the report.
+
+Classes created and worked on: Player, DoubleBuffer2D (Directly based on the one given by the professor found in the references), Platforms, GameLoop, InputSystem (also based on professor's solution, modified accordingly to allow better adaptation to our game), Jump, Map, Positions, Characters
 ### Project's Git Repository
 
 <https://github.com/StarryNight00/lp2_project2/tree/master>
