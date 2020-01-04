@@ -78,19 +78,19 @@ namespace lp2_project2
 
             if (rnd.Next(1, 10) > 1)
             {
-                db[0, db.YDim - 2] = platform;
+                db[0, db.YDim - 3] = platform;
             }
 
             else
             {
-                db[0, db.YDim - 2] = hole;
+                db[0, db.YDim - 3] = hole;
             }
 
             for (int x = 1; x < db.XDim - 1; x++)
-                db[x, db.YDim - 2] = db[x - 1, db.YDim - 2];
+                db[x, db.YDim - 3] = db[x - 1, db.YDim - 3];
 
             for (int x = 0; x < db.XDim - 1; x++)
-                db[x, db.YDim - 1] = platform;
+                db[x, db.YDim - 2] = platform;
         }
     }
 }

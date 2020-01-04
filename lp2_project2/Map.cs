@@ -6,10 +6,6 @@ namespace lp2_project2
 {
     class Map
     {
-        private int maxX = 60;
-
-        private int maxY = 20;
-
         private DoubleBuffer2D<char> db;
 
         public Map(DoubleBuffer2D<char> doubleBuffer)

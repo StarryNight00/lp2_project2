@@ -67,7 +67,7 @@ namespace lp2_project2
             ChosenMessage = helpMssgs[rand];
 
             // creates a new doublebuffer for our map with 60x60 dimensions
-            db = new DoubleBuffer2D<char>(60, 30);
+            db = new DoubleBuffer2D<char>(60, 20);
 
             background = new Map(db);
 
@@ -115,39 +115,35 @@ namespace lp2_project2
                 // render our current game window 
                 Render();
 
+                
                 if (input.jump == Jump.Leave)  /////////////////////
                 {
-                    running = false;
-                    hs.AddHighScore(score, hsList);
+                    //running = false;
+                    //hs.AddHighScore(score, hsList);
 
                     //
-                    hs.HighScoreRender();
+                    //hs.HighScoreRender();
                     //
 
-                    MenuPrints.PrintGameOver(score);
+                    //MenuPrints.PrintGameOver(score);
                 }
 
-                if (input.jump == Jump.Hovering)
+                if (input.jump == Jump.Check)
                 {
-                    plyr.Position.Y -= 1;
-                    plyr.Position.X -= 1;
-                    input.jump = Jump.Falling;
+                    CheckCollision();
+                    
+
                 }
 
                 if (input.jump == Jump.Falling)
                 {
-                    plyr.Position.Y += 1;
-                    plyr.Position.X += 1;
-                    input.jump = Jump.Lag;
-                }
-
-                if (input.jump == Jump.Lag)
-                {
-                    plyr.Position.Y += 1;
+                    plyr.Position.Y += 2;
+              
                     input.jump = Jump.Idle;
                     score += 1;
                 }
 
+           
                 Thread.Sleep(
                    (int)(start / TimeSpan.TicksPerSecond)
                    + msPerFrame
@@ -169,78 +165,55 @@ namespace lp2_project2
             // check if there's any input happening and act accordingly
             if (input.jump != Jump.Idle)
             {
-                // if player has hit spacebar
+                // get player input
                 switch (input.jump)
                 {
                     // this will move the player up by one on the Y axis
                     case Jump.Jumping:
                         plyr.Position.Y -= 1; 
-                        input.jump = Jump.Hovering;
+                        input.jump = Jump.Falling;
                         break;
                     
                     /// LEAVE THIS HERE FOR FUTURE SHOWING OF HS ETC
                     case Jump.Leave:
+                        RenderLosingScreen();
+                        Render();
                         Console.WriteLine("bye!");
                         break;
-
-                } 
-                
-              
+                }                         
             }
         }     
         public void CheckCollision()
         {
-            if (db[plyr.Position.X, plyr.Position.Y+1] == platforms.hole)
+            if (input.jump == Jump.Check || input.jump == Jump.Falling)
             {
-                if (input.jump == Jump.Idle)
+                if (plyr.Position.Y == db.YDim - 3)
                 {
+                    Console.WriteLine("ouch");
                     Console.Clear();
                     running = false;
-
-                    RenderLosingScreen();
-                    //MenuPrints.PrintGameOver(score);
-
-                    // check if player isn't jumping or is falling
-                    if(input.jump != Jump.Hovering && input.jump!= Jump.Jumping)
-                    { 
-                        // increase player position so it doesn't disappear
-                        plyr.Position.Y += 1;
-
-                        // On Collison make loosing sound
-                        Console.Beep(600, 500);
-
-                        // debug
-                        //Console.WriteLine("Collision");
-
-                        //running = false;
-                    }             
-
-                }
-
-                // check if player isn't jumping or is falling
-                // check if player position equals hole after jump   
-                if (input.jump != Jump.Hovering)
-                {
-                    if (input.jump != Jump.Jumping)
-                    {
-                        // increase player position so it doesn't disappear
-                        //plyr.Position.Y += 1;
-                        MenuPrints.PrintGameOver(score);
-                        running = false;
-                        Console.Clear();
-                    }
+                    MenuPrints.PrintGameOver(score);
+                    // On Collison make losing sound
+                    Console.Beep(600, 500);
                 }
             }
-
-            // check if player position equals platform after jump
-            if (db[plyr.Position.X, plyr.Position.Y + 1] == platforms.platform)
+          
+            if (input.jump == Jump.Idle)
             {
-                // check if player isn't jumping or is falling
-                if (input.jump != Jump.Idle)
+
+                if (db[plyr.Position.X, plyr.Position.Y + 1] == platforms.hole)
+                {
+                    plyr.Position.Y += 1;
+                    input.jump = Jump.Check;
+                }
+
+                if (db[plyr.Position.X, plyr.Position.Y]
+                      == platforms.platform)
                 {
                     // increase player position so it doesn't disappear
                     plyr.Position.Y -= 1;
                 }
+
             }
         }
 
@@ -269,22 +242,39 @@ namespace lp2_project2
 
         public void RenderLosingScreen()
         {
-            Console.Clear();
-            string GameOverRender = @"                                     
-             ________                                                  
-             /  _____/_____    _____   ____     _______  __ ___________ 
-            /   \  ___\__  \  /     \_/ __ \   /  _ \  \/ // __ \_  __ \
-            \    \_\  \/ __ \|  Y Y  \  ___/  (  <_> )   /\  ___/|  | \/
-             \______  (____  /__|_|  /\___  >  \____/ \_/  \___  >__|   
-                    \/     \/      \/     \/                   \/       
-                          You crashed!!                         .
-                                               .   º    . O  _ X 0  .
-            ###########_###############_#######################_#########
-            #############################################################
+        
+            string GameOverRender = 
+             @"________p" +
+             @"/  _____/_____    _____   ____   _______  __ ___________p" +
+            @"/   \  ___\__  \  /     \_/ __ \ /  _ \  \/ // __ \_  _ \p" +
+            @"\    \_\  \/ __ \|  Y Y  \  ___/(  <_> )   /\  ___/| | \/p" +
+              @"\______  (____  /__|_|  /\___  >\____/ \_/  \___  >_|p" +
+                    @"\/     \/      \/     \/                   \/p" +
+                          @"You crashed!!";
+            
+            string[] GameOverSplit = GameOverRender.Split('p');
 
-            ";
+            string deadBuggy = ".   º    . O  _ X 0  .";
 
-            Console.WriteLine(GameOverRender);
+            int y = 0;
+            foreach (string line in GameOverSplit)
+            {
+                printLine(line, 0, y);
+                y++;
+            }
+
+            printLine(deadBuggy, plyr.Position.X-20, plyr.Position.Y);
+        }
+
+        public void printLine(string lineToPrint, int lineStartX, int lineY)
+        {
+
+            int x = lineStartX;
+            foreach (char character in lineToPrint)
+            {
+                db[x, lineY] = character;
+                x++;
+            }
 
         }
 
@@ -306,6 +296,8 @@ namespace lp2_project2
             platforms.PrintPlatforms();
 
             WriteHelpMessages();
+
+           
 
             // swap between the doublebuffer's arrays to render each frame
             db.Swap();
