@@ -19,6 +19,7 @@ namespace lp2_project2
                 {
                 "      press space to jump!    ",
                 "platforms have different sizes"
+                    // add more
 
                 };
 
@@ -115,6 +116,7 @@ namespace lp2_project2
 
                 if (input.jump == Jump.Leave)
                 {
+
                     running = false;
 
                     Console.WriteLine(score);
@@ -123,6 +125,7 @@ namespace lp2_project2
 
                 if (input.jump == Jump.Check)
                 {
+                    Thread.Sleep(60);
                     CheckCollision();
                     
 
@@ -130,6 +133,7 @@ namespace lp2_project2
 
                 if (input.jump == Jump.Falling)
                 {
+                    Thread.Sleep(60);
                     plyr.Position.Y += 2;
               
                     input.jump = Jump.Idle;
@@ -163,12 +167,14 @@ namespace lp2_project2
                 {
                     // this will move the player up by one on the Y axis
                     case Jump.Jumping:
+                        Thread.Sleep(60);
                         plyr.Position.Y -= 1; 
                         input.jump = Jump.Falling;
                         break;
                     
                     /// LEAVE THIS HERE FOR FUTURE SHOWING OF HS ETC
                     case Jump.Leave:
+                        Thread.Sleep(60);
                         RenderLosingScreen();
                         Render();
                         Console.WriteLine("bye!");
@@ -178,6 +184,11 @@ namespace lp2_project2
         }     
         public void CheckCollision()
         {
+            if (plyr.Position.Y > db.YDim - 2)
+            {
+                plyr.Position.Y = db.YDim - 4;
+            }
+            
             if (input.jump == Jump.Check || input.jump == Jump.Falling)
             {
                 if (plyr.Position.Y == db.YDim - 3)
@@ -238,6 +249,10 @@ namespace lp2_project2
                          
         }
 
+        /// <summary>
+        /// FUNCTIONAL BUT LOOKING FOR BEST WAY TO PRINT WHILE INGAME SO NOT 
+        /// BEING USED //YET//
+        /// </summary>
         public void RenderLosingScreen()
         {
         

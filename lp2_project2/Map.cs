@@ -4,6 +4,9 @@ using System.Text;
 
 namespace lp2_project2
 {
+    /// <summary>
+    /// this class lets us set the background for our map
+    /// </summary>
     class Map
     {
         private DoubleBuffer2D<char> db;
@@ -31,6 +34,12 @@ namespace lp2_project2
                          
                 }
             }
+           
+                for (int x = 0; x < db.XDim; x++)
+                {          
+                        db[x, db.YDim-3] = '#';
+                }
+            
         }
 
     }

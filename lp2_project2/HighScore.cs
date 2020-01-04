@@ -48,8 +48,7 @@ namespace lp2_project2
 
         }
 
-        
-
+       
         /// <summary>
         /// Adds the score to the highscore list.
         /// </summary>

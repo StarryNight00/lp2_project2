@@ -29,29 +29,21 @@ namespace lp2_project2
         {
             db = doubleb;
 
-            SetPlatforms();
-
             Character = ' ';
 
             ID = 1;
         }
 
         /// <summary>
-        /// this method allows us to reset the platforms when they reach the
-        /// end of the console
+        /// this method allows us to set the lower platforms
         /// </summary>
-        public void SetPlatforms()
+        private void SetLowerPlatforms()
         {
-
-
-        }
-
-        /// <summary>
-        /// this method allows us to move the platforms on the console
-        /// </summary>
-        /// <param name="headPos">last known position</param>
-        public void MovePlatforms(Positions headPos)
-        {
+            for (int y = db.YDim - 2; y < db.YDim; y++)
+            {
+                for (int x = 0; x < db.XDim; x++)
+                    db[x, y] = platform;
+            }        
 
         }
 
@@ -72,9 +64,7 @@ namespace lp2_project2
         {
             Random rnd = new Random();
 
-            int rand = rnd.Next(1, 2);
-
-          
+            int rand = rnd.Next(1, 2);    
 
             if (rnd.Next(1, 10) > 1)
             {
@@ -86,11 +76,15 @@ namespace lp2_project2
                 db[0, db.YDim - 3] = hole;
             }
 
-            for (int x = 1; x < db.XDim - 1; x++)
-                db[x, db.YDim - 3] = db[x - 1, db.YDim - 3];
+            for (int x = 2; x < db.XDim - 1; x++)
+            { 
+                if(db[x-1, db.YDim - 3] == hole && db[x - 2, db.YDim - 3]
+                    == hole)
+                    db[x-2, db.YDim - 3] = platform;
+                db[x, db.YDim - 3] = db[x - 2, db.YDim - 3];
+            }
 
-            for (int x = 0; x < db.XDim - 1; x++)
-                db[x, db.YDim - 2] = platform;
+            SetLowerPlatforms();
         }
     }
 }
