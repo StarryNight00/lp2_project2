@@ -49,13 +49,13 @@ The following class diagram represents associations between classes. The are onl
 
 The following references where used during this project.
 
-[1] Class Power-points
+**[1]** Class Power-points
 
-[2] Code available at the File class C# API documentation was used as a stepping stone for the file handling in the program. - <https://docs.microsoft.com/en-us/dotnet/api/system.io.file?view=netframework-4.8>
+**[2]** Code available at the File class C# API documentation was used as a stepping stone for the file handling in the program. - <https://docs.microsoft.com/en-us/dotnet/api/system.io.file?view=netframework-4.8>
 
-[3] Re-used code from teachers solution from <https://github.com/VideojogosLusofona/lp2_2019_aulas.git> (Aula11, Exercise 3).
+**[3]** Re-used code from teachers solution from <https://github.com/VideojogosLusofona/lp2_2019_aulas.git> (Aula11, Exercise 3).
 
 **For Diagrams and FlowCharts:**
 
-[1] The following site was used for both flowchart and UML class diagram.
+**[1]** The following site was used for both flowchart and UML class diagram.
 <https://www.draw.io/>
