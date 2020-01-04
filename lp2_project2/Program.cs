@@ -14,7 +14,7 @@ namespace lp2_project2
             // match console buffer size to console size
             Console.BufferHeight = Console.WindowHeight;
             Console.BufferWidth = Console.WindowWidth;
-            
+
             // create a new start menu
 
             // Set Console Window title to game name
@@ -23,7 +23,7 @@ namespace lp2_project2
             Menu menu = new Menu();
 
             // start the menu
-            menu.IntroMenu();         
+            menu.IntroMenu();
 
         }
     }

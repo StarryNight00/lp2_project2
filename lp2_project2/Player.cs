@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace lp2_project2
+﻿namespace lp2_project2
 {
     /// <summary>
     /// this class creates our player in the game, assigning them a position
@@ -32,11 +28,12 @@ namespace lp2_project2
         public Player(DoubleBuffer2D<char> doubleb)
         {
             db = doubleb;
-            Position = new Positions(db.XDim-4, db.YDim - 3);
-            SetPositions();
-            db[Position.X, Position.Y] = (char)Characters.tankWheels;
-            db[backWheelPosition.X, backWheelPosition.Y] = 
-                (char)Characters.tankWheels;
+
+            // sets player's front in specified position
+            Position = new Positions(db.XDim-8, db.YDim - 3);
+
+            // sets positions for all cart elements
+            SetPositions();      
         }
 
         /// <summary>
@@ -52,6 +49,10 @@ namespace lp2_project2
             db[topPosition.X, topPosition.Y] = (char)Characters.tankHead;
 
             db[middlePosition.X, middlePosition.Y] = (char)Characters.tankmiddle;
+
+            db[Position.X, Position.Y] = (char)Characters.tankWheels;
+            db[backWheelPosition.X, backWheelPosition.Y] =
+                (char)Characters.tankWheels;
 
             if (db[Position.X, Position.Y] == (char)Characters.tankWheels)
             {

@@ -9,6 +9,7 @@ namespace lp2_project2
     /// </summary>
     class GameLoop
     {
+        public string message;
         // initiates our doublebuffer for smooth rendering
         public DoubleBuffer2D<char> db;
 
@@ -36,17 +37,6 @@ namespace lp2_project2
         // to check if the game is currently running
         private bool running;
 
-        // different help messages to show the player
-        string[] helpMssgs = new string[]
-                {
-                "      press space to jump!    ",
-                "platforms have different sizes"
-                    // add more
-                };
-
-        // to select one random message to display each loop
-        private string ChosenMessage;
-
         /// <summary>
         /// this constructor allows us to set our initial values for the game
         /// and prepare the console for optimised running
@@ -59,23 +49,20 @@ namespace lp2_project2
             // sets the cursor's visibility to false so it won't render
             Console.CursorVisible = false;
 
-            ResetHelpMessages();
-
             // creates a new doublebuffer for our map with 60x60 dimensions
             db = new DoubleBuffer2D<char>(60, 20);
 
             // creates a new background with the size of the buffer's array
             background = new Map(db);
 
+            // gets a help message to display in the background
+            message = background.ResetHelpMessages();
+
             // creates our platforms and assigns the current buffer
             platforms = new Platforms(db);
 
             // creates our player and assigns the current buffer
             plyr = new Player(db);
-
-            /////////////////////////////////////////////////////////////////////
-            platforms.keyPlatform = new Positions(plyr.Position.X,
-                plyr.Position.Y+1);
 
             // prepares to read input and process it
             input = new InputsSystem();
@@ -136,9 +123,8 @@ namespace lp2_project2
                     score += 1;
 
                     // changes displayed help message
-                    ResetHelpMessages();
-                }
-               
+                    message = background.ResetHelpMessages();
+                }           
 
                 // sleep so the rendering looks smooth and "real time"
                 Thread.Sleep(
@@ -174,8 +160,7 @@ namespace lp2_project2
                     case Jump.Leave:
                         // stop running loop
                         running = false;
-                        //////////////////////////////////////////////////////////////
-                        RenderLosingScreen();
+                        background.RenderLosingScreen();
                         Render();
                         break;                       
                 }
@@ -202,11 +187,9 @@ namespace lp2_project2
                 if (plyr.Position.Y == db.YDim - 3)
                 {
                     // show game over and leave the gameloop
-                   /////////////////////////////////////////////////////////////////
                     running = false;
                     Render();
-                    RenderLosingScreen();
-
+ 
                     // On Collison make losing sound
                     Console.Beep(600, 500);
                     MenuPrints.PrintGameOver(score, HS);
@@ -239,88 +222,6 @@ namespace lp2_project2
             }
         }
 
-        /// <summary>
-        /// this method lets us print the mini messages for the player
-        /// present in the original Moon Buggy for linux
-        /// </summary>
-        public void WriteHelpMessages()
-        {
-            // go through the chars and add them to the doubleBuffer
-            printLine(ChosenMessage, 6, 12);
-
-        }
-
-        /// <summary>
-        /// this method let's us reset the help message currently being
-        /// displayed to a different one
-        /// </summary>
-        public void ResetHelpMessages()
-        {
-            // creates a new random so the help message displayed is different
-            Random rnd = new Random();
-
-            // getting one of the messages within the array
-            int rand = rnd.Next(0, helpMssgs.Length);
-
-            // sets the chosen message for display
-            ChosenMessage = helpMssgs[rand];
-        }
-
-        /// <summary>
-        /// this method allows us to render a game over message on the
-        /// screen when the player loses the game
-        /// </summary>
-        public void RenderLosingScreen()
-        {
-            // string to render the message
-            string GameOverRender =
-             @"________p" +
-             @"/  _____/_____    _____   ____   _______  __ ___________p" +
-            @"/   \  ___\__  \  /     \_/ __ \ /  _ \  \/ // __ \_  _ \p" +
-            @"\    \_\  \/ __ \|  Y Y  \  ___/(  <_> )   /\  ___/| | \/p" +
-              @"\______  (____  /__|_|  /\___  >\____/ \_/  \___  >_|p" +
-                    @"\/     \/      \/     \/                   \/p" +
-                          @"You crashed!!";
-
-           
-            // splitting the string so each row can be printed
-            string[] GameOverSplit = GameOverRender.Split('p');
-
-            // showing the destroyed buggy onscreen
-            string deadBuggy = ".   º    . O  _ X 0  .";
-
-            // go through the lines in the array and print them
-            int y = 0;
-            foreach (string line in GameOverSplit)
-            {
-                printLine(line, 0, y);
-                y++;
-            }
-
-            // print the deadbuggy
-            printLine(deadBuggy, plyr.Position.X - 20, plyr.Position.Y);
-        }
-
-        /// <summary>
-        /// this method lets us print strings with a given start index and
-        /// on a chosen row
-        /// </summary>
-        /// <param name="lineToPrint">string to be printed</param>
-        /// <param name="lineStartX">start point in x axis</param>
-        /// <param name="lineY">point in y axis where it's printed</param>
-        public void printLine(string lineToPrint, int lineStartX, int lineY)
-        {
-            // to know where on the x axis to start printing
-            int x = lineStartX;
-
-            // going through the string
-            foreach (char character in lineToPrint)
-            {
-                db[x, lineY] = character;
-                x++;
-            }
-
-        }
 
         /// <summary>
         /// this method allows us to set the characters in the doublebuffer and
@@ -341,11 +242,15 @@ namespace lp2_project2
             platforms.RenderPlatforms();
 
             // write the help message for the player
-            WriteHelpMessages();
+            background.WriteHelpMessages(message);
 
             // check if player lost and render game over screen
-            if(running == false)
-                RenderLosingScreen();
+            if (running == false)
+            { 
+                // write losing message and hide the one in the background
+                background.WriteHelpMessages("          You lost!            ");
+                background.RenderLosingScreen();
+            }
 
             // swap between the doublebuffer's arrays to render each frame
             db.Swap();
@@ -376,12 +281,6 @@ namespace lp2_project2
                     // check if the character is a platform to change colour
                     if (db[x, y] == (char)Characters.platforms)
                     {
-                        // check if the platform is the one currently on
-                        //////////////////////////////////////////////////////////////////
-                        if (db[x, y] == db[platforms.keyPlatform.X,
-                            platforms.keyPlatform.Y])
-                            Console.ForegroundColor = ConsoleColor.Yellow;
-
                         // default to white for platforms
                         Console.ForegroundColor = ConsoleColor.White;
                     }

@@ -7,11 +7,6 @@ namespace lp2_project2
     /// </summary>
     class Platforms
     {
-        /// <summary>
-        /// gets a position to show the platform the player is currently on
-        /// top of to display it in a different colour
-        /// </summary>
-        public Positions keyPlatform;
 
         /// <summary>
         /// the doublebuffer will allow smooth printing

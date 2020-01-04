@@ -5,13 +5,19 @@
     /// </summary>
     public enum Jump
     {
+        // for when there's no jump happening
         Idle,
+
+        // different states of the jump
         Jumping,
         Hovering,
-
         Falling,
-            Lag,
-            Leave,
-            Check
+
+        // checking collisions
+        Check,
+
+        // leaving the game
+        Leave
+
     }
 }

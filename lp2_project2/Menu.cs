@@ -7,7 +7,6 @@ namespace lp2_project2
     /// </summary>
     public class Menu
     {
-
         /// <summary>
         /// Private variable of HighScore class, to call on this class.
         /// </summary>

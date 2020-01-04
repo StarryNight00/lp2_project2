@@ -9,11 +9,14 @@ namespace lp2_project2
     /// </summary>
     class InputsSystem
     {
-        
-        // get user's input securely
+        /// <summary>
+        /// get user's input securely
+        /// </summary>
         public BlockingCollection<ConsoleKey> input;
 
-        // get the state of the jump
+        /// <summary>
+        /// get the state of the jump
+        /// </summary>
         public Jump jump;
 
         /// <summary>
@@ -29,24 +32,24 @@ namespace lp2_project2
         /// this method lets us process the user's input and returns the
         /// current jump state for the loop
         /// </summary>
-        /// <returns></returns>
+        /// <returns>current jump state for the main loop</returns>
         public Jump ProcessInput()
         {
             // if the spacebar was pressed, the user is jumping
             ConsoleKey key;
+
             if(input.TryTake(out key))
             {
-
+                // if player hits ESC end game
                 if (key == ConsoleKey.Escape)
                     return Jump.Leave;
-                if(key == ConsoleKey.Spacebar)
 
+                // if player hits SPACEBAR return jumping state and beep
                 if (key == ConsoleKey.Spacebar)
                     Console.Beep(1000, 50);
-
                     return Jump.Jumping;     
-                // add more later (like esc for leaving, etc)
             }
+
             // default return when player isn't acting
             return Jump.Idle;
         }
@@ -62,7 +65,6 @@ namespace lp2_project2
             {
                 key = Console.ReadKey(true).Key;
                 input.Add(key);
-
             }
             while (key != ConsoleKey.Escape);
         }
