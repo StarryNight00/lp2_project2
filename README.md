@@ -2,7 +2,7 @@
 
 ## Moon Buggy
 
-### Authors:
+### Authors
 
 **Ana Dos Santos** - a21900297 [AnSantos99](https://github.com/AnSantos99)
 
@@ -12,9 +12,8 @@
 
 ### Tasks of each group member
 
-**Ana Dos Santos** (list of things done):
-
-report
+**Ana Dos Santos**
+Changed visual aspects of game by adding colors and sound to the game. Setup of linux platform for testing purposes of the game on different platform. Designed UML class diagram and simple flowchart to show the programs functionality. Helped group members finding solutions for given problems by the program.
 
 **Catarina Matias** (Menu (and its Prints and Exceptions); Score, HighScore and high score File handling; ReadMe report):
 
@@ -42,20 +41,21 @@ The following flowchart represents the basic structure of the program by separat
 
 ### UML Diagram
 
-![UML Diagram](uml_proj2.png)
+The following class diagram represents associations between classes. The are only 3 Dependency arrows so the diagram stays simple to understand.
 
-UML diagram
+![UML Diagram](uml_proj2.png)
 
 ## References
 
 The following references where used during this project.
 
-Class Power-points
+[1] Class Power-points
 
-Code available at the File class C# API documentation was used as a stepping stone for the file handling in the program. - <https://docs.microsoft.com/en-us/dotnet/api/system.io.file?view=netframework-4.8>
+[2] Code available at the File class C# API documentation was used as a stepping stone for the file handling in the program. - <https://docs.microsoft.com/en-us/dotnet/api/system.io.file?view=netframework-4.8>
 
-more...
+[3] Re-used code from teachers solution from <https://github.com/VideojogosLusofona/lp2_2019_aulas.git> (Aula11, Exercise 3).
 
 **For Diagrams and FlowCharts:**
 
-...
+[1] The following site was used for both flowchart and UML class diagram.
+<https://www.draw.io/>
