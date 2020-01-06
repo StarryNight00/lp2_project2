@@ -1,0 +1,211 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="classlp2__project2_1_1_menu" kind="class" language="C#" prot="public">
+    <compoundname>lp2_project2::Menu</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classlp2__project2_1_1_menu_1ae7755af6f5f750257ca9961470f62cbc" prot="private" static="no" mutable="no">
+        <type><ref refid="classlp2__project2_1_1_high_score" kindref="compound">HighScore</ref></type>
+        <definition>HighScore lp2_project2.Menu.hScore</definition>
+        <argsstring></argsstring>
+        <name>hScore</name>
+        <briefdescription>
+<para>Private variable of <ref refid="classlp2__project2_1_1_high_score" kindref="compound">HighScore</ref> class, to call on this class. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Menu.cs" line="13" column="27" bodyfile="Menu.cs" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlp2__project2_1_1_menu_1a3b5272972257f102fb2e93abbd9110a2" prot="private" static="no" mutable="no">
+        <type><ref refid="classlp2__project2_1_1_game_loop" kindref="compound">GameLoop</ref></type>
+        <definition>GameLoop lp2_project2.Menu.loop</definition>
+        <argsstring></argsstring>
+        <name>loop</name>
+        <briefdescription>
+<para>Private variable of <ref refid="classlp2__project2_1_1_game_loop" kindref="compound">GameLoop</ref> class, to call on this class. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Menu.cs" line="18" column="26" bodyfile="Menu.cs" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlp2__project2_1_1_menu_1a366a890f9ba9660c224e2aa5d88830a2" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int lp2_project2.Menu.input</definition>
+        <argsstring></argsstring>
+        <name>input</name>
+        <briefdescription>
+<para>A private int variable, to handle the menu input and travel. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Menu.cs" line="23" column="21" bodyfile="Menu.cs" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classlp2__project2_1_1_menu_1a29435990d4b34a57a3848fa7d183a355" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lp2_project2.Menu.IntroMenu</definition>
+        <argsstring>()</argsstring>
+        <name>IntroMenu</name>
+        <briefdescription>
+<para>Calls on the Introduction <ref refid="classlp2__project2_1_1_menu" kindref="compound">Menu</ref>, which then leads to all the in-program menu logic. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Menu.cs" line="30" column="21" bodyfile="Menu.cs" bodystart="30" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classlp2__project2_1_1_menu_1ab23ff4900763ef9ec15a1fee8fef8b8e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lp2_project2.Menu.IntroSansInit</definition>
+        <argsstring>(int score, HighScore hScore)</argsstring>
+        <name>IntroSansInit</name>
+        <param>
+          <type>int</type>
+          <declname>score</declname>
+        </param>
+        <param>
+          <type><ref refid="classlp2__project2_1_1_high_score" kindref="compound">HighScore</ref></type>
+          <declname>hScore</declname>
+        </param>
+        <briefdescription>
+<para>Calls on the Intruduction <ref refid="classlp2__project2_1_1_menu" kindref="compound">Menu</ref>, without re-initializing the variables. By receiving the <ref refid="classlp2__project2_1_1_high_score" kindref="compound">HighScore</ref> variable, it allows for the information to be passed through loops and go straight to the Main <ref refid="classlp2__project2_1_1_menu" kindref="compound">Menu</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>score</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Represents a 32-bit signed integer.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hScore</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Represents the Gameloop&apos;s <ref refid="classlp2__project2_1_1_high_score" kindref="compound">HighScore</ref> current variable.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Menu.cs" line="50" column="21" bodyfile="Menu.cs" bodystart="50" bodyend="59"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classlp2__project2_1_1_menu_1acf43fb95a4fce9844293eb89febac395" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lp2_project2.Menu.VarsInit</definition>
+        <argsstring>()</argsstring>
+        <name>VarsInit</name>
+        <briefdescription>
+<para>Initializes all classes needed to start the program and the menu. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Menu.cs" line="64" column="22" bodyfile="Menu.cs" bodystart="64" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="classlp2__project2_1_1_menu_1a12d45f6f425980b8ed070e48945470da" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lp2_project2.Menu.MainMenu</definition>
+        <argsstring>()</argsstring>
+        <name>MainMenu</name>
+        <briefdescription>
+<para>Calls on a print to the Main <ref refid="classlp2__project2_1_1_menu" kindref="compound">Menu</ref> and handles the menu travel. Also starts the Gameloop if option 1 is called. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Menu.cs" line="75" column="22" bodyfile="Menu.cs" bodystart="75" bodyend="137"/>
+      </memberdef>
+      <memberdef kind="function" id="classlp2__project2_1_1_menu_1a6d6e0fed43c57aa9bea27a9ef6558f8d" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lp2_project2.Menu.Instructions</definition>
+        <argsstring>()</argsstring>
+        <name>Instructions</name>
+        <briefdescription>
+<para>Calls on a print to the Instructions screen. Also handles the screen exit. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Menu.cs" line="143" column="22" bodyfile="Menu.cs" bodystart="143" bodyend="147"/>
+      </memberdef>
+      <memberdef kind="function" id="classlp2__project2_1_1_menu_1ad568bb5f7b3480bee79166f2a35398a0" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lp2_project2.Menu.HighScores</definition>
+        <argsstring>()</argsstring>
+        <name>HighScores</name>
+        <briefdescription>
+<para>Calls on a print to the High Scores screen. Also handles the screen exit. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Menu.cs" line="153" column="22" bodyfile="Menu.cs" bodystart="153" bodyend="157"/>
+      </memberdef>
+      <memberdef kind="function" id="classlp2__project2_1_1_menu_1a589b1307ac551959897625b5b25be432" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lp2_project2.Menu.Credits</definition>
+        <argsstring>()</argsstring>
+        <name>Credits</name>
+        <briefdescription>
+<para>Calls on a print to the Credits screen. Also handles the screen exit. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Menu.cs" line="163" column="22" bodyfile="Menu.cs" bodystart="163" bodyend="167"/>
+      </memberdef>
+      <memberdef kind="function" id="classlp2__project2_1_1_menu_1a28ffdbd9728e04071ddaf280566cf306" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lp2_project2.Menu.Exit</definition>
+        <argsstring>()</argsstring>
+        <name>Exit</name>
+        <briefdescription>
+<para>Calls on to save the highscores and exits the program. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Menu.cs" line="173" column="22" bodyfile="Menu.cs" bodystart="173" bodyend="178"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Public class that handles all <ref refid="classlp2__project2_1_1_menu" kindref="compound">Menu</ref> related structures. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Menu.cs" line="9" column="1" bodyfile="Menu.cs" bodystart="8" bodyend="179"/>
+    <listofallmembers>
+      <member refid="classlp2__project2_1_1_menu_1a589b1307ac551959897625b5b25be432" prot="private" virt="non-virtual"><scope>lp2_project2::Menu</scope><name>Credits</name></member>
+      <member refid="classlp2__project2_1_1_menu_1a28ffdbd9728e04071ddaf280566cf306" prot="private" virt="non-virtual"><scope>lp2_project2::Menu</scope><name>Exit</name></member>
+      <member refid="classlp2__project2_1_1_menu_1ad568bb5f7b3480bee79166f2a35398a0" prot="private" virt="non-virtual"><scope>lp2_project2::Menu</scope><name>HighScores</name></member>
+      <member refid="classlp2__project2_1_1_menu_1ae7755af6f5f750257ca9961470f62cbc" prot="private" virt="non-virtual"><scope>lp2_project2::Menu</scope><name>hScore</name></member>
+      <member refid="classlp2__project2_1_1_menu_1a366a890f9ba9660c224e2aa5d88830a2" prot="private" virt="non-virtual"><scope>lp2_project2::Menu</scope><name>input</name></member>
+      <member refid="classlp2__project2_1_1_menu_1a6d6e0fed43c57aa9bea27a9ef6558f8d" prot="private" virt="non-virtual"><scope>lp2_project2::Menu</scope><name>Instructions</name></member>
+      <member refid="classlp2__project2_1_1_menu_1a29435990d4b34a57a3848fa7d183a355" prot="public" virt="non-virtual"><scope>lp2_project2::Menu</scope><name>IntroMenu</name></member>
+      <member refid="classlp2__project2_1_1_menu_1ab23ff4900763ef9ec15a1fee8fef8b8e" prot="public" virt="non-virtual"><scope>lp2_project2::Menu</scope><name>IntroSansInit</name></member>
+      <member refid="classlp2__project2_1_1_menu_1a3b5272972257f102fb2e93abbd9110a2" prot="private" virt="non-virtual"><scope>lp2_project2::Menu</scope><name>loop</name></member>
+      <member refid="classlp2__project2_1_1_menu_1a12d45f6f425980b8ed070e48945470da" prot="private" virt="non-virtual"><scope>lp2_project2::Menu</scope><name>MainMenu</name></member>
+      <member refid="classlp2__project2_1_1_menu_1acf43fb95a4fce9844293eb89febac395" prot="private" virt="non-virtual"><scope>lp2_project2::Menu</scope><name>VarsInit</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

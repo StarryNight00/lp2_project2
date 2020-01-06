@@ -1,0 +1,193 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="classlp2__project2_1_1_double_buffer2_d" kind="class" language="C#" prot="public">
+    <compoundname>lp2_project2::DoubleBuffer2D</compoundname>
+    <templateparamlist>
+      <param>
+        <type>T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classlp2__project2_1_1_double_buffer2_d_1a652d5ff1a1990a8134651341edcb6d68" prot="private" static="no" mutable="no">
+        <type>T[,]</type>
+        <definition>T [,] lp2_project2.DoubleBuffer2D&lt; T &gt;.current</definition>
+        <argsstring></argsstring>
+        <name>current</name>
+        <briefdescription>
+<para>getting the current array being printed and preparing the next </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DoubleBuffer2D.cs" line="16" column="19" bodyfile="DoubleBuffer2D.cs" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlp2__project2_1_1_double_buffer2_d_1a1c36bbbeea8d29c88df8660028d5c1c9" prot="private" static="no" mutable="no">
+        <type>T[,]</type>
+        <definition>T [,] lp2_project2.DoubleBuffer2D&lt; T &gt;.next</definition>
+        <argsstring></argsstring>
+        <name>next</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DoubleBuffer2D.cs" line="17" column="19" bodyfile="DoubleBuffer2D.cs" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classlp2__project2_1_1_double_buffer2_d_1a838e66dbe2c04b215f4c66a86e503f85" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int lp2_project2.DoubleBuffer2D&lt; T &gt;.XDim</definition>
+        <argsstring></argsstring>
+        <name>XDim</name>
+        <initializer>=&gt; next.GetLength(0)</initializer>
+        <briefdescription>
+<para>getting the size of the maps </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DoubleBuffer2D.cs" line="22" column="20" bodyfile="DoubleBuffer2D.cs" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlp2__project2_1_1_double_buffer2_d_1a8e0c375cac0af44ebab5f264af058fbe" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int lp2_project2.DoubleBuffer2D&lt; T &gt;.YDim</definition>
+        <argsstring></argsstring>
+        <name>YDim</name>
+        <initializer>=&gt; next.GetLength(1)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DoubleBuffer2D.cs" line="23" column="20" bodyfile="DoubleBuffer2D.cs" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="classlp2__project2_1_1_double_buffer2_d_1af414c31525aca88181e53a2742b67b9d" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>T</type>
+        <definition>T lp2_project2.DoubleBuffer2D&lt; T &gt;.this[int x, int y]</definition>
+        <argsstring></argsstring>
+        <name>this[int x, int y]</name>
+        <briefdescription>
+<para>constructor to get both arrays and set their values </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>x dimension of array</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>y dimension of array</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DoubleBuffer2D.cs" line="31" column="18" bodyfile="DoubleBuffer2D.cs" bodystart="32" bodyend="35"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classlp2__project2_1_1_double_buffer2_d_1a00d39b2c79d351c127f97ca7f0b6330d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lp2_project2.DoubleBuffer2D&lt; T &gt;.Clear</definition>
+        <argsstring>()</argsstring>
+        <name>Clear</name>
+        <briefdescription>
+<para>clears the array to render new and save memory </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DoubleBuffer2D.cs" line="40" column="21" bodyfile="DoubleBuffer2D.cs" bodystart="40" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classlp2__project2_1_1_double_buffer2_d_1a7c0022f6223129960dafa9d301e22504" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>lp2_project2.DoubleBuffer2D&lt; T &gt;.DoubleBuffer2D</definition>
+        <argsstring>(int x, int y)</argsstring>
+        <name>DoubleBuffer2D</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+<para>It&apos;s a constructor for a Double Buffer, which will then, in-game, exchange between the two screens of size X and Y. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Heigh variable.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Width variable.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DoubleBuffer2D.cs" line="51" column="16" bodyfile="DoubleBuffer2D.cs" bodystart="51" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="classlp2__project2_1_1_double_buffer2_d_1a6f0dbc8c0b7f724798b0456a204adac5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lp2_project2.DoubleBuffer2D&lt; T &gt;.Swap</definition>
+        <argsstring>()</argsstring>
+        <name>Swap</name>
+        <briefdescription>
+<para>swaps between arrays to print the new one and discard last one </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DoubleBuffer2D.cs" line="61" column="21" bodyfile="DoubleBuffer2D.cs" bodystart="61" bodyend="67"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>this class allows us to render on the console by using an array of chars re-used code from teachers solution from <ulink url="https://github.com/VideojogosLusofona/lp2_2019_aulas.git">https://github.com/VideojogosLusofona/lp2_2019_aulas.git</ulink> (Aula11, Exercise 3). </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DoubleBuffer2D.cs" line="12" column="1" bodyfile="DoubleBuffer2D.cs" bodystart="11" bodyend="68"/>
+    <listofallmembers>
+      <member refid="classlp2__project2_1_1_double_buffer2_d_1a00d39b2c79d351c127f97ca7f0b6330d" prot="public" virt="non-virtual"><scope>lp2_project2::DoubleBuffer2D</scope><name>Clear</name></member>
+      <member refid="classlp2__project2_1_1_double_buffer2_d_1a652d5ff1a1990a8134651341edcb6d68" prot="private" virt="non-virtual"><scope>lp2_project2::DoubleBuffer2D</scope><name>current</name></member>
+      <member refid="classlp2__project2_1_1_double_buffer2_d_1a7c0022f6223129960dafa9d301e22504" prot="public" virt="non-virtual"><scope>lp2_project2::DoubleBuffer2D</scope><name>DoubleBuffer2D</name></member>
+      <member refid="classlp2__project2_1_1_double_buffer2_d_1a1c36bbbeea8d29c88df8660028d5c1c9" prot="private" virt="non-virtual"><scope>lp2_project2::DoubleBuffer2D</scope><name>next</name></member>
+      <member refid="classlp2__project2_1_1_double_buffer2_d_1a6f0dbc8c0b7f724798b0456a204adac5" prot="public" virt="non-virtual"><scope>lp2_project2::DoubleBuffer2D</scope><name>Swap</name></member>
+      <member refid="classlp2__project2_1_1_double_buffer2_d_1af414c31525aca88181e53a2742b67b9d" prot="public" virt="non-virtual"><scope>lp2_project2::DoubleBuffer2D</scope><name>this[int x, int y]</name></member>
+      <member refid="classlp2__project2_1_1_double_buffer2_d_1a838e66dbe2c04b215f4c66a86e503f85" prot="public" virt="non-virtual"><scope>lp2_project2::DoubleBuffer2D</scope><name>XDim</name></member>
+      <member refid="classlp2__project2_1_1_double_buffer2_d_1a8e0c375cac0af44ebab5f264af058fbe" prot="public" virt="non-virtual"><scope>lp2_project2::DoubleBuffer2D</scope><name>YDim</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

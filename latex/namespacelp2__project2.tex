@@ -1,0 +1,77 @@
+\hypertarget{namespacelp2__project2}{}\doxysection{lp2\+\_\+project2 Namespace Reference}
+\label{namespacelp2__project2}\index{lp2\_project2@{lp2\_project2}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classlp2__project2_1_1_double_buffer2_d}{Double\+Buffer2D}}
+\begin{DoxyCompactList}\small\item\em this class allows us to render on the console by using an array of chars re-\/used code from teachers solution from \href{https://github.com/VideojogosLusofona/lp2_2019_aulas.git}{\texttt{ https\+://github.\+com/\+Videojogos\+Lusofona/lp2\+\_\+2019\+\_\+aulas.\+git}} (Aula11, Exercise 3). \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classlp2__project2_1_1_game_loop}{Game\+Loop}}
+\begin{DoxyCompactList}\small\item\em this class allows us to create the main loop to run our game using threads and a doublebuffer to render everything smoothly \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classlp2__project2_1_1_high_score}{High\+Score}}
+\begin{DoxyCompactList}\small\item\em Public class that handles the highest scores attained and saves them on a file, also keeping track of its content. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classlp2__project2_1_1_inputs_system}{Inputs\+System}}
+\begin{DoxyCompactList}\small\item\em this class let\textquotesingle{}s us analyse player input and set the different cases so the update function on the main Loop can know what to do \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classlp2__project2_1_1_map}{Map}}
+\begin{DoxyCompactList}\small\item\em this class lets us set the background for our map \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classlp2__project2_1_1_menu}{Menu}}
+\begin{DoxyCompactList}\small\item\em Public class that handles all \mbox{\hyperlink{classlp2__project2_1_1_menu}{Menu}} related structures. \end{DoxyCompactList}\item 
+class {\bfseries Menu\+Prints}
+\begin{DoxyCompactList}\small\item\em Static class with all console screen renders and information. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classlp2__project2_1_1_o_s_d}{O\+SD}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classlp2__project2_1_1_o_s_d}{O\+SD}} = Operating System Dependent This class contains code that depends on a specific Operating system and will be runned from here \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classlp2__project2_1_1_platforms}{Platforms}}
+\begin{DoxyCompactList}\small\item\em this class let\textquotesingle{}s us set the platforms and print them on the screen \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classlp2__project2_1_1_player}{Player}}
+\begin{DoxyCompactList}\small\item\em this class creates our player in the game, assigning them a position a character and an ID to be verified when interacting with other objects \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structlp2__project2_1_1_positions}{Positions}}
+\begin{DoxyCompactList}\small\item\em this struct allows us to set gameobjects\textquotesingle{} positions with an y and x coordinates \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classlp2__project2_1_1_program}{Program}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespacelp2__project2_aa286d691c0b6828b2c719b2c049fe0f3}{Characters}} \{ \newline
+{\bfseries tank\+Head} = \textquotesingle{}X\textquotesingle{}, 
+{\bfseries tank\+Wheels} = \textquotesingle{}O\textquotesingle{}, 
+{\bfseries tank\+Wheels1} = \textquotesingle{}0\textquotesingle{}, 
+{\bfseries tankmiddle} = \textquotesingle{}-\/\textquotesingle{}, 
+\newline
+{\bfseries platforms} = \textquotesingle{}\#\textquotesingle{}, 
+{\bfseries holes} = \textquotesingle{} \textquotesingle{}, 
+{\bfseries stars} = \textquotesingle{}$\ast$\textquotesingle{}, 
+{\bfseries empty} = \textquotesingle{} \textquotesingle{}
+ \}
+\begin{DoxyCompactList}\small\item\em this enum stores the characters to be used in the game \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{namespacelp2__project2_a9c4ae0906f6866a2bb629c235be7907e}{Jump}} \{ \newline
+{\bfseries Idle}, 
+{\bfseries Jumping}, 
+{\bfseries Hovering}, 
+{\bfseries Falling}, 
+\newline
+{\bfseries Check}, 
+{\bfseries Leave}
+ \}
+\begin{DoxyCompactList}\small\item\em this enum contains the different states of the jump \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{namespacelp2__project2_aa286d691c0b6828b2c719b2c049fe0f3}\label{namespacelp2__project2_aa286d691c0b6828b2c719b2c049fe0f3}} 
+\index{lp2\_project2@{lp2\_project2}!Characters@{Characters}}
+\index{Characters@{Characters}!lp2\_project2@{lp2\_project2}}
+\doxysubsubsection{\texorpdfstring{Characters}{Characters}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespacelp2__project2_aa286d691c0b6828b2c719b2c049fe0f3}{lp2\+\_\+project2.\+Characters}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+this enum stores the characters to be used in the game 
+
+\mbox{\Hypertarget{namespacelp2__project2_a9c4ae0906f6866a2bb629c235be7907e}\label{namespacelp2__project2_a9c4ae0906f6866a2bb629c235be7907e}} 
+\index{lp2\_project2@{lp2\_project2}!Jump@{Jump}}
+\index{Jump@{Jump}!lp2\_project2@{lp2\_project2}}
+\doxysubsubsection{\texorpdfstring{Jump}{Jump}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespacelp2__project2_a9c4ae0906f6866a2bb629c235be7907e}{lp2\+\_\+project2.\+Jump}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+this enum contains the different states of the jump 
+

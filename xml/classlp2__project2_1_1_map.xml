@@ -1,0 +1,196 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="classlp2__project2_1_1_map" kind="class" language="C#" prot="public">
+    <compoundname>lp2_project2::Map</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classlp2__project2_1_1_map_1a21c4e9119e9c9cb71d2a01d7d0ebecf4" prot="private" static="no" mutable="no">
+        <type><ref refid="classlp2__project2_1_1_double_buffer2_d" kindref="compound">DoubleBuffer2D</ref>&lt; char &gt;</type>
+        <definition>DoubleBuffer2D&lt;char&gt; lp2_project2.Map.db</definition>
+        <argsstring></argsstring>
+        <name>db</name>
+        <briefdescription>
+<para>get the double buffer for printing </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Map.cs" line="13" column="32" bodyfile="Map.cs" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classlp2__project2_1_1_map_1a4b371cc390c1da4e50782ea9d100e171" prot="public" static="no" mutable="no">
+        <type>string[]</type>
+        <definition>string [] lp2_project2.Map.helpMssgs</definition>
+        <argsstring></argsstring>
+        <name>helpMssgs</name>
+        <briefdescription>
+<para>different help messages to show the player are stored in this array </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Map.cs" line="18" column="23" bodyfile="Map.cs" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classlp2__project2_1_1_map_1a70d62ab130e58e702f1fc319ef196271" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>lp2_project2.Map.Map</definition>
+        <argsstring>(DoubleBuffer2D&lt; char &gt; doubleBuffer)</argsstring>
+        <name>Map</name>
+        <param>
+          <type><ref refid="classlp2__project2_1_1_double_buffer2_d" kindref="compound">DoubleBuffer2D</ref>&lt; char &gt;</type>
+          <declname>doubleBuffer</declname>
+        </param>
+        <briefdescription>
+<para>this constructor let&apos;s us set the start phrases and get the buffer to print in the loop </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>doubleBuffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>current doublebuffer used</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Map.cs" line="25" column="16" bodyfile="Map.cs" bodystart="25" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classlp2__project2_1_1_map_1ae0db0dc93d6da05a50660a9e9764d659" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lp2_project2.Map.WriteHelpMessages</definition>
+        <argsstring>(string mssg)</argsstring>
+        <name>WriteHelpMessages</name>
+        <param>
+          <type>string</type>
+          <declname>mssg</declname>
+        </param>
+        <briefdescription>
+<para>this method lets us print the mini messages for the player present in the original Moon Buggy for linux </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Map.cs" line="44" column="21" bodyfile="Map.cs" bodystart="44" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classlp2__project2_1_1_map_1ac70bc43e64ca80402871b9d1a90480ce" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>string</type>
+        <definition>string lp2_project2.Map.ResetHelpMessages</definition>
+        <argsstring>()</argsstring>
+        <name>ResetHelpMessages</name>
+        <briefdescription>
+<para>this method let&apos;s us reset the help message currently being displayed to a different one </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Map.cs" line="54" column="23" bodyfile="Map.cs" bodystart="54" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classlp2__project2_1_1_map_1a6343a321ca7a4626338bdbfadfde96fa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lp2_project2.Map.RenderLosingScreen</definition>
+        <argsstring>()</argsstring>
+        <name>RenderLosingScreen</name>
+        <briefdescription>
+<para>this method allows us to render a game over message on the screen when the player loses the game </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Map.cs" line="73" column="21" bodyfile="Map.cs" bodystart="73" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="classlp2__project2_1_1_map_1a5469fa2bd16c8eebb02a723d25b07aef" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lp2_project2.Map.printLine</definition>
+        <argsstring>(string lineToPrint, int lineStartX, int lineY)</argsstring>
+        <name>printLine</name>
+        <param>
+          <type>string</type>
+          <declname>lineToPrint</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>lineStartX</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>lineY</declname>
+        </param>
+        <briefdescription>
+<para>this method lets us print strings with a given start index and on a chosen row </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>lineToPrint</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>string to be printed</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>lineStartX</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>start point in x axis</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>lineY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>point in y axis where it&apos;s printed</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Map.cs" line="113" column="21" bodyfile="Map.cs" bodystart="113" bodyend="125"/>
+      </memberdef>
+      <memberdef kind="function" id="classlp2__project2_1_1_map_1aa513b4f61b0443645824b13ab0ddcedf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lp2_project2.Map.RenderBackground</definition>
+        <argsstring>()</argsstring>
+        <name>RenderBackground</name>
+        <briefdescription>
+<para>Renders the backgorund screen when inside <ref refid="classlp2__project2_1_1_game_loop" kindref="compound">GameLoop</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Map.cs" line="130" column="21" bodyfile="Map.cs" bodystart="130" bodyend="157"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>this class lets us set the background for our map </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Map.cs" line="9" column="1" bodyfile="Map.cs" bodystart="8" bodyend="159"/>
+    <listofallmembers>
+      <member refid="classlp2__project2_1_1_map_1a21c4e9119e9c9cb71d2a01d7d0ebecf4" prot="private" virt="non-virtual"><scope>lp2_project2::Map</scope><name>db</name></member>
+      <member refid="classlp2__project2_1_1_map_1a4b371cc390c1da4e50782ea9d100e171" prot="public" virt="non-virtual"><scope>lp2_project2::Map</scope><name>helpMssgs</name></member>
+      <member refid="classlp2__project2_1_1_map_1a70d62ab130e58e702f1fc319ef196271" prot="public" virt="non-virtual"><scope>lp2_project2::Map</scope><name>Map</name></member>
+      <member refid="classlp2__project2_1_1_map_1a5469fa2bd16c8eebb02a723d25b07aef" prot="public" virt="non-virtual"><scope>lp2_project2::Map</scope><name>printLine</name></member>
+      <member refid="classlp2__project2_1_1_map_1aa513b4f61b0443645824b13ab0ddcedf" prot="public" virt="non-virtual"><scope>lp2_project2::Map</scope><name>RenderBackground</name></member>
+      <member refid="classlp2__project2_1_1_map_1a6343a321ca7a4626338bdbfadfde96fa" prot="public" virt="non-virtual"><scope>lp2_project2::Map</scope><name>RenderLosingScreen</name></member>
+      <member refid="classlp2__project2_1_1_map_1ac70bc43e64ca80402871b9d1a90480ce" prot="public" virt="non-virtual"><scope>lp2_project2::Map</scope><name>ResetHelpMessages</name></member>
+      <member refid="classlp2__project2_1_1_map_1ae0db0dc93d6da05a50660a9e9764d659" prot="public" virt="non-virtual"><scope>lp2_project2::Map</scope><name>WriteHelpMessages</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

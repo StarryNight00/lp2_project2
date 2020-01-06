@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="classlp2__project2_1_1_menu_prints" kind="class" language="C#" prot="public">
+    <compoundname>lp2_project2::MenuPrints</compoundname>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classlp2__project2_1_1_menu_prints_1a3da90701d002f53ec479b3f3983e0beb" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void lp2_project2.MenuPrints.PrintIntroMenu</definition>
+        <argsstring>()</argsstring>
+        <name>PrintIntroMenu</name>
+        <briefdescription>
+<para>Prints the Introduction tag on the console. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MenuPrints.cs" line="13" column="28" bodyfile="MenuPrints.cs" bodystart="13" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classlp2__project2_1_1_menu_prints_1a3f32531b959b881156dc2d7eb14285af" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void lp2_project2.MenuPrints.PrintMainMenu</definition>
+        <argsstring>()</argsstring>
+        <name>PrintMainMenu</name>
+        <briefdescription>
+<para>Prints the <ref refid="classlp2__project2_1_1_menu" kindref="compound">Menu</ref> options on the console. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MenuPrints.cs" line="51" column="28" bodyfile="MenuPrints.cs" bodystart="51" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="classlp2__project2_1_1_menu_prints_1a7f66229934a4552bb269e518c4471f26" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void lp2_project2.MenuPrints.PrintInstructions</definition>
+        <argsstring>()</argsstring>
+        <name>PrintInstructions</name>
+        <briefdescription>
+<para>Prints the Instructions on the console. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MenuPrints.cs" line="68" column="28" bodyfile="MenuPrints.cs" bodystart="68" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="classlp2__project2_1_1_menu_prints_1afb4f7c688c6887c3ed7fca5ad06e0069" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void lp2_project2.MenuPrints.PrintCredits</definition>
+        <argsstring>()</argsstring>
+        <name>PrintCredits</name>
+        <briefdescription>
+<para>Prints the Credits information on the console. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MenuPrints.cs" line="96" column="28" bodyfile="MenuPrints.cs" bodystart="96" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="classlp2__project2_1_1_menu_prints_1aa8d1da0a063b5f88beb8231ea9018a28" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void lp2_project2.MenuPrints.PrintGameOver</definition>
+        <argsstring>(int score, HighScore highScore)</argsstring>
+        <name>PrintGameOver</name>
+        <param>
+          <type>int</type>
+          <declname>score</declname>
+        </param>
+        <param>
+          <type><ref refid="classlp2__project2_1_1_high_score" kindref="compound">HighScore</ref></type>
+          <declname>highScore</declname>
+        </param>
+        <briefdescription>
+<para>Prints the Game Over screen on the console. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>score</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value of points to show.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>highScore</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Represents the Gameloop&apos;s <ref refid="classlp2__project2_1_1_high_score" kindref="compound">HighScore</ref> current variable.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MenuPrints.cs" line="127" column="28" bodyfile="MenuPrints.cs" bodystart="127" bodyend="139"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Static class with all console screen renders and information. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="MenuPrints.cs" line="9" column="1" bodyfile="MenuPrints.cs" bodystart="8" bodyend="140"/>
+    <listofallmembers>
+      <member refid="classlp2__project2_1_1_menu_prints_1afb4f7c688c6887c3ed7fca5ad06e0069" prot="public" virt="non-virtual"><scope>lp2_project2::MenuPrints</scope><name>PrintCredits</name></member>
+      <member refid="classlp2__project2_1_1_menu_prints_1aa8d1da0a063b5f88beb8231ea9018a28" prot="public" virt="non-virtual"><scope>lp2_project2::MenuPrints</scope><name>PrintGameOver</name></member>
+      <member refid="classlp2__project2_1_1_menu_prints_1a7f66229934a4552bb269e518c4471f26" prot="public" virt="non-virtual"><scope>lp2_project2::MenuPrints</scope><name>PrintInstructions</name></member>
+      <member refid="classlp2__project2_1_1_menu_prints_1a3da90701d002f53ec479b3f3983e0beb" prot="public" virt="non-virtual"><scope>lp2_project2::MenuPrints</scope><name>PrintIntroMenu</name></member>
+      <member refid="classlp2__project2_1_1_menu_prints_1a3f32531b959b881156dc2d7eb14285af" prot="public" virt="non-virtual"><scope>lp2_project2::MenuPrints</scope><name>PrintMainMenu</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

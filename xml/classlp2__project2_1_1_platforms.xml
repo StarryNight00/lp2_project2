@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="classlp2__project2_1_1_platforms" kind="class" language="C#" prot="public">
+    <compoundname>lp2_project2::Platforms</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classlp2__project2_1_1_platforms_1ad49492d7db2bdf20d907545f35590450" prot="public" static="no" mutable="no">
+        <type><ref refid="classlp2__project2_1_1_double_buffer2_d" kindref="compound">DoubleBuffer2D</ref>&lt; char &gt;</type>
+        <definition>DoubleBuffer2D&lt;char&gt; lp2_project2.Platforms.db</definition>
+        <argsstring></argsstring>
+        <name>db</name>
+        <briefdescription>
+<para>the doublebuffer will allow smooth printing </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Platforms.cs" line="13" column="31" bodyfile="Platforms.cs" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classlp2__project2_1_1_platforms_1a5a72e4e6d09f3fa2e7881d88a520a3e2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>lp2_project2.Platforms.Platforms</definition>
+        <argsstring>(DoubleBuffer2D&lt; char &gt; doubleb)</argsstring>
+        <name>Platforms</name>
+        <param>
+          <type><ref refid="classlp2__project2_1_1_double_buffer2_d" kindref="compound">DoubleBuffer2D</ref>&lt; char &gt;</type>
+          <declname>doubleb</declname>
+        </param>
+        <briefdescription>
+<para>this class sets moving platforms in a specified area on the console with different properties for platforms and holes </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Platforms.cs" line="20" column="16" bodyfile="Platforms.cs" bodystart="20" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classlp2__project2_1_1_platforms_1a0112356917ad03ab44ba63d3c1df15b1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lp2_project2.Platforms.RenderPlatforms</definition>
+        <argsstring>()</argsstring>
+        <name>RenderPlatforms</name>
+        <briefdescription>
+<para>this method prints the platforms in their area according to their position and using the doublebuffer </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Platforms.cs" line="42" column="21" bodyfile="Platforms.cs" bodystart="42" bodyend="71"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classlp2__project2_1_1_platforms_1a43c4f881d6aa8b403bb5f6e19da82dac" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lp2_project2.Platforms.SetLowerPlatforms</definition>
+        <argsstring>()</argsstring>
+        <name>SetLowerPlatforms</name>
+        <briefdescription>
+<para>this method allows us to set the lower platforms </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Platforms.cs" line="28" column="22" bodyfile="Platforms.cs" bodystart="28" bodyend="36"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>this class let&apos;s us set the platforms and print them on the screen </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>lp2_project2.DoubleBuffer2D&lt; char &gt;</label>
+        <link refid="classlp2__project2_1_1_double_buffer2_d"/>
+      </node>
+      <node id="1">
+        <label>lp2_project2.Platforms</label>
+        <link refid="classlp2__project2_1_1_platforms"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>db</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="Platforms.cs" line="9" column="1" bodyfile="Platforms.cs" bodystart="8" bodyend="72"/>
+    <listofallmembers>
+      <member refid="classlp2__project2_1_1_platforms_1ad49492d7db2bdf20d907545f35590450" prot="public" virt="non-virtual"><scope>lp2_project2::Platforms</scope><name>db</name></member>
+      <member refid="classlp2__project2_1_1_platforms_1a5a72e4e6d09f3fa2e7881d88a520a3e2" prot="public" virt="non-virtual"><scope>lp2_project2::Platforms</scope><name>Platforms</name></member>
+      <member refid="classlp2__project2_1_1_platforms_1a0112356917ad03ab44ba63d3c1df15b1" prot="public" virt="non-virtual"><scope>lp2_project2::Platforms</scope><name>RenderPlatforms</name></member>
+      <member refid="classlp2__project2_1_1_platforms_1a43c4f881d6aa8b403bb5f6e19da82dac" prot="private" virt="non-virtual"><scope>lp2_project2::Platforms</scope><name>SetLowerPlatforms</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

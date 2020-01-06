@@ -1,0 +1,130 @@
+\hypertarget{classlp2__project2_1_1_map}{}\doxysection{lp2\+\_\+project2.\+Map Class Reference}
+\label{classlp2__project2_1_1_map}\index{lp2\_project2.Map@{lp2\_project2.Map}}
+
+
+this class lets us set the background for our map  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classlp2__project2_1_1_map_a70d62ab130e58e702f1fc319ef196271}{Map}} (\mbox{\hyperlink{classlp2__project2_1_1_double_buffer2_d}{Double\+Buffer2D}}$<$ char $>$ double\+Buffer)
+\begin{DoxyCompactList}\small\item\em this constructor let\textquotesingle{}s us set the start phrases and get the buffer to print in the loop \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classlp2__project2_1_1_map_ae0db0dc93d6da05a50660a9e9764d659}{Write\+Help\+Messages}} (string mssg)
+\begin{DoxyCompactList}\small\item\em this method lets us print the mini messages for the player present in the original Moon Buggy for linux \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classlp2__project2_1_1_map_ac70bc43e64ca80402871b9d1a90480ce}{Reset\+Help\+Messages}} ()
+\begin{DoxyCompactList}\small\item\em this method let\textquotesingle{}s us reset the help message currently being displayed to a different one \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classlp2__project2_1_1_map_a6343a321ca7a4626338bdbfadfde96fa}{Render\+Losing\+Screen}} ()
+\begin{DoxyCompactList}\small\item\em this method allows us to render a game over message on the screen when the player loses the game \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classlp2__project2_1_1_map_a5469fa2bd16c8eebb02a723d25b07aef}{print\+Line}} (string line\+To\+Print, int line\+StartX, int lineY)
+\begin{DoxyCompactList}\small\item\em this method lets us print strings with a given start index and on a chosen row \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classlp2__project2_1_1_map_aa513b4f61b0443645824b13ab0ddcedf}{Render\+Background}} ()
+\begin{DoxyCompactList}\small\item\em Renders the backgorund screen when inside \mbox{\hyperlink{classlp2__project2_1_1_game_loop}{Game\+Loop}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classlp2__project2_1_1_map_a4b371cc390c1da4e50782ea9d100e171}{help\+Mssgs}}
+\begin{DoxyCompactList}\small\item\em different help messages to show the player are stored in this array \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+this class lets us set the background for our map 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classlp2__project2_1_1_map_a70d62ab130e58e702f1fc319ef196271}\label{classlp2__project2_1_1_map_a70d62ab130e58e702f1fc319ef196271}} 
+\index{lp2\_project2.Map@{lp2\_project2.Map}!Map@{Map}}
+\index{Map@{Map}!lp2\_project2.Map@{lp2\_project2.Map}}
+\doxysubsubsection{\texorpdfstring{Map()}{Map()}}
+{\footnotesize\ttfamily lp2\+\_\+project2.\+Map.\+Map (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classlp2__project2_1_1_double_buffer2_d}{Double\+Buffer2D}}$<$ char $>$}]{double\+Buffer }\end{DoxyParamCaption})}
+
+
+
+this constructor let\textquotesingle{}s us set the start phrases and get the buffer to print in the loop 
+
+
+\begin{DoxyParams}{Parameters}
+{\em double\+Buffer} & current doublebuffer used\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classlp2__project2_1_1_map_a5469fa2bd16c8eebb02a723d25b07aef}\label{classlp2__project2_1_1_map_a5469fa2bd16c8eebb02a723d25b07aef}} 
+\index{lp2\_project2.Map@{lp2\_project2.Map}!printLine@{printLine}}
+\index{printLine@{printLine}!lp2\_project2.Map@{lp2\_project2.Map}}
+\doxysubsubsection{\texorpdfstring{printLine()}{printLine()}}
+{\footnotesize\ttfamily void lp2\+\_\+project2.\+Map.\+print\+Line (\begin{DoxyParamCaption}\item[{string}]{line\+To\+Print,  }\item[{int}]{line\+StartX,  }\item[{int}]{lineY }\end{DoxyParamCaption})}
+
+
+
+this method lets us print strings with a given start index and on a chosen row 
+
+
+\begin{DoxyParams}{Parameters}
+{\em line\+To\+Print} & string to be printed\\
+\hline
+{\em line\+StartX} & start point in x axis\\
+\hline
+{\em lineY} & point in y axis where it\textquotesingle{}s printed\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classlp2__project2_1_1_map_aa513b4f61b0443645824b13ab0ddcedf}\label{classlp2__project2_1_1_map_aa513b4f61b0443645824b13ab0ddcedf}} 
+\index{lp2\_project2.Map@{lp2\_project2.Map}!RenderBackground@{RenderBackground}}
+\index{RenderBackground@{RenderBackground}!lp2\_project2.Map@{lp2\_project2.Map}}
+\doxysubsubsection{\texorpdfstring{RenderBackground()}{RenderBackground()}}
+{\footnotesize\ttfamily void lp2\+\_\+project2.\+Map.\+Render\+Background (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Renders the backgorund screen when inside \mbox{\hyperlink{classlp2__project2_1_1_game_loop}{Game\+Loop}}. 
+
+\mbox{\Hypertarget{classlp2__project2_1_1_map_a6343a321ca7a4626338bdbfadfde96fa}\label{classlp2__project2_1_1_map_a6343a321ca7a4626338bdbfadfde96fa}} 
+\index{lp2\_project2.Map@{lp2\_project2.Map}!RenderLosingScreen@{RenderLosingScreen}}
+\index{RenderLosingScreen@{RenderLosingScreen}!lp2\_project2.Map@{lp2\_project2.Map}}
+\doxysubsubsection{\texorpdfstring{RenderLosingScreen()}{RenderLosingScreen()}}
+{\footnotesize\ttfamily void lp2\+\_\+project2.\+Map.\+Render\+Losing\+Screen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+this method allows us to render a game over message on the screen when the player loses the game 
+
+\mbox{\Hypertarget{classlp2__project2_1_1_map_ac70bc43e64ca80402871b9d1a90480ce}\label{classlp2__project2_1_1_map_ac70bc43e64ca80402871b9d1a90480ce}} 
+\index{lp2\_project2.Map@{lp2\_project2.Map}!ResetHelpMessages@{ResetHelpMessages}}
+\index{ResetHelpMessages@{ResetHelpMessages}!lp2\_project2.Map@{lp2\_project2.Map}}
+\doxysubsubsection{\texorpdfstring{ResetHelpMessages()}{ResetHelpMessages()}}
+{\footnotesize\ttfamily string lp2\+\_\+project2.\+Map.\+Reset\+Help\+Messages (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+this method let\textquotesingle{}s us reset the help message currently being displayed to a different one 
+
+\mbox{\Hypertarget{classlp2__project2_1_1_map_ae0db0dc93d6da05a50660a9e9764d659}\label{classlp2__project2_1_1_map_ae0db0dc93d6da05a50660a9e9764d659}} 
+\index{lp2\_project2.Map@{lp2\_project2.Map}!WriteHelpMessages@{WriteHelpMessages}}
+\index{WriteHelpMessages@{WriteHelpMessages}!lp2\_project2.Map@{lp2\_project2.Map}}
+\doxysubsubsection{\texorpdfstring{WriteHelpMessages()}{WriteHelpMessages()}}
+{\footnotesize\ttfamily void lp2\+\_\+project2.\+Map.\+Write\+Help\+Messages (\begin{DoxyParamCaption}\item[{string}]{mssg }\end{DoxyParamCaption})}
+
+
+
+this method lets us print the mini messages for the player present in the original Moon Buggy for linux 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classlp2__project2_1_1_map_a4b371cc390c1da4e50782ea9d100e171}\label{classlp2__project2_1_1_map_a4b371cc390c1da4e50782ea9d100e171}} 
+\index{lp2\_project2.Map@{lp2\_project2.Map}!helpMssgs@{helpMssgs}}
+\index{helpMssgs@{helpMssgs}!lp2\_project2.Map@{lp2\_project2.Map}}
+\doxysubsubsection{\texorpdfstring{helpMssgs}{helpMssgs}}
+{\footnotesize\ttfamily string \mbox{[}$\,$\mbox{]} lp2\+\_\+project2.\+Map.\+help\+Mssgs}
+
+
+
+different help messages to show the player are stored in this array 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Map.\+cs\end{DoxyCompactItemize}

@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="classlp2__project2_1_1_o_s_d" kind="class" language="C#" prot="public">
+    <compoundname>lp2_project2::OSD</compoundname>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classlp2__project2_1_1_o_s_d_1a0964440136142526468cad5ad4c4d6b5" prot="private" static="yes" mutable="no">
+        <type>OperatingSystem</type>
+        <definition>OperatingSystem lp2_project2.OSD.checkOS</definition>
+        <argsstring></argsstring>
+        <name>checkOS</name>
+        <initializer>= Environment.OSVersion</initializer>
+        <briefdescription>
+<para>Static variable to get version of the current enviroment </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="OSD.cs" line="17" column="32" bodyfile="OSD.cs" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classlp2__project2_1_1_o_s_d_1ab871ea4c032e8e5930ca368ac28acb55" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void lp2_project2.OSD.OSCheckerSize</definition>
+        <argsstring>()</argsstring>
+        <name>OSCheckerSize</name>
+        <briefdescription>
+<para>Method that checks OS and checks if its windows case its true The console will get the following measure </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="OSD.cs" line="23" column="28" bodyfile="OSD.cs" bodystart="23" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classlp2__project2_1_1_o_s_d_1a00231bf7f433f1c97284d9163aafa315" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void lp2_project2.OSD.OSCheckerMainSound</definition>
+        <argsstring>()</argsstring>
+        <name>OSCheckerMainSound</name>
+        <briefdescription>
+<para>Checks current OS and runs Main sound if OS is windows </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="OSD.cs" line="40" column="28" bodyfile="OSD.cs" bodystart="40" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="classlp2__project2_1_1_o_s_d_1a1ec64e81ede3ad4f3dad2713dc4fc2e3" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void lp2_project2.OSD.OSCheckerJumpSound</definition>
+        <argsstring>()</argsstring>
+        <name>OSCheckerJumpSound</name>
+        <briefdescription>
+<para>Checks current OS and runs Jump if OS is windows </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="OSD.cs" line="49" column="28" bodyfile="OSD.cs" bodystart="49" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classlp2__project2_1_1_o_s_d_1a2d0411073e0a4e2468efa99532c2e346" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void lp2_project2.OSD.OSCheckerDieSound</definition>
+        <argsstring>()</argsstring>
+        <name>OSCheckerDieSound</name>
+        <briefdescription>
+<para>Checks current OS and runs die if OS is windows </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="OSD.cs" line="58" column="28" bodyfile="OSD.cs" bodystart="58" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="classlp2__project2_1_1_o_s_d_1ab0e1629eb5e8efcba55a2930205529d8" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void lp2_project2.OSD.MainEntrySound</definition>
+        <argsstring>()</argsstring>
+        <name>MainEntrySound</name>
+        <briefdescription>
+<para>Method that makes a random frenquency of console beep to get diferent types of sounds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="OSD.cs" line="68" column="28" bodyfile="OSD.cs" bodystart="68" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="classlp2__project2_1_1_o_s_d_1add4e9a2edc14e5c600ae042450b0928b" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void lp2_project2.OSD.JumpSound</definition>
+        <argsstring>()</argsstring>
+        <name>JumpSound</name>
+        <briefdescription>
+<para>Method with Jumping sound by pressing space </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="OSD.cs" line="89" column="28" bodyfile="OSD.cs" bodystart="89" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="classlp2__project2_1_1_o_s_d_1a4232937d7cf7d51699fcdcc89927f244" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void lp2_project2.OSD.DieSound</definition>
+        <argsstring>()</argsstring>
+        <name>DieSound</name>
+        <briefdescription>
+<para>Method of dying sound if player falls in &apos;.&apos; platforms </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="OSD.cs" line="97" column="28" bodyfile="OSD.cs" bodystart="97" bodyend="100"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="classlp2__project2_1_1_o_s_d" kindref="compound">OSD</ref> = Operating System Dependent This class contains code that depends on a specific Operating system and will be runned from here </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="OSD.cs" line="13" column="1" bodyfile="OSD.cs" bodystart="12" bodyend="101"/>
+    <listofallmembers>
+      <member refid="classlp2__project2_1_1_o_s_d_1a0964440136142526468cad5ad4c4d6b5" prot="private" virt="non-virtual"><scope>lp2_project2::OSD</scope><name>checkOS</name></member>
+      <member refid="classlp2__project2_1_1_o_s_d_1a4232937d7cf7d51699fcdcc89927f244" prot="public" virt="non-virtual"><scope>lp2_project2::OSD</scope><name>DieSound</name></member>
+      <member refid="classlp2__project2_1_1_o_s_d_1add4e9a2edc14e5c600ae042450b0928b" prot="public" virt="non-virtual"><scope>lp2_project2::OSD</scope><name>JumpSound</name></member>
+      <member refid="classlp2__project2_1_1_o_s_d_1ab0e1629eb5e8efcba55a2930205529d8" prot="public" virt="non-virtual"><scope>lp2_project2::OSD</scope><name>MainEntrySound</name></member>
+      <member refid="classlp2__project2_1_1_o_s_d_1a2d0411073e0a4e2468efa99532c2e346" prot="public" virt="non-virtual"><scope>lp2_project2::OSD</scope><name>OSCheckerDieSound</name></member>
+      <member refid="classlp2__project2_1_1_o_s_d_1a1ec64e81ede3ad4f3dad2713dc4fc2e3" prot="public" virt="non-virtual"><scope>lp2_project2::OSD</scope><name>OSCheckerJumpSound</name></member>
+      <member refid="classlp2__project2_1_1_o_s_d_1a00231bf7f433f1c97284d9163aafa315" prot="public" virt="non-virtual"><scope>lp2_project2::OSD</scope><name>OSCheckerMainSound</name></member>
+      <member refid="classlp2__project2_1_1_o_s_d_1ab871ea4c032e8e5930ca368ac28acb55" prot="public" virt="non-virtual"><scope>lp2_project2::OSD</scope><name>OSCheckerSize</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,118 @@
+\hypertarget{classlp2__project2_1_1_double_buffer2_d}{}\doxysection{lp2\+\_\+project2.\+Double\+Buffer2D$<$ T $>$ Class Template Reference}
+\label{classlp2__project2_1_1_double_buffer2_d}\index{lp2\_project2.DoubleBuffer2D$<$ T $>$@{lp2\_project2.DoubleBuffer2D$<$ T $>$}}
+
+
+this class allows us to render on the console by using an array of chars re-\/used code from teachers solution from \href{https://github.com/VideojogosLusofona/lp2_2019_aulas.git}{\texttt{ https\+://github.\+com/\+Videojogos\+Lusofona/lp2\+\_\+2019\+\_\+aulas.\+git}} (Aula11, Exercise 3).  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classlp2__project2_1_1_double_buffer2_d_a00d39b2c79d351c127f97ca7f0b6330d}{Clear}} ()
+\begin{DoxyCompactList}\small\item\em clears the array to render new and save memory \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classlp2__project2_1_1_double_buffer2_d_a7c0022f6223129960dafa9d301e22504}{Double\+Buffer2D}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em It\textquotesingle{}s a constructor for a Double Buffer, which will then, in-\/game, exchange between the two screens of size X and Y. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classlp2__project2_1_1_double_buffer2_d_a6f0dbc8c0b7f724798b0456a204adac5}{Swap}} ()
+\begin{DoxyCompactList}\small\item\em swaps between arrays to print the new one and discard last one \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classlp2__project2_1_1_double_buffer2_d_a838e66dbe2c04b215f4c66a86e503f85}{X\+Dim}} =$>$ next.\+Get\+Length(0)
+\begin{DoxyCompactList}\small\item\em getting the size of the maps \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classlp2__project2_1_1_double_buffer2_d_a8e0c375cac0af44ebab5f264af058fbe}\label{classlp2__project2_1_1_double_buffer2_d_a8e0c375cac0af44ebab5f264af058fbe}} 
+int {\bfseries Y\+Dim} =$>$ next.\+Get\+Length(1)
+\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+T \mbox{\hyperlink{classlp2__project2_1_1_double_buffer2_d_af414c31525aca88181e53a2742b67b9d}{this\mbox{[}int x, int y\mbox{]}}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em constructor to get both arrays and set their values \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+this class allows us to render on the console by using an array of chars re-\/used code from teachers solution from \href{https://github.com/VideojogosLusofona/lp2_2019_aulas.git}{\texttt{ https\+://github.\+com/\+Videojogos\+Lusofona/lp2\+\_\+2019\+\_\+aulas.\+git}} (Aula11, Exercise 3). 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classlp2__project2_1_1_double_buffer2_d_a7c0022f6223129960dafa9d301e22504}\label{classlp2__project2_1_1_double_buffer2_d_a7c0022f6223129960dafa9d301e22504}} 
+\index{lp2\_project2.DoubleBuffer2D$<$ T $>$@{lp2\_project2.DoubleBuffer2D$<$ T $>$}!DoubleBuffer2D@{DoubleBuffer2D}}
+\index{DoubleBuffer2D@{DoubleBuffer2D}!lp2\_project2.DoubleBuffer2D$<$ T $>$@{lp2\_project2.DoubleBuffer2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{DoubleBuffer2D()}{DoubleBuffer2D()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classlp2__project2_1_1_double_buffer2_d}{lp2\+\_\+project2.\+Double\+Buffer2D}}$<$ T $>$.\mbox{\hyperlink{classlp2__project2_1_1_double_buffer2_d}{Double\+Buffer2D}} (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+It\textquotesingle{}s a constructor for a Double Buffer, which will then, in-\/game, exchange between the two screens of size X and Y. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Heigh variable.\\
+\hline
+{\em y} & Width variable.\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classlp2__project2_1_1_double_buffer2_d_a00d39b2c79d351c127f97ca7f0b6330d}\label{classlp2__project2_1_1_double_buffer2_d_a00d39b2c79d351c127f97ca7f0b6330d}} 
+\index{lp2\_project2.DoubleBuffer2D$<$ T $>$@{lp2\_project2.DoubleBuffer2D$<$ T $>$}!Clear@{Clear}}
+\index{Clear@{Clear}!lp2\_project2.DoubleBuffer2D$<$ T $>$@{lp2\_project2.DoubleBuffer2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Clear()}{Clear()}}
+{\footnotesize\ttfamily void \mbox{\hyperlink{classlp2__project2_1_1_double_buffer2_d}{lp2\+\_\+project2.\+Double\+Buffer2D}}$<$ T $>$.Clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+clears the array to render new and save memory 
+
+\mbox{\Hypertarget{classlp2__project2_1_1_double_buffer2_d_a6f0dbc8c0b7f724798b0456a204adac5}\label{classlp2__project2_1_1_double_buffer2_d_a6f0dbc8c0b7f724798b0456a204adac5}} 
+\index{lp2\_project2.DoubleBuffer2D$<$ T $>$@{lp2\_project2.DoubleBuffer2D$<$ T $>$}!Swap@{Swap}}
+\index{Swap@{Swap}!lp2\_project2.DoubleBuffer2D$<$ T $>$@{lp2\_project2.DoubleBuffer2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Swap()}{Swap()}}
+{\footnotesize\ttfamily void \mbox{\hyperlink{classlp2__project2_1_1_double_buffer2_d}{lp2\+\_\+project2.\+Double\+Buffer2D}}$<$ T $>$.Swap (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+swaps between arrays to print the new one and discard last one 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classlp2__project2_1_1_double_buffer2_d_a838e66dbe2c04b215f4c66a86e503f85}\label{classlp2__project2_1_1_double_buffer2_d_a838e66dbe2c04b215f4c66a86e503f85}} 
+\index{lp2\_project2.DoubleBuffer2D$<$ T $>$@{lp2\_project2.DoubleBuffer2D$<$ T $>$}!XDim@{XDim}}
+\index{XDim@{XDim}!lp2\_project2.DoubleBuffer2D$<$ T $>$@{lp2\_project2.DoubleBuffer2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{XDim}{XDim}}
+{\footnotesize\ttfamily int \mbox{\hyperlink{classlp2__project2_1_1_double_buffer2_d}{lp2\+\_\+project2.\+Double\+Buffer2D}}$<$ T $>$.X\+Dim =$>$ next.\+Get\+Length(0)}
+
+
+
+getting the size of the maps 
+
+
+
+\doxysubsection{Property Documentation}
+\mbox{\Hypertarget{classlp2__project2_1_1_double_buffer2_d_af414c31525aca88181e53a2742b67b9d}\label{classlp2__project2_1_1_double_buffer2_d_af414c31525aca88181e53a2742b67b9d}} 
+\index{lp2\_project2.DoubleBuffer2D$<$ T $>$@{lp2\_project2.DoubleBuffer2D$<$ T $>$}!this\mbox{[}int x, int y\mbox{]}@{this[int x, int y]}}
+\index{this\mbox{[}int x, int y\mbox{]}@{this[int x, int y]}!lp2\_project2.DoubleBuffer2D$<$ T $>$@{lp2\_project2.DoubleBuffer2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{this[int x, int y]}{this[int x, int y]}}
+{\footnotesize\ttfamily T \mbox{\hyperlink{classlp2__project2_1_1_double_buffer2_d}{lp2\+\_\+project2.\+Double\+Buffer2D}}$<$ T $>$.this\mbox{[}int x, int y\mbox{]}\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+constructor to get both arrays and set their values 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & x dimension of array\\
+\hline
+{\em y} & y dimension of array\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Double\+Buffer2\+D.\+cs\end{DoxyCompactItemize}

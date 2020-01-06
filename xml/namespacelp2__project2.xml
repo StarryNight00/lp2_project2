@@ -1,0 +1,155 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="namespacelp2__project2" kind="namespace" language="C#">
+    <compoundname>lp2_project2</compoundname>
+    <innerclass refid="classlp2__project2_1_1_double_buffer2_d" prot="public">lp2_project2::DoubleBuffer2D</innerclass>
+    <innerclass refid="classlp2__project2_1_1_game_loop" prot="public">lp2_project2::GameLoop</innerclass>
+    <innerclass refid="classlp2__project2_1_1_high_score" prot="public">lp2_project2::HighScore</innerclass>
+    <innerclass refid="classlp2__project2_1_1_inputs_system" prot="public">lp2_project2::InputsSystem</innerclass>
+    <innerclass refid="classlp2__project2_1_1_map" prot="public">lp2_project2::Map</innerclass>
+    <innerclass refid="classlp2__project2_1_1_menu" prot="public">lp2_project2::Menu</innerclass>
+    <innerclass refid="classlp2__project2_1_1_menu_prints" prot="public">lp2_project2::MenuPrints</innerclass>
+    <innerclass refid="classlp2__project2_1_1_o_s_d" prot="public">lp2_project2::OSD</innerclass>
+    <innerclass refid="classlp2__project2_1_1_platforms" prot="public">lp2_project2::Platforms</innerclass>
+    <innerclass refid="classlp2__project2_1_1_player" prot="public">lp2_project2::Player</innerclass>
+    <innerclass refid="structlp2__project2_1_1_positions" prot="public">lp2_project2::Positions</innerclass>
+    <innerclass refid="classlp2__project2_1_1_program" prot="public">lp2_project2::Program</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespacelp2__project2_1aa286d691c0b6828b2c719b2c049fe0f3" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>Characters</name>
+        <enumvalue id="namespacelp2__project2_1aa286d691c0b6828b2c719b2c049fe0f3acc2efbf09762738e8a0081314d9abca0" prot="public">
+          <name>tankHead</name>
+          <initializer>= &apos;X&apos;</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacelp2__project2_1aa286d691c0b6828b2c719b2c049fe0f3a6be3715f4f183f544aa6cafec64019fc" prot="public">
+          <name>tankWheels</name>
+          <initializer>= &apos;O&apos;</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacelp2__project2_1aa286d691c0b6828b2c719b2c049fe0f3a46cc9afeb680a7773bbdf23cce986142" prot="public">
+          <name>tankWheels1</name>
+          <initializer>= &apos;0&apos;</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacelp2__project2_1aa286d691c0b6828b2c719b2c049fe0f3a72e008913ad14d522572d154b69346f4" prot="public">
+          <name>tankmiddle</name>
+          <initializer>= &apos;-&apos;</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacelp2__project2_1aa286d691c0b6828b2c719b2c049fe0f3aa7c281f374c78d5e835f4e117805d967" prot="public">
+          <name>platforms</name>
+          <initializer>= &apos;#&apos;</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacelp2__project2_1aa286d691c0b6828b2c719b2c049fe0f3a1f6218d19cfc3da310dc5abc0cbc7166" prot="public">
+          <name>holes</name>
+          <initializer>= &apos; &apos;</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacelp2__project2_1aa286d691c0b6828b2c719b2c049fe0f3aa5df375d7c972248177e8b4407c8808c" prot="public">
+          <name>stars</name>
+          <initializer>= &apos;*&apos;</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacelp2__project2_1aa286d691c0b6828b2c719b2c049fe0f3aa2e4822a98337283e39f7b60acf85ec9" prot="public">
+          <name>empty</name>
+          <initializer>= &apos; &apos;</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>this enum stores the characters to be used in the game </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Characters.cs" line="7" column="1" bodyfile="Characters.cs" bodystart="6" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespacelp2__project2_1a9c4ae0906f6866a2bb629c235be7907e" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>Jump</name>
+        <enumvalue id="namespacelp2__project2_1a9c4ae0906f6866a2bb629c235be7907eae599161956d626eda4cb0a5ffb85271c" prot="public">
+          <name>Idle</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacelp2__project2_1a9c4ae0906f6866a2bb629c235be7907ea5f51eb9396f286226cf2385d0e1947ee" prot="public">
+          <name>Jumping</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacelp2__project2_1a9c4ae0906f6866a2bb629c235be7907ea0a6f55c33a9216693f82992a412317c3" prot="public">
+          <name>Hovering</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacelp2__project2_1a9c4ae0906f6866a2bb629c235be7907ea0f57d5b441651c57eac9f91efaa5a75a" prot="public">
+          <name>Falling</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacelp2__project2_1a9c4ae0906f6866a2bb629c235be7907ea060bf2d587991d8f090a1309b285291c" prot="public">
+          <name>Check</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacelp2__project2_1a9c4ae0906f6866a2bb629c235be7907eaa52945dbe283de2f7e9d63ca3417f36a" prot="public">
+          <name>Leave</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>this enum contains the different states of the jump </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Jump.cs" line="7" column="1" bodyfile="Jump.cs" bodystart="6" bodyend="22"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Characters.cs" line="2" column="1"/>
+  </compounddef>
+</doxygen>

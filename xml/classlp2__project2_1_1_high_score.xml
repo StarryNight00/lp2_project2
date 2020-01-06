@@ -1,0 +1,216 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="classlp2__project2_1_1_high_score" kind="class" language="C#" prot="public">
+    <compoundname>lp2_project2::HighScore</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="classlp2__project2_1_1_high_score_1a60240870b67a4653c45964471c1f9989" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>List&lt; int &gt;</type>
+        <definition>List&lt;int&gt; lp2_project2.HighScore.HighscoresLst</definition>
+        <argsstring></argsstring>
+        <name>HighscoresLst</name>
+        <briefdescription>
+<para>Public List property, with a public get and private set, to save the highest attained scores. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="HighScore.cs" line="17" column="21" bodyfile="HighScore.cs" bodystart="17" bodyend="17"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classlp2__project2_1_1_high_score_1a13303a02e1ee324605e56a666d9f1d6f" prot="private" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string lp2_project2.HighScore.path</definition>
+        <argsstring></argsstring>
+        <name>path</name>
+        <initializer>= @&quot;.\highscoreData.txt&quot;</initializer>
+        <briefdescription>
+<para>A constant string path to save the file within the project folder. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="HighScore.cs" line="22" column="30" bodyfile="HighScore.cs" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classlp2__project2_1_1_high_score_1aead7b5b35d8ea25c29a6c438c2427e0d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lp2_project2.HighScore.InitList</definition>
+        <argsstring>()</argsstring>
+        <name>InitList</name>
+        <briefdescription>
+<para>Initializes the list. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="HighScore.cs" line="27" column="21" bodyfile="HighScore.cs" bodystart="27" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classlp2__project2_1_1_high_score_1a2d7ac4e02e435c792495d6c513d8bbce" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lp2_project2.HighScore.AddZeros</definition>
+        <argsstring>()</argsstring>
+        <name>AddZeros</name>
+        <briefdescription>
+<para>Sets the list to contain elements of value zero. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="HighScore.cs" line="35" column="21" bodyfile="HighScore.cs" bodystart="35" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classlp2__project2_1_1_high_score_1abed577496e4c3a614d7adfd05ad706d1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lp2_project2.HighScore.AddHighScore</definition>
+        <argsstring>(int score)</argsstring>
+        <name>AddHighScore</name>
+        <param>
+          <type>int</type>
+          <declname>score</declname>
+        </param>
+        <briefdescription>
+<para>Adds the score to the highscore list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>score</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value of points to add.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="HighScore.cs" line="54" column="21" bodyfile="HighScore.cs" bodystart="54" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classlp2__project2_1_1_high_score_1a6fc94100bd792633d2c78b1b095c698a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lp2_project2.HighScore.HighScoreRender</definition>
+        <argsstring>()</argsstring>
+        <name>HighScoreRender</name>
+        <briefdescription>
+<para>Renders the Highscore List content on the console screen. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="HighScore.cs" line="100" column="21" bodyfile="HighScore.cs" bodystart="100" bodyend="164"/>
+      </memberdef>
+      <memberdef kind="function" id="classlp2__project2_1_1_high_score_1a967b2a17b351bb7152249c0c263fe775" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lp2_project2.HighScore.SaveHighscores</definition>
+        <argsstring>()</argsstring>
+        <name>SaveHighscores</name>
+        <briefdescription>
+<para>Method that runs the Highscore saving methods. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="HighScore.cs" line="170" column="21" bodyfile="HighScore.cs" bodystart="170" bodyend="173"/>
+      </memberdef>
+      <memberdef kind="function" id="classlp2__project2_1_1_high_score_1abddf70f573ba9146fd7b97a56c77f617" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lp2_project2.HighScore.OpenHighScores</definition>
+        <argsstring>()</argsstring>
+        <name>OpenHighScores</name>
+        <briefdescription>
+<para>Method that runs the saved Highscores file opening methods. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="HighScore.cs" line="210" column="21" bodyfile="HighScore.cs" bodystart="210" bodyend="213"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classlp2__project2_1_1_high_score_1a1000244c396fd99af6f70da16d7efc22" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lp2_project2.HighScore.AddAndCutScore</definition>
+        <argsstring>(int score)</argsstring>
+        <name>AddAndCutScore</name>
+        <param>
+          <type>int</type>
+          <declname>score</declname>
+        </param>
+        <briefdescription>
+<para>Receives a score and places it at the High Scores list if high enough. Cuts off any extra elements. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>score</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value of points to add.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="HighScore.cs" line="64" column="22" bodyfile="HighScore.cs" bodystart="64" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="classlp2__project2_1_1_high_score_1ae4e6f0cc243a5db8dd18dd30a5e6fc91" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lp2_project2.HighScore.SaveHighscoresToFile</definition>
+        <argsstring>()</argsstring>
+        <name>SaveHighscoresToFile</name>
+        <briefdescription>
+<para>Checks for a file path within the project and whether or not the file to save the Highscore information exits. If it exists the method will delete that file and save a new one, if it doesn&apos;t it will create the file. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="HighScore.cs" line="181" column="22" bodyfile="HighScore.cs" bodystart="181" bodyend="205"/>
+      </memberdef>
+      <memberdef kind="function" id="classlp2__project2_1_1_high_score_1a67272bf345d465df7c5a7b92242dbc6d" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lp2_project2.HighScore.OpenSavedHighScores</definition>
+        <argsstring>()</argsstring>
+        <name>OpenSavedHighScores</name>
+        <briefdescription>
+<para>Checks for a file path within the project and whether or not the file to open exits. If it doesn&apos;t, the Highscore list will be reseted to 0 on all placements. If it does, then the method will try to open each content and add it to the program&apos;s Highscore list converting the string to an int value, or run an Exception if it can&apos;t process the variable, reseting all to 0. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="HighScore.cs" line="223" column="22" bodyfile="HighScore.cs" bodystart="223" bodyend="251"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Public class that handles the highest scores attained and saves them on a file, also keeping track of its content. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="HighScore.cs" line="12" column="1" bodyfile="HighScore.cs" bodystart="11" bodyend="252"/>
+    <listofallmembers>
+      <member refid="classlp2__project2_1_1_high_score_1a1000244c396fd99af6f70da16d7efc22" prot="private" virt="non-virtual"><scope>lp2_project2::HighScore</scope><name>AddAndCutScore</name></member>
+      <member refid="classlp2__project2_1_1_high_score_1abed577496e4c3a614d7adfd05ad706d1" prot="public" virt="non-virtual"><scope>lp2_project2::HighScore</scope><name>AddHighScore</name></member>
+      <member refid="classlp2__project2_1_1_high_score_1a2d7ac4e02e435c792495d6c513d8bbce" prot="public" virt="non-virtual"><scope>lp2_project2::HighScore</scope><name>AddZeros</name></member>
+      <member refid="classlp2__project2_1_1_high_score_1a6fc94100bd792633d2c78b1b095c698a" prot="public" virt="non-virtual"><scope>lp2_project2::HighScore</scope><name>HighScoreRender</name></member>
+      <member refid="classlp2__project2_1_1_high_score_1a60240870b67a4653c45964471c1f9989" prot="public" virt="non-virtual"><scope>lp2_project2::HighScore</scope><name>HighscoresLst</name></member>
+      <member refid="classlp2__project2_1_1_high_score_1aead7b5b35d8ea25c29a6c438c2427e0d" prot="public" virt="non-virtual"><scope>lp2_project2::HighScore</scope><name>InitList</name></member>
+      <member refid="classlp2__project2_1_1_high_score_1abddf70f573ba9146fd7b97a56c77f617" prot="public" virt="non-virtual"><scope>lp2_project2::HighScore</scope><name>OpenHighScores</name></member>
+      <member refid="classlp2__project2_1_1_high_score_1a67272bf345d465df7c5a7b92242dbc6d" prot="private" virt="non-virtual"><scope>lp2_project2::HighScore</scope><name>OpenSavedHighScores</name></member>
+      <member refid="classlp2__project2_1_1_high_score_1a13303a02e1ee324605e56a666d9f1d6f" prot="private" virt="non-virtual"><scope>lp2_project2::HighScore</scope><name>path</name></member>
+      <member refid="classlp2__project2_1_1_high_score_1a967b2a17b351bb7152249c0c263fe775" prot="public" virt="non-virtual"><scope>lp2_project2::HighScore</scope><name>SaveHighscores</name></member>
+      <member refid="classlp2__project2_1_1_high_score_1ae4e6f0cc243a5db8dd18dd30a5e6fc91" prot="private" virt="non-virtual"><scope>lp2_project2::HighScore</scope><name>SaveHighscoresToFile</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

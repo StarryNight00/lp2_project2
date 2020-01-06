@@ -1,0 +1,174 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="classlp2__project2_1_1_player" kind="class" language="C#" prot="public">
+    <compoundname>lp2_project2::Player</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classlp2__project2_1_1_player_1acd14fdb12ac9ed95bedf82ad16f7fadb" prot="public" static="no" mutable="no">
+        <type><ref refid="structlp2__project2_1_1_positions" kindref="compound">Positions</ref></type>
+        <definition>Positions lp2_project2.Player.Position</definition>
+        <argsstring></argsstring>
+        <name>Position</name>
+        <briefdescription>
+<para>Center of the cart. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.cs" line="13" column="26" bodyfile="Player.cs" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlp2__project2_1_1_player_1a9409dd1714545096379c7cbdbc78afb7" prot="public" static="no" mutable="no">
+        <type><ref refid="classlp2__project2_1_1_double_buffer2_d" kindref="compound">DoubleBuffer2D</ref>&lt; char &gt;</type>
+        <definition>DoubleBuffer2D&lt;char&gt; lp2_project2.Player.db</definition>
+        <argsstring></argsstring>
+        <name>db</name>
+        <briefdescription>
+<para>Getting an instance of the doublebuffer so we can print to it. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.cs" line="33" column="31" bodyfile="Player.cs" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classlp2__project2_1_1_player_1a34a0a38de8586d437799b5ec14bd9e52" prot="private" static="no" mutable="no">
+        <type><ref refid="structlp2__project2_1_1_positions" kindref="compound">Positions</ref></type>
+        <definition>Positions lp2_project2.Player.backWheelPosition</definition>
+        <argsstring></argsstring>
+        <name>backWheelPosition</name>
+        <briefdescription>
+<para>Front wheel of the cart. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.cs" line="18" column="27" bodyfile="Player.cs" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlp2__project2_1_1_player_1ad908502427cf6b66ff59aef8983b7dbd" prot="private" static="no" mutable="no">
+        <type><ref refid="structlp2__project2_1_1_positions" kindref="compound">Positions</ref></type>
+        <definition>Positions lp2_project2.Player.topPosition</definition>
+        <argsstring></argsstring>
+        <name>topPosition</name>
+        <briefdescription>
+<para>Top of the cart. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.cs" line="23" column="27" bodyfile="Player.cs" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlp2__project2_1_1_player_1a74ded8cefc258db35f0794f75c51f211" prot="private" static="no" mutable="no">
+        <type><ref refid="structlp2__project2_1_1_positions" kindref="compound">Positions</ref></type>
+        <definition>Positions lp2_project2.Player.middlePosition</definition>
+        <argsstring></argsstring>
+        <name>middlePosition</name>
+        <briefdescription>
+<para>Middle of the cart. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.cs" line="28" column="27" bodyfile="Player.cs" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classlp2__project2_1_1_player_1a91a46c7ac911c51639113ed51ff7194c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>lp2_project2.Player.Player</definition>
+        <argsstring>(DoubleBuffer2D&lt; char &gt; doubleb)</argsstring>
+        <name>Player</name>
+        <param>
+          <type><ref refid="classlp2__project2_1_1_double_buffer2_d" kindref="compound">DoubleBuffer2D</ref>&lt; char &gt;</type>
+          <declname>doubleb</declname>
+        </param>
+        <briefdescription>
+<para>this constructor takes the doublebuffer and sets the player&apos;s starting stats </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>doubleb</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>gets doublebuffer for printing</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.cs" line="40" column="16" bodyfile="Player.cs" bodystart="40" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classlp2__project2_1_1_player_1ac8190bbda0b2b1f791d2ff3d67d54bf9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lp2_project2.Player.RenderPlayer</definition>
+        <argsstring>()</argsstring>
+        <name>RenderPlayer</name>
+        <briefdescription>
+<para>this method let&apos;s us set the player with their character inside the doublebuffer&apos;s array for rendering </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.cs" line="55" column="21" bodyfile="Player.cs" bodystart="55" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="classlp2__project2_1_1_player_1aae3534c2115190373271d438d966013f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lp2_project2.Player.SetPositions</definition>
+        <argsstring>()</argsstring>
+        <name>SetPositions</name>
+        <briefdescription>
+<para>this method sets the positions for the cart component based on the front wheel&apos;s position that&apos;s our main position </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player.cs" line="97" column="21" bodyfile="Player.cs" bodystart="97" bodyend="102"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>this class creates our player in the game, assigning them a position a character and an ID to be verified when interacting with other objects </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="3">
+        <label>lp2_project2.DoubleBuffer2D&lt; char &gt;</label>
+        <link refid="classlp2__project2_1_1_double_buffer2_d"/>
+      </node>
+      <node id="2">
+        <label>lp2_project2.Positions</label>
+        <link refid="structlp2__project2_1_1_positions"/>
+      </node>
+      <node id="1">
+        <label>lp2_project2.Player</label>
+        <link refid="classlp2__project2_1_1_player"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>Position</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>db</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="Player.cs" line="9" column="1" bodyfile="Player.cs" bodystart="8" bodyend="103"/>
+    <listofallmembers>
+      <member refid="classlp2__project2_1_1_player_1a34a0a38de8586d437799b5ec14bd9e52" prot="private" virt="non-virtual"><scope>lp2_project2::Player</scope><name>backWheelPosition</name></member>
+      <member refid="classlp2__project2_1_1_player_1a9409dd1714545096379c7cbdbc78afb7" prot="public" virt="non-virtual"><scope>lp2_project2::Player</scope><name>db</name></member>
+      <member refid="classlp2__project2_1_1_player_1a74ded8cefc258db35f0794f75c51f211" prot="private" virt="non-virtual"><scope>lp2_project2::Player</scope><name>middlePosition</name></member>
+      <member refid="classlp2__project2_1_1_player_1a91a46c7ac911c51639113ed51ff7194c" prot="public" virt="non-virtual"><scope>lp2_project2::Player</scope><name>Player</name></member>
+      <member refid="classlp2__project2_1_1_player_1acd14fdb12ac9ed95bedf82ad16f7fadb" prot="public" virt="non-virtual"><scope>lp2_project2::Player</scope><name>Position</name></member>
+      <member refid="classlp2__project2_1_1_player_1ac8190bbda0b2b1f791d2ff3d67d54bf9" prot="public" virt="non-virtual"><scope>lp2_project2::Player</scope><name>RenderPlayer</name></member>
+      <member refid="classlp2__project2_1_1_player_1aae3534c2115190373271d438d966013f" prot="public" virt="non-virtual"><scope>lp2_project2::Player</scope><name>SetPositions</name></member>
+      <member refid="classlp2__project2_1_1_player_1ad908502427cf6b66ff59aef8983b7dbd" prot="private" virt="non-virtual"><scope>lp2_project2::Player</scope><name>topPosition</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
