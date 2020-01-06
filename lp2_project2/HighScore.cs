@@ -104,7 +104,7 @@ namespace lp2_project2
             Console.ForegroundColor = ConsoleColor.Red;
             HighscoresLst.Sort();
 
-            Console.WriteLine("\n\n\t\t\tHIGHSCORE TABLE");
+            Console.WriteLine("\n\n\n\t\t\tHIGHSCORE TABLE");
             Console.WriteLine("\n\t\tCheck if your score made it to the " +
                               "highest" +
                               "\n\t\tscores table!" +
