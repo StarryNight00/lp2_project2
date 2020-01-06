@@ -13,7 +13,7 @@
 
         // for the platform renders
         platforms = '#',
-        holes = '_',
+        holes = ' ',
 
         // for the background renders
         stars = '*',
