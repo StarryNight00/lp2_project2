@@ -71,7 +71,7 @@ namespace lp2_project2
             // sets the cursor's visibility to false so it won't render
             Console.CursorVisible = false;
 
-            // creates a new doublebuffer for our map with 60x60 dimensions
+            // creates a new doublebuffer for our map with 60x20 dimensions
             db = new DoubleBuffer2D<char>(60, 20);
 
             // creates a new background with the size of the buffer's array

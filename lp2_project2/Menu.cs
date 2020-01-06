@@ -140,7 +140,6 @@ namespace lp2_project2
         /// Calls on a print to the Instructions screen. Also handles the screen
         /// exit.
         /// </summary>
-
         private void Instructions()
         {
             MenuPrints.PrintInstructions();
@@ -171,13 +170,11 @@ namespace lp2_project2
         /// <summary>
         /// Calls on to save the highscores and exits the program.
         /// </summary>
-
         private void Exit()
         {
             Console.WriteLine("Thank you for playing");
             hScore.SaveHighscores();
             Environment.Exit(0);
         }
-
     }
 }

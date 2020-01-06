@@ -12,7 +12,9 @@ namespace lp2_project2
         /// </summary>
         private DoubleBuffer2D<char> db;
 
-        // different help messages to show the player
+        /// <summary>
+        /// different help messages to show the player are stored in this array
+        /// </summary>
         public string[] helpMssgs;
 
         /// <summary>
@@ -63,7 +65,6 @@ namespace lp2_project2
             // return the message for the loop
             return ChosenMessage;
         }
-
 
         /// <summary>
         /// this method allows us to render a game over message on the
@@ -123,6 +124,9 @@ namespace lp2_project2
 
         }
 
+        /// <summary>
+        /// Renders the backgorund screen when inside GameLoop.
+        /// </summary>
         public void RenderBackground()
         {
 

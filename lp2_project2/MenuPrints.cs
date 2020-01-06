@@ -118,14 +118,10 @@ namespace lp2_project2
             Console.Write("\n\n\t\t   >> ");
         }
 
-
-
-
         /// <summary>
-
         /// Prints the Game Over screen on the console.
         /// </summary>
-        /// <param name="score">Represents a 32-bit signed integer.</param>
+        /// <param name="score">Value of points to show.</param>
         /// <param name="highScore">Represents the Gameloop's HighScore 
         /// current variable.</param>
         public static void PrintGameOver(int score, HighScore highScore)

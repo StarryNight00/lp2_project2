@@ -7,19 +7,29 @@
     /// </summary>
     class Player
     {
-        // center of the cart
+        /// <summary>
+        /// Center of the cart.
+        /// </summary>
         public Positions Position;
 
-        // front wheel of the cart
+        /// <summary>
+        /// Front wheel of the cart.
+        /// </summary>
         private Positions backWheelPosition;
 
-        // top of the cart
+        /// <summary>
+        /// Top of the cart.
+        /// </summary>
         private Positions topPosition;
 
-        // middle of the cart
+        /// <summary>
+        /// Middle of the cart.
+        /// </summary>
         private Positions middlePosition;
 
-        // getting an instance of the doublebuffer so we can print to it
+        /// <summary>
+        /// Getting an instance of the doublebuffer so we can print to it.
+        /// </summary>
         public DoubleBuffer2D<char> db;
 
         /// <summary>
