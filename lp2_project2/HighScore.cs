@@ -47,10 +47,6 @@ namespace lp2_project2
 
         }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 898639909c96b846a85b8b40768266a27bcd1f61
         /// <summary>
         /// Adds the score to the highscore list.
         /// </summary>

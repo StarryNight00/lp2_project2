@@ -4,6 +4,17 @@ namespace lp2_project2
 {
     class Program
     {
+        public static void OSChecker()
+        {
+            OperatingSystem checkOS = Environment.OSVersion;
+            PlatformID idOfPlat = checkOS.Platform;
+
+            if (idOfPlat == PlatformID.Win32NT) 
+            {
+                MenuPrints.Sound();
+            }
+        }
+
         static void Main(string[] args)
         {
 
