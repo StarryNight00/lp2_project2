@@ -16,11 +16,10 @@ namespace lp2_project2
             Console.BufferWidth = Console.WindowWidth;
 
             // create a new start menu
+            Menu menu = new Menu();
 
             // Set Console Window title to game name
             Console.Title = "Moon Buggy";
-
-            Menu menu = new Menu();
 
             // start the menu
             menu.IntroMenu();

@@ -51,7 +51,7 @@ namespace lp2_project2
         {
 
             Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.WriteLine("\t\t\tMAIN MENU");
+            Console.WriteLine("\n\n\n\t\t\tMAIN MENU");
 
             Console.WriteLine("\n\t\t   1 - Start Game");
             Console.WriteLine("\n\t\t   2 - Instructions");
@@ -68,7 +68,7 @@ namespace lp2_project2
         {
 
             string key = "SPACE";
-            Console.WriteLine("\n\n\t\t\tINSTRUCTIONS");
+            Console.WriteLine("\n\n\n\t\t\tINSTRUCTIONS");
 
             Console.ForegroundColor = ConsoleColor.DarkGray;
 
@@ -96,7 +96,7 @@ namespace lp2_project2
         {
 
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("\t\t\t     CREDITS\n");
+            Console.WriteLine("\n\n\n\t\t\t     CREDITS\n");
 
             Console.WriteLine("\t\tThis project was developed by these " +
                               "\n\t\tstudents as the 2nd project for the" +
@@ -133,7 +133,7 @@ namespace lp2_project2
             Menu menu = new Menu();
             HighScore hs = highScore;
 
-            Console.WriteLine("\n\n\t\t\tGAME OVER");
+            Console.WriteLine("\n\n\n\t\t\tGAME OVER");
             Console.WriteLine("\t    Better Luck Next Time, Space Voyager.");
             Console.WriteLine($"\n\n\t\t Your Score was ... {score}");
 
