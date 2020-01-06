@@ -47,7 +47,7 @@ namespace lp2_project2
                 // if player hits SPACEBAR return jumping state and beep
                 if (key == ConsoleKey.Spacebar)
                 {
-                    Console.Beep(1000, 50);
+                    OSD.OSCheckerJumpSound();
                     return Jump.Jumping;
                 }
             }

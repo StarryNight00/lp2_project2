@@ -212,9 +212,9 @@ namespace lp2_project2
             // render the losing screen
             background.RenderLosingScreen();
             Render();
-            
+
             // On Collision make losing sound
-            Console.Beep(600, 500);
+            OSD.OSCheckerDieSound();
 
             // print game over menu and save scores
             MenuPrints.PrintGameOver(score, HS);

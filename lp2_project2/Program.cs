@@ -4,26 +4,10 @@ namespace lp2_project2
 {
     class Program
     {
-        public static void OSChecker()
-        {
-            OperatingSystem checkOS = Environment.OSVersion;
-
-            if (checkOS.Platform == PlatformID.Win32NT) 
-            {
-                MenuPrints.Sound();
-            }
-        }
-
         static void Main(string[] args)
         {
-
-            // set the console size
-            Console.WindowHeight = 35;
-            Console.WindowWidth = 65;
-
-            // match console buffer size to console size
-            Console.BufferHeight = Console.WindowHeight;
-            Console.BufferWidth = Console.WindowWidth;
+            // Sets console Window size for windows OS
+            OSD.OSCheckerSize();
 
             // create a new start menu
             Menu menu = new Menu();
@@ -33,7 +17,6 @@ namespace lp2_project2
 
             // start the menu
             menu.IntroMenu();
-
         }
     }
 }

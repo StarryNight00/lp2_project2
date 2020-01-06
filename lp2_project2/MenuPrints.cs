@@ -41,7 +41,7 @@ namespace lp2_project2
 
             Console.WriteLine("\n" + welcome + "\n\n\n" + title);
 
-            Program.OSChecker();
+            OSD.OSCheckerMainSound();
         }
 
 
@@ -140,25 +140,6 @@ namespace lp2_project2
 
             Console.ReadKey();
             menu.IntroSansInit(score, hs);
-        }
-        /// Method to add sound to intro menu
-        /// </summary>
-        public static void Sound()
-        {
-            // Variable to set duration of each sound
-            int duration = 1000;
-
-            // To set frequency of the tone
-            int frenquency;
-
-            // To set random frenquecy
-            Random rnd = new Random();
-
-            for (int i = 0; i < 3; i++)
-            {
-                frenquency = rnd.Next(500, 1500);
-                Console.Beep(frenquency, duration);
-            }
         }
     }
 }
