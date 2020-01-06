@@ -7,19 +7,31 @@ namespace lp2_project2
     /// </summary>
     class Map
     {
+        /// <summary>
+        /// get the double buffer for printing
+        /// </summary>
         private DoubleBuffer2D<char> db;
 
         // different help messages to show the player
         public string[] helpMssgs;
 
+        /// <summary>
+        /// this constructor let's us set the start phrases and get the buffer
+        /// to print in the loop
+        /// </summary>
+        /// <param name="doubleBuffer">current doublebuffer used</param>
         public Map(DoubleBuffer2D<char> doubleBuffer)
         {
+            // get doublebuffer
             db = doubleBuffer;
+
+            // help messages to show player
             helpMssgs = new string[]
                 {
                 "      press space to jump!    ",
-                "platforms have different sizes"
-                    // add more
+                "platforms have different sizes",
+                " press Esc to leave the game! ",
+                "                              "
                 };
         }
 
@@ -48,6 +60,7 @@ namespace lp2_project2
             // sets the chosen message for display
             string ChosenMessage = helpMssgs[rand];
 
+            // return the message for the loop
             return ChosenMessage;
         }
 
@@ -65,8 +78,7 @@ namespace lp2_project2
             @"/   \  ___\__  \  /     \_/ __ \ /  _ \  \/ // __ \_  _ \p" +
             @"\    \_\  \/ __ \|  Y Y  \  ___/(  <_> )   /\  ___/| | \/p" +
               @"\______  (____  /__|_|  /\___  >\____/ \_/  \___  >_|p" +
-                    @"\/     \/      \/     \/                   \/p" +
-                          @"You crashed!!";
+                    @"\/     \/      \/     \/                   \/p";
 
             // splitting the string so each row can be printed
             string[] GameOverSplit = GameOverRender.Split('p');
@@ -86,7 +98,7 @@ namespace lp2_project2
             printLine(deadBuggy, 32, db.YDim - 4);
 
             // print the platforms below player
-            printLine("###########################" +
+            printLine("############################" +
                 "###############################", 0, db.YDim - 3);
         }
 
@@ -119,23 +131,25 @@ namespace lp2_project2
             {
                 for (int x = 0; x < db.XDim; x++)
                 {
-                    Random rnd = new Random(); 
+                    Random rnd = new Random();
 
-                    
-                     if(rnd.Next(0,200) < 2)
-                         db[x, y] = '*';
+                    // to render stars randomly for space effect
+                    if (rnd.Next(0, 200) < 2)
+                        db[x, y] = '*';
 
-                     else
-                         db[x, y] = ' ';
-                         
+                    // to render space
+                    else
+                        db[x, y] = ' ';
+
                 }
             }
-           
-                for (int x = 0; x < db.XDim; x++)
-                {          
-                        db[x, db.YDim-3] = '#';
-                }
-            
+
+            // set platforms
+            for (int x = 0; x < db.XDim; x++)
+            {
+                db[x, db.YDim - 3] = '#';
+            }
+
         }
 
     }

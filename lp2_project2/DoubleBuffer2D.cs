@@ -3,8 +3,8 @@
 namespace lp2_project2
 {
     /// <summary>
-    /// this class allows us to render on the console by using an array of chars
-    /// Re-used code from teachers solution from 
+    /// this class allows us to render on the console by using an array of 
+    /// chars re-used code from teachers solution from 
     /// https://github.com/VideojogosLusofona/lp2_2019_aulas.git 
     /// (Aula11, Exercise 3).
     /// </summary>
