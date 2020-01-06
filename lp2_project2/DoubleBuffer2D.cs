@@ -42,6 +42,12 @@ namespace lp2_project2
             Array.Clear(next, 0, XDim * YDim);
         }
 
+        /// <summary>
+        /// It's a constructor for a Double Buffer, which will then, in-game, 
+        /// exchange between the two screens of size X and Y.
+        /// </summary>
+        /// <param name="x">Heigh variable.</param>
+        /// <param name="y">Width variable.</param>
         public DoubleBuffer2D(int x, int y)
         {
             current = new T[x, y];

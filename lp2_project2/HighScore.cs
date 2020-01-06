@@ -50,7 +50,7 @@ namespace lp2_project2
         /// <summary>
         /// Adds the score to the highscore list.
         /// </summary>
-        /// <param name="score">Represents a 32-bit signed integer.</param>
+        /// <param name="score">Value of points to add.</param>
         public void AddHighScore(int score)
         {
             AddAndCutScore(score);
@@ -60,7 +60,7 @@ namespace lp2_project2
         /// Receives a score and places it at the High Scores list if high 
         /// enough. Cuts off any extra elements.
         /// </summary>
-        /// <param name="score">Represents a 32-bit signed integer.</param>
+        /// <param name="score">Value of points to add.</param>
         private void AddAndCutScore(int score)
         {
 
