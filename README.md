@@ -25,7 +25,9 @@ Note: also did a `Score` class that was unused in the final product, and therefo
 
 **Diana Levay** (Game Logic, Player and Platforms updates, Renders, Conditions for movements and game over):
 
-Created, referenced and adapted the main logic for the gameloop, player, platforms and the display of each component on the screen, worked on fixing errors and finding exceptions throughout the program as well as creating the necessary methods for everything to work and look more like the original game (printing the game over over the game screen, help messages showing up at random, colours for each printed character), helped joining the score and menu logic along with Catarina with the working gameloop
+Created, referenced and adapted the main logic for the gameloop, player, platforms and the display of each component on the screen, worked on fixing errors and finding exceptions throughout the program as well as creating the necessary methods for everything to work and look more like the original game (printing the game over over the game screen, help messages showing up at random, colours for each printed character), helped joining the score and menu logic along with Catarina with the working gameloop.
+
+Tried to implement GameObject class and associate it with collider logic for all different components when platforms had a more complex logic, but ended up scratching it because of time constraints and the approach chosen.
 
 Revision of documents and contributing to the organization of the repository and writing the solution approach in the report.
 
@@ -44,13 +46,18 @@ Classes created and worked on: Player, DoubleBuffer2D (Directly based on the one
 We first approached this solution by following a logic that required GameLoop and Update methods, in order to function like a console game we also chose to use the DoubleBuffer approach taught by the professor with the necessary modifications to adapt to a Moon Buggy styled game.
 
 The program begins by setting the console size and creating a Menu instance to call the IntroMenu() function and show the player a list of options to choose from. Here, the player's input will be read and they can exit the program, access the rules, see the highscores menu or beginning a new game, the Menu class accesses the MenuPrints static class in order to print the different menus and access them when needed.
+
 If the player chooses to play the game, a new GameLoop class will be instantiated and started and we will enter the Loop(), where we'll create instances of Player, Platforms, a DoubleBuffer2D to store chars, a Map and and an input System. All components to be printed on the screen will be assigned positions inside their own classes in order to keep track of their movements for the updates.
+
 In the game loop we constantly show the player information such as how to move, how to leave the game and some small help messages that were present in the original Moon Buggy, as well as constantly printing the player and Platforms (and some stars changing in the background, for visual effect) with different colours using the Console, that are constantly being Rendered on the screen via the DoubleBuffer.
+
 We start the thread and set the player's motion to Idle (found in an enum with different states) and begin a while loop that will be active as long as our game is set to running (the losing conditions haven't been met nor has there been an ESCAPE key press on the input) followed by processing the player's input and sending it to the update, in order to change positions or show messages as they're due.
 After, the Render method is called and this one will take all the chars given to the doublebuffer and will print them on the screen according to their position, character and colour, each getting defined within it's own class.
 Finally the loop has a Thread.Sleep() method that allows us to control how we render the simulated time and how fast everything is happening.
 
 If the player chooses to leave or loses the game we will exit the loop and print a game over screen, as well as sending the current score (measured by each successful jump) and send it to the HighScore class where it will be stored inside a .txt file and if the user chooses to see the scores a list of the top 10 scores will be displayed.
+
+We tried to keep classes and methods simple and as independent from eachother as possible as well as using design patterns given in class (GameLoop logic, Update) all the while following SOLID principles and good practices.
 
 ### Flow Chart
 
