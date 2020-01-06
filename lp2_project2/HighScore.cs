@@ -34,7 +34,6 @@ namespace lp2_project2
         /// </summary>
         public void AddZeros()
         {
-
             AddHighScore(0);
             AddHighScore(0);
             AddHighScore(0);
@@ -47,7 +46,6 @@ namespace lp2_project2
             AddHighScore(0);
 
         }
-
 
         /// <summary>
         /// Adds the score to the highscore list.
@@ -159,10 +157,8 @@ namespace lp2_project2
                                           $"\t   {HighscoresLst[i]}");
                     }
                 }
-
                 placement++;
             }
-
             Console.WriteLine("\n\n\t\t    To go back, press ANY KEY");
             Console.Write("\n\n\t\t   >> ");
         }

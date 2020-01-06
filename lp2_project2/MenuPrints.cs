@@ -40,7 +40,8 @@ namespace lp2_project2
             |______/   \______/   \______|  \______|    |__|";
 
             Console.WriteLine("\n" + welcome + "\n\n\n" + title);
-            Sound();
+
+            Program.OSChecker();
         }
 
 
