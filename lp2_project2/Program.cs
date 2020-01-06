@@ -7,9 +7,11 @@ namespace lp2_project2
         public static void OSChecker()
         {
             OperatingSystem checkOS = Environment.OSVersion;
-            PlatformID idOfPlat = checkOS.Platform;
+            //Version oSVersion = checkOS.Version;
 
-            if (idOfPlat == PlatformID.Win32NT) 
+            //checkOS.Platform == checkOS.Platform;
+
+            if (checkOS.Platform == PlatformID.Win32NT) 
             {
                 MenuPrints.Sound();
             }
