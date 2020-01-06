@@ -30,8 +30,8 @@ namespace lp2_project2
         public void IntroMenu()
         {
             VarsInit();
-            
-            
+
+
             MenuPrints.PrintIntroMenu();
 
             Console.ReadLine();

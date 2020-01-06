@@ -12,18 +12,18 @@ namespace lp2_project2
         /// </summary>
         public static void PrintIntroMenu()
         {
-            
+
             // Print out color of title
             Console.ForegroundColor = ConsoleColor.DarkYellow;
 
             string welcome = @"
-__        __   _                            _        
-\ \      / /__| | ___ ___  _ __ ___   ___  | |_ ___  
- \ \ /\ / / _ \ |/ __/ _ \| '_ ` _ \ / _ \ | __/ _ \ 
-  \ V  V /  __/ | (_| (_) | | | | | |  __/ | || (_) |
-   \_/\_/ \___|_|\___\___/|_| |_| |_|\___|  \__\___/  ";
+            __        __   _                            _        
+            \ \      / /__| | ___ ___  _ __ ___   ___  | |_ ___  
+            \ \ /\ / / _ \ |/ __/ _ \| '_ ` _ \ / _ \ | __/ _ \ 
+             \ V  V /  __/ | (_| (_) | | | | | |  __/ | || (_) |
+              \_/\_/ \___|_|\___\___/|_| |_| |_|\___|  \__\___/  ";
 
-            
+
             string title = @"                       
                 .___  ___.   ______     ______   .__   __. 
                 |   \/   |  /  __  \   /  __  \  |  \ |  | 
@@ -42,7 +42,7 @@ __        __   _                            _
             Console.WriteLine("\n" + welcome + "\n\n\n" + title);
             Sound();
         }
-        
+
 
         /// <summary>
         /// Prints the Menu options on the console.
@@ -51,7 +51,7 @@ __        __   _                            _
         {
 
             Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.WriteLine("\t\t\tMAIN MENU");
+            Console.WriteLine("\n\n\n\t\t\tMAIN MENU");
 
             Console.WriteLine("\n\t\t   1 - Start Game");
             Console.WriteLine("\n\t\t   2 - Instructions");
@@ -68,22 +68,23 @@ __        __   _                            _
         {
 
             string key = "SPACE";
-            Console.WriteLine("\n\n\t\t\tINSTRUCTIONS");
+            Console.WriteLine("\n\n\n\t\t\tINSTRUCTIONS");
 
             Console.ForegroundColor = ConsoleColor.DarkGray;
 
             Console.WriteLine("\t\tReady to explore the Moon?!");
             Console.WriteLine("\n\tAs you explore, you will find how irre" +
                               "gular\n\tthe Moon can be!\n");
-            Console.WriteLine("\tBut fear not the craters and mounts, you can" +
-                              "\n\tjump over them. Per successful jump you " +
+            Console.WriteLine("\tBut fear not the craters and mounts, you can"
+                + "\n\tjump over them. Per successful jump you " +
                               "will\n\tadd 1 point to your Score!\n");
-            Console.WriteLine($"\tTo play, all you have to do is press {key}.");
-            Console.WriteLine("\n\tTry to explore as much as you can before " +
-                              "you\n\tneed to go back to Earth.");
+            Console.WriteLine($"\tTo play, all you have to do is press " +
+                $"{key}.");
+            Console.WriteLine("\n\tTry to explore as much as you can before "
+                + "you\n\tneed to go back to Earth.");
             Console.WriteLine("\n\tCheck out the Highscores to see if you " +
-                              "were the\n\tmost traveled astronaut, or just a" +
-                              " passerby!");
+                              "were the\n\tmost traveled astronaut, or just a"
+                              + " passerby!");
             Console.WriteLine("\n\tTo go back, press ANY KEY");
             Console.Write("\n\n\t\t   >> ");
         }
@@ -95,7 +96,7 @@ __        __   _                            _
         {
 
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("\t\t\t     CREDITS\n");
+            Console.WriteLine("\n\n\n\t\t\t     CREDITS\n");
 
             Console.WriteLine("\t\tThis project was developed by these " +
                               "\n\t\tstudents as the 2nd project for the" +
@@ -132,7 +133,7 @@ __        __   _                            _
             Menu menu = new Menu();
             HighScore hs = highScore;
 
-            Console.WriteLine("\n\n\t\t\tGAME OVER");
+            Console.WriteLine("\n\n\n\t\t\tGAME OVER");
             Console.WriteLine("\t    Better Luck Next Time, Space Voyager.");
             Console.WriteLine($"\n\n\t\t Your Score was ... {score}");
 
@@ -141,7 +142,7 @@ __        __   _                            _
         }
         /// Method to add sound to intro menu
         /// </summary>
-        public static void Sound() 
+        public static void Sound()
         {
             // Variable to set duration of each sound
             int duration = 1000;
@@ -151,9 +152,9 @@ __        __   _                            _
 
             // To set random frenquecy
             Random rnd = new Random();
-            
-            for (int i = 0; i < 3; i++) 
-            {  
+
+            for (int i = 0; i < 3; i++)
+            {
                 frenquency = rnd.Next(500, 1500);
                 Console.Beep(frenquency, duration);
             }

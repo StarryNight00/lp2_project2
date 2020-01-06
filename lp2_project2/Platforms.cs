@@ -7,7 +7,6 @@ namespace lp2_project2
     /// </summary>
     class Platforms
     {
-
         /// <summary>
         /// the doublebuffer will allow smooth printing
         /// </summary>
@@ -28,6 +27,7 @@ namespace lp2_project2
         /// </summary>
         private void SetLowerPlatforms()
         {
+            // checks two lowest rows and prints platforms across it
             for (int y = db.YDim - 2; y < db.YDim; y++)
             {
                 for (int x = 0; x < db.XDim; x++)
@@ -41,29 +41,32 @@ namespace lp2_project2
         /// </summary>
         public void RenderPlatforms()
         {
+            // creates new random to set different platforms and holes
             Random rnd = new Random();
 
-            int rand = rnd.Next(1, 2);
-
+            // sets a platform
             if (rnd.Next(1, 10) > 1)
             {
                 db[0, db.YDim - 3] = (char)Characters.platforms;
             }
 
+            // set a hole
             else
             {
                 db[0, db.YDim - 3] = (char)Characters.holes;
             }
 
+            // moves the holes and platforms according to last
             for (int x = 2; x < db.XDim - 1; x++)
             {
-                if (db[x - 1, db.YDim - 3] == (char)Characters.holes && 
+                if (db[x - 1, db.YDim - 3] == (char)Characters.holes &&
                     db[x - 2, db.YDim - 3]
                     == (char)Characters.holes)
                     db[x - 2, db.YDim - 3] = (char)Characters.platforms;
                 db[x, db.YDim - 3] = db[x - 2, db.YDim - 3];
             }
 
+            // sets the platforms on the two lower "floors"
             SetLowerPlatforms();
         }
     }

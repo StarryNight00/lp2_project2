@@ -38,7 +38,7 @@ namespace lp2_project2
             // if the spacebar was pressed, the user is jumping
             ConsoleKey key;
 
-            if(input.TryTake(out key))
+            if (input.TryTake(out key))
             {
                 // if player hits ESC end game
                 if (key == ConsoleKey.Escape)
@@ -46,14 +46,16 @@ namespace lp2_project2
 
                 // if player hits SPACEBAR return jumping state and beep
                 if (key == ConsoleKey.Spacebar)
+                {
                     Console.Beep(1000, 50);
-                    return Jump.Jumping;     
+                    return Jump.Jumping;
+                }
             }
 
             // default return when player isn't acting
             return Jump.Idle;
         }
-    
+
         /// <summary>
         /// this method allows us to read the keys while the input is different
         /// from ESC

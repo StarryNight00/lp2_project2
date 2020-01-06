@@ -47,6 +47,10 @@ namespace lp2_project2
 
         }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 898639909c96b846a85b8b40768266a27bcd1f61
         /// <summary>
         /// Adds the score to the highscore list.
         /// </summary>
@@ -102,7 +106,7 @@ namespace lp2_project2
             Console.ForegroundColor = ConsoleColor.Red;
             HighscoresLst.Sort();
 
-            Console.WriteLine("\n\n\t\t\tHIGHSCORE TABLE");
+            Console.WriteLine("\n\n\n\t\t\tHIGHSCORE TABLE");
             Console.WriteLine("\n\t\tCheck if your score made it to the " +
                               "highest" +
                               "\n\t\tscores table!" +
@@ -112,9 +116,9 @@ namespace lp2_project2
 
             int placement = 1;
 
-            for(int i = 9; i >= 0; --i)
+            for (int i = 9; i >= 0; --i)
             {
-                if(HighscoresLst[i] == 0)
+                if (HighscoresLst[i] == 0)
                 {
                     Console.WriteLine($"\n\t\t    place {placement}" +
                                       $"\t   000000");
@@ -175,8 +179,8 @@ namespace lp2_project2
         /// <summary>
         /// Checks for a file path within the project and whether or not the 
         /// file to save the Highscore information exits. 
-        /// If it exists the method will delete that file and save a new one, if
-        /// it doesn't it will create the file.
+        /// If it exists the method will delete that file and save a new one, 
+        /// if it doesn't it will create the file.
         /// </summary>
         private void SaveHighscoresToFile()
         {
@@ -215,8 +219,8 @@ namespace lp2_project2
         /// <summary>
         /// Checks for a file path within the project and whether or not the 
         /// file to open exits. If it doesn't, the Highscore list will be 
-        /// reseted to 0 on all placements. If it does, then the method will try
-        /// to open each content and add it to the program's Highscore list, 
+        /// reseted to 0 on all placements. If it does, then the method will 
+        /// try to open each content and add it to the program's Highscore list 
         /// converting the string to an int value, or run an Exception if it 
         /// can't process the variable, reseting all to 0.
         /// </summary>
