@@ -216,7 +216,8 @@ namespace lp2_project2
             // On Collision make losing sound
             Console.Beep(600, 500);
 
-            
+            // print game over menu and save scores
+            MenuPrints.PrintGameOver(score, HS);
         }
 
         /// <summary>
@@ -229,8 +230,7 @@ namespace lp2_project2
             if (plyr.Position.Y > db.YDim - 3)
             {
                 GameOver();
-                // print game over menu and save scores
-                MenuPrints.PrintGameOver(score, HS);
+                
             }
 
             // check if player is on "check" (for collisions) or falling
@@ -241,8 +241,7 @@ namespace lp2_project2
                 {
                     // show game over and leave the gameloop
                     GameOver();
-                    // print game over menu and save scores
-                    MenuPrints.PrintGameOver(score, HS);
+                    
 
                 }
             }
