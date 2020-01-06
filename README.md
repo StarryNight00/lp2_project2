@@ -12,8 +12,9 @@
 
 ### Tasks of each group member
 
-**Ana Dos Santos** (list of things done - Adding colors and sound to the project, Linux platform conversion, UML, Flowchart)
-Changed visual aspects of game by adding colors and sound to the game. Setup of linux platform for testing purposes of the game on a different platform. Designed UML class diagram and simple flowchart to show the programs functionality. Helped group members finding solutions for given problems by the program.
+**Ana Dos Santos** (list of things done - Adding colors and sound to the project, Linux platform conversion, UML, Flowchart, Operating System dependency, Doxygen Setup, Readme)
+
+Changed visual aspects of game by adding colors and sound to the game. Setup of linux platform for testing purposes of the game on a different platform. Designed UML class diagram and simple flowchart to show the programs functionality. Helped group members finding solutions for given problems by the program. Created Operating dependency class that checks the current operating system and acts corresponding to it.
 
 **Catarina Matias** (Menu, MenuPrints, HighScore, GameLoop exit incorporation, displayed information handling)
 
@@ -67,7 +68,7 @@ The following flowchart represents the basic structure of the program by separat
 
 ### UML Diagram
 
-The following class diagram represents associations between classes. The are only 3 Dependency arrows so the diagram stays simple to understand.
+The following class diagram represents associations between classes. The are more Dependency arrows but to make the diagram readable only the most important arrows are available.
 
 ![UML Diagram](uml_proj2.png)
 
