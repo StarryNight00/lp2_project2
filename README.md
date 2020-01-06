@@ -12,25 +12,29 @@
 
 ### Tasks of each group member
 
-**Ana Dos Santos**
+**Ana Dos Santos** (list of things done - Adding colors and sound to the project, Linux platform conversion, UML, Flowchart)
 Changed visual aspects of game by adding colors and sound to the game. Setup of linux platform for testing purposes of the game on a different platform. Designed UML class diagram and simple flowchart to show the programs functionality. Helped group members finding solutions for given problems by the program.
 
-**Catarina Matias**
-Responsible for the `Menu` logic and its overall appearance and displayed information, along with its exceptions. These information screens were made on a different static class, `MenuPrints`, to make them available in all the code and make them easier to call on and use. Also responsible for the `HighScore` class, it's file handling and the incorporation of the score passing on to this list. Was responsible for the incorporation of the game's end within the program loop back to the Main Menu in `GameLoop` (__was not__ responsible for this class in itself, just the mentioned incorporation).
+**Catarina Matias** (Menu, MenuPrints, HighScore, GameLoop exit incorporation, displayed information handling)
 
-Was responsible for creating the basic template for the README report, from the last project delivery.
+Responsible for the `Menu` logic and its overall appearance and displayed information, along with its exceptions. These information screens were made on a different static class, `MenuPrints`, to make them available in all the code and make them easier to call on and use. Also responsible for the `HighScore` class, it's file handling and the incorporation of the score passing on to this list. Was responsible for the incorporation of the game's end within the program loop back to the Main Menu in `GameLoop` (__was not__ responsible for this class in itself, just the mentioned incorporation and worked alongside Diana to correct the code where needed and handling all the needed steps to avoid exceptions).
+
+Was responsible for creating the basic template for the README report, from the last project delivery. Completed the report with needed information and links searched.
+
+Note: also did a `Score` class that was unused in the final product, and therefor erased. Although it can be found in the code's history, it was ultimately scratched out as the score incorporation was made directly in the game screen by Diana.
 
 **Diana Levay** (Game Logic, Player and Platforms updates, Renders, Conditions for movements and game over):
 
 Created, referenced and adapted the main logic for the gameloop, player, platforms and the display of each component on the screen, worked on fixing errors and finding exceptions throughout the program as well as creating the necessary methods for everything to work and look more like the original game (printing the game over over the game screen, help messages showing up at random, colours for each printed character), helped joining the score and menu logic along with Catarina with the working gameloop
 
-Revision of documents and contributing to the organisation of the repository and writing the solution approach in the report.
+Revision of documents and contributing to the organization of the repository and writing the solution approach in the report.
 
 Classes created and worked on: Player, DoubleBuffer2D (Directly based on the one given by the professor found in the references), Platforms, GameLoop, InputSystem (also based on professor's solution, modified accordingly to allow better adaptation to our game), Jump, Map, Positions, Characters
 
-Revision of documents and contributing to the organisation of the repository and writing the solution approach in the report.
+Revision of documents and contributing to the organization of the repository and writing the solution approach in the report.
 
 Classes created and worked on: Player, DoubleBuffer2D (Directly based on the one given by the professor found in the references), Platforms, GameLoop, InputSystem (also based on professor's solution, modified accordingly to allow better adaptation to our game), Jump, Map, Positions, Characters
+
 ### Project's Git Repository
 
 <https://github.com/StarryNight00/lp2_project2/tree/master>
@@ -47,8 +51,6 @@ After, the Render method is called and this one will take all the chars given to
 Finally the loop has a Thread.Sleep() method that allows us to control how we render the simulated time and how fast everything is happening.
 
 If the player chooses to leave or loses the game we will exit the loop and print a game over screen, as well as sending the current score (measured by each successful jump) and send it to the HighScore class where it will be stored inside a .txt file and if the user chooses to see the scores a list of the top 10 scores will be displayed.
-
-
 
 ### Flow Chart
 
@@ -75,8 +77,6 @@ The following references where used during this project.
 **[4]** Game logic based on the game Moon Buggy, Linux console edition found in <https://www.seehuhn.de/pages/moon-buggy>
 
 **[5]** Referenced tutorial for initial logic intended for platforms and movement found it <https://www.youtube.com/watch?v=dXng0W0R_Ks>
-
-
 
 **For Diagrams and FlowCharts:**
 
